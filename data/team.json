@@ -1,0 +1,37 @@
+[
+  {
+    "teamMemberName": "Romeo Agbor Peter",
+    "teamMemberRole": "Founder/Project Manager",
+    "teamMemberImage": "../src/assets/images/testimonial-image.jpeg"
+  },
+  {
+    "teamMemberName": "Isaac Olugbenga",
+    "teamMemberRole": "Co-founder/Brand Identity Designer",
+    "teamMemberImage": "../src/assets/images/testimonial-image.jpeg"
+  },
+  {
+    "teamMemberName": "Romeo Agbor Peter",
+    "teamMemberRole": "Founder/Project Manager",
+    "teamMemberImage": "../src/assets/images/testimonial-image.jpeg"
+  },
+  {
+    "teamMemberName": "Dennis Sadoh",
+    "teamMemberRole": "UI/UX Designer",
+    "teamMemberImage": "../src/assets/images/testimonial-image.jpeg"
+  },
+  {
+    "teamMemberName": "David Nwodu",
+    "teamMemberRole": "Mobile Developer",
+    "teamMemberImage": "../src/assets/images/testimonial-image.jpeg"
+  },
+  {
+    "teamMemberName": "Ayodeji Ikunji",
+    "teamMemberRole": "Frontend Developer",
+    "teamMemberImage": "../src/assets/images/testimonial-image.jpeg"
+  },
+  {
+    "teamMemberName": "Francis",
+    "teamMemberRole": "Backend Developer",
+    "teamMemberImage": "../src/assets/images/testimonial-image.jpeg"
+  }
+]

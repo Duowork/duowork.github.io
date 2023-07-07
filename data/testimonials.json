@@ -1,0 +1,20 @@
+[
+  {
+    "clientName": "John Doe",
+    "clientImage": "../src/assets/images/testimonial-image.jpeg",
+    "clientCompany": "Co-founder, Acme Creative",
+    "clientQuote": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero nulla quibusdam adipisci accusantium quo nisi itaque neque saepe amet? Explicabo incidunt harum recusandae odit, unde sit aperiam? Blanditiis, ad vitae!"
+  },
+  {
+    "clientName": "Mary Solomon",
+    "clientImage": "../src/assets/images/testimonial-image.jpeg",
+    "clientCompany": "Creative director, Alphabets",
+    "clientQuote": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero nulla quibusdam adipisci accusantium quo nisi itaque neque saepe amet? Explicabo incidunt harum recusandae odit, unde sit aperiam? Blanditiis, ad vitae!"
+  },
+  {
+    "clientName": "Kennedy Olufemi",
+    "clientImage": "../src/assets/images/testimonial-image.jpeg",
+    "clientCompany": "Software developer, XYZ Inc.",
+    "clientQuote": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero nulla quibusdam adipisci accusantium quo nisi itaque neque saepe amet? Explicabo incidunt harum recusandae odit, unde sit aperiam? Blanditiis, ad vitae!"
+  }
+]
