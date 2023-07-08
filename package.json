@@ -44,6 +44,7 @@
         "gatsby-plugin-postcss": "^5.22.0",
         "gatsby-plugin-sass": "^5.22.0",
         "gatsby-source-filesystem": "^4.25.0",
+        "gatsby-transformer-json": "^4.25.0",
         "postcss": "^8.4.16",
         "prettier": "^2.7.1",
         "sass": "^1.54.9",
