@@ -23,6 +23,7 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-mdx`,
+    `gatsby-transformer-json`,
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -31,10 +32,26 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "assets",
+        path: `${__dirname}/src/assets`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "data",
+        path: `${__dirname}/data`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-sharp`,
       options: {
         // Defaults used for gatsbyImageData and StaticImage
-        defaults: {},
+        defaults: {
+          placeholder: "blurred",
+        },
         // Relates to "options.failOn" in https://sharp.pixelplumbing.com/api-constructor#parameters
         failOn: `warning`,
       },
