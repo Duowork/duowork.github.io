@@ -1,3 +1,7 @@
+/* Tailwind properties */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom stylesheet */
+@import "./src/styles/sass/main.scss";
