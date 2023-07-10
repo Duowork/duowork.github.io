@@ -1,3 +1,6 @@
+/* Custom stylesheet */
+import "./src/styles/sass/main.scss";
+
 // Tailwind CSS
 import "./src/styles/global.css";
 
