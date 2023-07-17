@@ -23,8 +23,8 @@ export default function ToolsSection({ toolsStack }: ToolsDataType[] | any) {
     // Check that tab content is isn't empty
     if (tabContent.length !== 0) {
       for (let i = 0; i < tabContent.length; i++) {
-        // Skip null iteration to prevent error
-        if (tabContent[i] === null) continue;
+        // Skp null iteration to prevent error
+        if (tabContent[i] === null) break;
 
         if (tabMenuIndex === i) {
           if (tabContent[i].classList.contains("hidden")) {
@@ -44,19 +44,18 @@ export default function ToolsSection({ toolsStack }: ToolsDataType[] | any) {
       id="work-tools-section"
       className="px-10 h-auto pb-10 pt-10 sm:pt-20 mb-40"
     >
-      <div className="text-white text-center mb-10">
-        <span className="text-gray-800 text-md font-bold text-center block mb-5">
+      <div className="section-heading">
+        <span className="section-tag">
           Our Tools
         </span>
-        <h3 className="text-3xl font-bold mb-5 sm:mb-10 custom-text-dark">
-          <span className="custom-bg-green-accent custom-text-dark">
-            The Technologies{" "}
-          </span>
-          We Use.
+        <h3 className="section-title">
+          <span className="service-title__highlight">
+            The Technologies
+          </span> We Use.
         </h3>
-        <p className="max-w-[35rem] mx-auto text-sm font-light custom-text-dark">
-          We work with tried and tested technologies that are suited for
-          building software products that meet business needs and innovation.
+        <p className="section-description">
+          We work with tried and tested technologies and platforms that are suited for
+          building software products that meet business needs and requirement.
           Our tools include:
         </p>
       </div>
