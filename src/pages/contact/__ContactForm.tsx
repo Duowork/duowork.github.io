@@ -195,6 +195,7 @@ export default function ContactForm() {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     ref={serviceElemRef}
+                    title="Servive type"
                   >
                     <option value="">Select an option</option>
                     <option value="Product design">UI/UX design</option>
@@ -234,6 +235,7 @@ export default function ContactForm() {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     ref={surveyElemRef}
+                    title="Servive budget"
                   >
                     <option value="">Select budget</option>
                     <option value="$1.5k-$3k">$1.5k-$3k</option>
@@ -263,6 +265,7 @@ export default function ContactForm() {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     ref={surveyElemRef}
+                    title="Survey"
                   >
                     <option defaultValue="">Select to tell us</option>
                     <option value="Twitter">Twitter</option>
@@ -283,7 +286,6 @@ export default function ContactForm() {
                   <textarea
                     name="serviceDescription"
                     id="duwork-project-description"
-                    // cols={15}
                     rows={6}
                     value={values.serviceDescription}
                     className="mt-1 block w-full text-sm border focus:outline-none p-2 rounded-md"

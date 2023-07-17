@@ -4,7 +4,7 @@ import { StaticImage } from "gatsby-plugin-image";
 
 /* Components */
 import Layout from "../../layouts/layout";
-import Head from "../../components/Head";
+import Head from "../../sharedComponents/Head";
 import ContactForm from "./__ContactForm";
 
 export default function Contact() {
@@ -41,67 +41,77 @@ export default function Contact() {
               id="contact-method"
               className="h-auto bg-black h-full pl-5 lg:pl-10 pt-10 flex flex-col justify-between"
             >
-                <div className="">
-                    <h2 className="font-regular p-1 mb-1 text-2xl text-white">
-                        Contact us
-                    </h2>
-                    <p className="text-sm text-gray-300">Discover the difference!</p>
+              <div className="">
+                <h2 className="font-regular p-1 mb-1 text-2xl text-white">
+                  Contact us
+                </h2>
+                <p className="text-sm text-gray-300">
+                  Discover the difference!
+                </p>
+              </div>
+
+              <div className="text-white flex flex-col items-start justify-between h-[200px]">
+                <div>
+                  <i className="fa fa-phone fa-1x" aria-hidden="true"></i>{" "}
+                  <a href="tel:+2347030259781">+234707654321</a>
                 </div>
 
-                <div className="text-white flex flex-col items-start justify-between h-[200px]">
-                    <div>
-                        <i className="fa fa-phone fa-1x" aria-hidden="true"></i> {" "}
-                        <a href="tel:+2347030259781">+2347030259781</a>
-                    </div>
-
-                    <div>
-                        <i className="fa fa-email fa-1x" aria-hidden="true"></i> {" "}
-                        <span>reach@duowork.tech</span>
-                    </div>
-
-                    <div>
-                        <i className="fa fa-location fa-1x" aria-hidden="true"></i> {" "}
-                        <span>Abuja, Nigeria</span>
-                    </div>
+                <div>
+                  {/* <i className="fa fa-email fa-1x" aria-hidden="true"></i> {" "} */}
+                  <span>reach@duowork.tech</span>
                 </div>
 
-                <div
-                  id="contact-icons"
-                  className="flex items-center justify-between"
-                >
-                  <div className="flex flex-row justify-start align-items flex-wrap text-white">
-                    <div className="icons items h-10 w-10 rounded-xl flex justify-center items-center">
-                        <a
-                            href="https://twitter.com/DuoworkHQ"
-                            target={"_blank"}
-                            className="text-lg block underline"
-                        >
-                            <i className="fa fa-twitter fa-1x" aria-hidden="true">Twitter</i>
-                        </a>
-                    </div>
+                <div>
+                  {/* <i className="fa fa-location fa-1x" aria-hidden="true"></i> {" "} */}
+                  <span>Abuja, Nigeria</span>
+                </div>
+              </div>
 
-                    <div className="icons items h-10 w-10 rounded-xl flex justify-center items-center mx-10">
-                        <a
-                            href="https://instagram.com/duoworkhq"
-                            target={"_blank"}
-                            className="text-lg block underline"
-                        >
-                            <i className="fa fa-instagram fa-1x" aria-hidden="true">IG</i>
-                        </a>
-                    </div>
-
-                    <div className="icons items h-10 w-10 rounded-xl flex justify-center items-center">
-                        <a
-                            href="https://www.linkedin.com/company/duowork"
-                            target={"_blank"}
-                            className="text-lg block underline"
-                        >
-                            <i className="fa fa-linkedin fa-1x" aria-hidden="true">LinkedIn</i>
-                        </a>
-                    </div>
+              <div
+                id="contact-icons"
+                className="flex items-center justify-between"
+              >
+                <div className="flex flex-row justify-start align-items flex-wrap text-white">
+                  <div className="icons items h-10 w-10 rounded-xl flex justify-center items-center">
+                    <a
+                      href="https://twitter.com/DuoworkHQ"
+                      target={"_blank"}
+                      className="text-lg block underline"
+                    >
+                      {/* <i className="fa fa-twitter fa-1x" aria-hidden="true">Twitter</i> */}
+                      Twitter
+                    </a>
                   </div>
-                  <StaticImage src="../../assets/svgs/contact-bubble.svg" alt="" width={130} height={130}/>
+
+                  <div className="icons items h-10 w-10 rounded-xl flex justify-center items-center mx-10">
+                    <a
+                      href="https://instagram.com/duoworkhq"
+                      target={"_blank"}
+                      className="text-lg block underline"
+                    >
+                      {/* <i className="fa fa-instagram fa-1x" aria-hidden="true">IG</i> */}
+                      IG
+                    </a>
+                  </div>
+
+                  <div className="icons items h-10 w-10 rounded-xl flex justify-center items-center">
+                    <a
+                      href="https://www.linkedin.com/company/duowork"
+                      target={"_blank"}
+                      className="text-lg block underline"
+                    >
+                      {/* <i className="fa fa-linkedin fa-1x" aria-hidden="true">LinkedIn</i> */}
+                      LinkedIn
+                    </a>
+                  </div>
                 </div>
+                <StaticImage
+                  src="../../assets/svgs/contact-bubble.svg"
+                  alt=""
+                  width={130}
+                  height={130}
+                />
+              </div>
             </div>
           </div>
 
@@ -109,7 +119,10 @@ export default function Contact() {
           <ContactForm />
         </div>
 
-        <div id="duowork-contact-form__why-chose-us" className="flex flex-col justify-center sm:flex-row sm:item-center mb-[15rem] mx-5 lg:mx-0">
+        <div
+          id="duowork-contact-form__why-chose-us"
+          className="flex flex-col justify-center sm:flex-row sm:item-center mb-[15rem] mx-5 lg:mx-0"
+        >
           <div className="max-w-[30rem] h-auto">
             <h3 className="hidden">Why choose Duowork</h3>
             <h2 className="text-3xl font-semibold mb-10 px-5 sm:px-">
@@ -122,15 +135,15 @@ export default function Contact() {
               <span className="hidden">
                 With years of experience in the industry
               </span>
-              Our team of skilled developers, designers, and tech enthusiasts
-              is dedicated to delivery high-quality, custom software solutions
-              that align with your unique business objectives.
+              Our team of skilled developers, designers, and tech enthusiasts is
+              dedicated to delivery high-quality, custom software solutions that
+              align with your unique business objectives.
             </p>
           </div>
 
           <StaticImage
-            src="../../assets/images/bgDuowork.jpg"
-            alt=""
+            src="../../assets/images/contact-page-image.jpeg"
+            alt="Duowork team representatiion"
             width={450}
             height={250}
             className="rounded-md shadow-md md:ml-5"
