@@ -43,7 +43,7 @@ export default function Nav(): React.ReactElement | null {
         </li>
       </ul>
 
-      <div className="flex items-center justify-evenly w-[20%] landing-page-nav__item-right">
+      <div className="hidden md:flex items-center justify-evenly w-[20%] landing-page-nav__item-right">
         <div id="cta-nav-item-contact" className="nav-item-link">
           <Button
             value="Contact us"
@@ -53,7 +53,7 @@ export default function Nav(): React.ReactElement | null {
           />
         </div>
 
-        <div id="language-selector">
+        {/* <div id="language-selector">
           <button
             className="language-selector__button btn"
             aria-label="english Select your language"
@@ -77,7 +77,7 @@ export default function Nav(): React.ReactElement | null {
               <span className="language-selector__label">eng</span>
             </div>
           </button>
-        </div>
+        </div> */}
       </div>
     </nav>
   );
