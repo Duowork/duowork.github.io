@@ -35,6 +35,9 @@ $accent-color: $primary-green-4;
 $font-family-title: "IBM Plex Sans Condensed", sans-serif;
 $font-family-body: 'Poppins', sans-serif;
 
+// Box shadow
+$box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
 // Viewport breakpoints for screen sizes
 $breakpoints: (
   xs: 578px,

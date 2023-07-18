@@ -1,13 +1,20 @@
 footer {
     background-color: $secondary-color;
 
-    .news-letter {
-        p {
+    .newsletter {
+        z-index: 3;
+        position: absolute;
+        left: 10%;
+        right: 10%;
+        margin-top: -125px;
+
+        #newsletter-header {
             line-height: 1.5;
         }
-        .news-letter__input-container {
+        .newsletter__input-container {
             height: 3.5rem !important;
             width: 350px;
+            max-width: 350px;
 
             input[placeholder], button {
                 font-size: small;
@@ -21,11 +28,12 @@ footer {
             }
         }
 
-        z-index: 4;
-        position: absolute;
-        left: 10%;
-        right: 10%;
-        margin-top: -125px;
+        #mobile-subscribe-btn {background-color: $accent-color !important;}
+
+        @include respond-below(md) {
+            left: 3% !important;
+            right: 3% !important;
+        }
     }
 
     h3,div#logo {
