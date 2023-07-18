@@ -2,7 +2,7 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../../layouts/layout";
-import SEO from "../../components/SEO";
+import SEO from "../../sharedComponents/SEO";
 import bg from "../../assets/images/bgDuoWork.jpg";
 import img7 from "../../assets/images/img7.jpg";
 

@@ -5,9 +5,9 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../../layouts/layout";
-import Authors from "../../components/getBlogAuthor";
+import Authors from "../../sharedComponents/getBlogAuthor";
 import { getImgPlatform } from "../../utils/getImgPlatform";
-import Head from "../../components/Head";
+import Head from "../../sharedComponents/Head";
 
 export default function Blog({ location, data, children }: any) {
   const post = data.allMdx.nodes[0];
