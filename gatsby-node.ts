@@ -1,4 +1,4 @@
-/* */
+/*
 const path = require("path");
 const { slash } = require("gatsby-core-utils");
 
@@ -38,3 +38,4 @@ exports.createPages = async ({ graphql, actions }: any) => {
     })
   );
 };
+*/
