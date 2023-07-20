@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from "react";
 
-import Nav from "../components/navMenu/Nav";
-import NavMobile from "../components/navMenu/NavMobile";
-import Footer from "../components/Footer";
+import Nav from "../sharedComponents/navMenu/Nav";
+import NavMobile from "../sharedComponents/navMenu/NavMobile";
+import Footer from "../sharedComponents/Footer";
 
 import { ToastContainer } from "react-toastify";
 import customCursor from "../utils/customCursor";
