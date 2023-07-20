@@ -1,4 +1,5 @@
-/*const path = require("path");
+/* */
+const path = require("path");
 const { slash } = require("gatsby-core-utils");
 
 exports.createPages = async ({ graphql, actions }: any) => {
@@ -19,12 +20,14 @@ exports.createPages = async ({ graphql, actions }: any) => {
     }
   `);
 
-  const postTemplate = path.resolve("./src/sharedComponents/posts.ts");
+  const postTemplate = path.resolve(
+    "./src/sharedComponents/blogTemplate/post.tsx"
+  );
 
   allPosts.forEach((post: any) =>
     createPage({
       // URL for the blog post page
-      path: post.uri,
+      path: `blog/${post.uri}`,
       // specify the component template of your choice
       component: slash(postTemplate),
       // In the ^template's GraphQL query, 'id' will be available
@@ -35,4 +38,3 @@ exports.createPages = async ({ graphql, actions }: any) => {
     })
   );
 };
-*/
