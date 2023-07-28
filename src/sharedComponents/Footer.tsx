@@ -1,17 +1,19 @@
 import React from "react";
 import { Link } from "gatsby";
-import logo from "../assets/logos/logo.png";
+import { StaticImage } from "gatsby-plugin-image";
 
 export default function Footer() {
   return (
     <footer className="h-full">
-      <div className="news-letter bg-white flex flex-col md:flex-row items-center justify-evenly md:justify-around w-3/4 h-40 mx-auto rounded-md shadow-inner">
-        <p className="font-light w-[27rem] text-xl text-center md:text-3xl md:!w-[15rem]">Subscribe To Our Newsletters</p>
-        <div className="news-letter__input-container border rounded-full pl-5 pr-2 py-2 h-20 flex items-center justify-between">
-          <input type="email" placeholder="Enter your mail" className="border-0 outline-0" />
-          <button type="button" title="Newsletter subscribe button text-sm font-light">Subscribe now</button>
+      <div className="newsletter bg-white flex flex-col md:flex-row items-center justify-evenly md:justify-around h-40 mx-auto rounded-md shadow-xl">
+        <p id="newsletter-header" className="font-light w-[27rem] text-xl text-center md:text-3xl md:!w-[15rem]">Subscribe To Our Newsletters</p>
+        <div className="newsletter__input-container border rounded-full pl-5 pr-2 py-2 h-20 flex items-center justify-between mb-3 sm:mb-0">
+          <input type="email" placeholder="Enter your mail" className="border-0 outline-0 w-full sm:self-left" />
+          <button type="button" className="Newsletter subscribe-btn text-sm hidden sm:block">Subscribe</button>
         </div>
+        <button id="mobile-subscribe-btn" type="button" className="block sm:hidden text-sm w-80 rounded-full py-3 mb-2">Subscribe</button>
       </div>
+
       <div className="center p-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 justify-center md:justify-items-center gap-8">
         <div id="logo-container" className="text-white">
           <div
@@ -19,7 +21,7 @@ export default function Footer() {
             className="w-11 h-11 bg-white rounded-full flex flex-row justify-center items-center"
           >
             <a href="/">
-              <img src={logo} alt="duowork logo" />
+              <StaticImage src="../assets/logos/logo.png" alt="Duowork logo" />
             </a>
           </div>
           <p className="items text-sm">

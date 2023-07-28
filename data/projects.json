@@ -1,0 +1,24 @@
+[
+    {
+      "projectName": "Ebony Beauty",
+      "ProjectDescription": "Ebony beauty is a lagos-based retail store with aim to be the ultimate destination for beauty products.",
+      "projectTag": "E-commerce web app",
+      "projectLink":"https://ebonybeautyhaven.com",
+      "projectImage":"../src/assets/images/portfolio/src/Ebonybeauty2.jpeg"
+    },
+    {
+      "projectName": "Larks podcast",
+      "ProjectDescription": "Larks Podcast is a contemporary podcast that's more about the \"laffs\" than the \"feels.\"",
+      "projectTag": "Podcasting web app",
+      "projectLink":"https://larkspodcast.com",
+      "projectImage":"../src/assets/images/portfolio/src/Ebonybeauty2.jpeg"
+    },
+    {
+        "projectName": "Adeola Azeez",
+        "ProjectDescription": "A political campaign web presence for Adeola Azeez.",
+        "projectTag": "website",
+        "projectLink":"https://ebonybeautyhaven.com/",
+        "projectImage":"../src/assets/images/portfolio/src/Ebonybeauty2.jpeg"
+    }
+  ]
+  

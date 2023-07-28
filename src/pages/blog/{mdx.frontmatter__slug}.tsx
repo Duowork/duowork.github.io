@@ -5,17 +5,9 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../../layouts/layout";
-import Authors from "../../components/getBlogAuthor";
+import Authors from "../../sharedComponents/getBlogAuthor";
 import { getImgPlatform } from "../../utils/getImgPlatform";
-import Head from "../../components/Head";
-import img7 from "../../assets/images/img7.jpg";
-
-
-
-
-
-
-
+import Head from "../../sharedComponents/Head";
 
 export default function Blog({ location, data, children }: any) {
   const arr = [1, 2, 3, 5, 6, 7, 8, 9, 10, 12, 7];

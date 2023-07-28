@@ -1,17 +1,13 @@
 import React from 'react'
 import { Link, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import SEO from "../../components/SEO"
+import SEO from "../../sharedComponents/SEO"
 import Layout from "../../layouts/layout"
 import img7 from "../../assets/images/img7.jpg";
 
 
-
-
-
-
 export default function category() {
-  const arr = [1, 2, 3, 5, 6, 7, 8, 9, 10, 12, ];
+  const samplepostarray = [1, 2, 3, 5, 6, 7, 8, 9, 10, 12, ];
   const image: any = getImage(img7)
   
   return (
@@ -49,7 +45,7 @@ export default function category() {
         </div>
         <div className=" flex flex-row flex-wrap gap-2 lg:gap-[30px] items-center ">
           {
-            arr.map((item) => {
+            samplepostarray.map((item) => {
               return (
                 <div className="border-[1px]  border-[#f2f2f2] rounded-[20px] p-[16px] w-full sm:w-[48%] lg:w-[31%] h-fit ">
 <Link to ='/'>
