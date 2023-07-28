@@ -7,10 +7,7 @@ import bg from "../../assets/images/bgDuoWork.jpg";
 import img7 from "../../assets/images/img7.jpg";
 
 export default function Blog({ data }: any) {
-  //! What does these arrays do? The names aren't is not descriptive.
-  // Code should always contain descriptive variables.
-
-  const categoriesArray = [1, 2, 3, 4, 5]; //slider cats array
+  const categoriesArray = [1, 2, 3, 4, 5];
   const posts = data.allMdx.nodes;
   const image1: any = getImage(posts[0].frontmatter.hero_image);
   const postSlice = posts.slice(1, 3); //fetches last 2 post from all posts
