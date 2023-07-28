@@ -11,35 +11,15 @@ export default function Blog({ data }: any) {
   const posts = data.allMdx.nodes;
   const image1: any = getImage(posts[0].frontmatter.hero_image);
   const postSlice = posts.slice(1, 3); //fetches last 2 post from all posts
-
+const topPosts = posts.slice(1,4)
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const [topCat, settopCat] = useState([
-    {
-      title: "1",
-      img: "",
-      id: 1,
-      link:''
-    },
-    {
-      title: "2",
-      img: "",
-      id: 2,
-      link:''
-    },
-    {
-      title: "3",
-      img: "",
-      id: 3,
-      link:''
-    },
-   
-  ]);
+ 
 
   useEffect(() => {
     const interval = setInterval(() => {
       // Update the current slide index every 5 seconds
-      setCurrentSlide((prevSlide) => (prevSlide + 1) % topCat.length);
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % topPosts.length);
     }, 5000);
 
     return () => clearInterval(interval); // Cleanup the interval on unmount
@@ -76,17 +56,20 @@ export default function Blog({ data }: any) {
         transition: 'transform 0.5s ease',
       }}
     >
-         {  topCat.map((slide, index)=>  
+       {topPosts.map((post: any) => {
+                const image: any = getImage(post.frontmatter.hero_image);
+                return (
          <div
-         key={index}
+         key={post.id}
          className="slide  rounded-[8px] overflow-hidden flex mb-[76px] text-white items-center pl-[10px] md:pl-[40px] h-[350px] md:h-[450px] relative">
-        <Link to={slide.link}>
+        <Link   to={`/blog/${post.frontmatter.slug}`}>
        
-            <img
-              src={bg}
-              className="absolute top-0 rounded-[8px] overflow-hidden  left-0 w-full h-full object-cover"
-              alt=""
-            />
+        <GatsbyImage
+                          image={image}
+                          alt={post.frontmatter.hero_image_alt}
+                          className="absolute top-0 rounded-[8px] overflow-hidden  left-0 w-full h-full object-cover"
+                        />
+           
             <div className="absolute bgStyle  h-full  top-0 left-0 w-full"></div>
             <div className="absolute bottom-[10px] md:bottom-[49px]">
               <div className="rounded-[100px] md:mb-[16px] mb-[8px] text-black bg-[#9EFF51] py-2 md:py-6 w-fit h-[32px] px-[12px] flex justify-center items-center">
@@ -95,17 +78,17 @@ export default function Blog({ data }: any) {
                 <span className="text-xs md:text-base"> Technology </span>
               </div>
               <h1 className="md:font-[600] font-[400] text-[15px]  sm:text-[25px] md:text-[36px] md:leading-[44px] text-left max-w-[816px] mb-[14px] md:mb-[24px]">
-                Lorem ipsum dolor sit amet consectetur. Neque non iaculis
-                integer malesuada.
+              {post.frontmatter.title}
               </h1>
               <div className="flex items-center justify-start gap-[15px]">
-                <img
-                  src={img7}
+              <GatsbyImage
+                          image={image}
+                          alt={post.frontmatter.hero_image_alt}
                   className="md:w-[57px] w-[30px] h-[30px] md:h-[57px] rounded-full object-cover"
-                  alt=""
+                 
                 />
                 <div>
-                  <p>Dennis Sadah</p>
+                  <p>Duowork </p>
                   <div className="flex justify-center items-center">
                     {" "}
                     <small className="font-[600] text-[10px] md:text-[16px] leading-[19px]">
@@ -126,12 +109,13 @@ export default function Blog({ data }: any) {
                 <h1 className="text-[10px] md:text-[25px] font-[700]">0{currentSlide+1}</h1>
                 <div className="h-[10px] md:h-[20px] my-auto w-[1px] rotate-[5deg]  bg-gray-700"></div>
                 <h1 className="text-[8px] md:text-[12.8571px] pt-1 text-[#222222] font-[500]">
-                {topCat.length}
+                {topPosts.length}
                 </h1>
               </div>
             </div>
             </Link>
-          </div> )} 
+          </div> );
+              })}
           </div>
             </div>
           <h1 className="text-3xl mb-[20px] md:mb-[71px]"> &#8595; </h1>
@@ -180,44 +164,10 @@ export default function Blog({ data }: any) {
                 ))}
               </div>
             </div>
-            {/* {postsArray.length > 5 && (
-              <div className="flex mb-6 w-[86%] md:w-full  mx-auto  justify-between px-[4rem] md:absolute md:top-1/2 md:-translate-y-1/2">
-                <h1
-                  onClick={handleLeft}
-                  className="md:absolute  left-[40px] cursor-pointer "
-                >
-                  {" "}
-                  <p className="w-[10px] text-3xl  h-full flex items-center">
-                    &#8592;
-                  </p>
-                </h1>
 
-                <h1
-                  onClick={handleRight}
-                  className="md:absolute  right-[40px] cursor-pointer"
-                >
-                  {" "}
-                  <p className="w-[10px]  text-3xl  h-full flex items-center">
-                    &#8594;
-                  </p>
-                </h1>
-              </div>
-            )} */}
           </div>
         </div>
 
-        {/* {postsArray.length > 5 && (
-          <div className="w-full hidden  md:flex justify-center mb-[160px] items-center gap-[20px] h-fit">
-            {" "}
-            {postsArray.map((arr, index) => (
-              <div
-                key={arr}
-                onClick={() => checkIndex(index)}
-                className={` w-[18px] h-[18px] cursor-pointer rounded-full bg-[#3EA645]`}
-              ></div>
-            ))}{" "}
-          </div>
-        )} */}
 
         <div className="  px-[20px] md:px-[50px] lg:[90px] w-full">
           <h1 className="font-[600] text-[20px] sm:text-[24px] mb-[64px]">
