@@ -24,13 +24,9 @@
         "gatsby-plugin-mdx": "^1.0.76",
         "gatsby-plugin-sharp": "^4.25.0",
         "gatsby-remark-prismjs": "^6.9.0",
-<<<<<<< HEAD
-        "gatsby-transformer-sharp": "^4.14.0",
-=======
         "gatsby-source-wordpress": "^6.25.5",
         "gatsby-transformer-sharp": "^4.20.0",
         "html-react-parser": "^4.0.0",
->>>>>>> 80312a99acef4b011be8c7b9b5700bd4b3f4c544
         "intersection-observer": "^0.12.2",
         "network-information-types": "^0.1.1",
         "node-mailjet": "^5.1.1",
