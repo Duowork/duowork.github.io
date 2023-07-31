@@ -21,7 +21,7 @@
         "formik": "^2.2.9",
         "gatsby": "^4.22.0",
         "gatsby-plugin-image": "^2.22.0",
-        "gatsby-plugin-mdx": "^4.4.0",
+        "gatsby-plugin-mdx": "^5.11.0",
         "gatsby-plugin-sharp": "^4.25.0",
         "gatsby-remark-prismjs": "^6.9.0",
         "gatsby-source-wordpress": "^6.25.5",
