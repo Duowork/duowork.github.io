@@ -18,6 +18,7 @@ import heroImage2 from "../assets/images/hero-image2.jpeg";
 import heroImage4 from "../assets/images/hero-image4.jpeg";
 import cloudPlaymp4 from "../assets/video/cloudplay.mp4";
 import cloudPlaywebm from "../assets/video/cloudplay.webm";
+import { Icon } from "@iconify/react";
 
 export default function LandingPage({ location }: any) {
 
@@ -380,10 +381,10 @@ export default function LandingPage({ location }: any) {
               <a
                 href="https://ebonybeautyhaven.com/"
                 target="_blank"
-                className="text-center text-sm font-light py-2 rounded-full portfolio-link"
+                className="portfolio-link | flex items-center justify-center text-center text-sm font-light py-2 rounded-full"
                 rel="noopener"
               >
-                View work &gt;
+                View work <Icon icon="solar:alt-arrow-right-linear" />
               </a>
             </div>
           </div>
@@ -401,10 +402,10 @@ export default function LandingPage({ location }: any) {
               <a
                 href="https://larkspodcast.com"
                 target="_blank"
-                className="text-center text-sm rounded-full portfolio-link"
+                className="portfolio-link | flex items-center justify-center text-center text-sm rounded-full"
                 rel="noopener"
               >
-                View work &gt;
+                View work <Icon icon="solar:alt-arrow-right-linear" />
               </a>
             </div>
             <StaticImage
@@ -431,10 +432,10 @@ export default function LandingPage({ location }: any) {
               <a
                 href="https://adeolaazeez.com/"
                 target="_blank"
-                className="text-center text-sm rounded-full portfolio-link"
+                className="portfolio-link | flex items-center justify-center text-center text-sm rounded-full"
                 rel="noopener"
               >
-                View work &gt;
+               View work <Icon icon="solar:alt-arrow-right-linear" />
               </a>
             </div>
           </div>
@@ -644,9 +645,19 @@ export default function LandingPage({ location }: any) {
                   <a
                     href="https://twitter.com/duoworkhq"
                     target={"_blank"}
-                    className="text-green-700"
+                    className="text-green-700 text-2xl"
                   >
-                    <i className="fa fa-twitter fa-2x" aria-hidden="true"></i>
+                    <Icon icon="mdi:twitter" />
+                  </a>
+                </div>
+
+                <div className="icons items">
+                  <a
+                    href="https://www.linkedin.com/company/duowork/"
+                    target={"_blank"}
+                    className="text-green-700 text-2xl"
+                  >
+                    <Icon icon="mdi:linkedin" />
                   </a>
                 </div>
 
@@ -654,9 +665,9 @@ export default function LandingPage({ location }: any) {
                   <a
                     href="https://instagram.com/duoworkhq"
                     target={"_blank"}
-                    className="text-green-700"
+                    className="text-green-700 text-2xl"
                   >
-                    <i className="fa fa-instagram fa-2x" aria-hidden="true"></i>
+                    <Icon icon="mdi:instagram" />
                   </a>
                 </div>
               </div>
