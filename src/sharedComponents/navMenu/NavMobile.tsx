@@ -117,9 +117,9 @@ export default function NavMobile() {
           </Link>
         </li>
         <li className="nav-item-link">
-          <Link to="/blog" className="link">
+          {/* <Link to="/blog" className="link">
             Blog <Icon icon="material-symbols:news" className="link-icon" />
-          </Link>
+          </Link> */}
         </li>
         <li className="nav-item-link">
           <Link
