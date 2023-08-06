@@ -83,6 +83,7 @@ export default function SEO({
         src="https://kit.fontawesome.com/f65742b227.js"
         crossOrigin="anonymous"
       ></script>
+      <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 
       {children}
     </>
