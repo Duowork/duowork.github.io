@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+/*import React, { useEffect, useState } from "react";
 import { Link, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../../layouts/layout";
@@ -48,7 +48,6 @@ export default function Blog({ data }: any) {
             creativity with our exciting content!
           </p>
 
-          {/* //start new  */}
           <div className="slider">
             <div
               className="slides-wrapper"
@@ -319,3 +318,4 @@ export const query = graphql`
     }
   }
 `;
+*/

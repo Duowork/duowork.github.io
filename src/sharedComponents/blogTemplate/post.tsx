@@ -1,5 +1,5 @@
 /*Blog post template for dynamic content generated from Wordpress.
- */
+ 
 
 import React from "react";
 import { Link, graphql } from "gatsby";
@@ -58,4 +58,4 @@ export const postPageQuery = graphql`
       content
     }
   }
-`;
+`;*/
