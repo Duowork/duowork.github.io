@@ -56,7 +56,7 @@ module.exports = {
         failOn: `warning`,
       },
     },
-    {
+    /*{
       resolve: `gatsby-source-wordpress`,
       options: {
         url:
@@ -81,6 +81,6 @@ module.exports = {
           },
         },
       },
-    },
+    },*/
   ],
 };
