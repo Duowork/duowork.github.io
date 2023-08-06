@@ -64,7 +64,7 @@ export default function LandingPage({ location }: any) {
         id="hero-section"
         className="h-[40rem] md:h-[50rem] lg:h-[45rem]"
         style={{
-          backgroundImage: `url(${heroImage2})`,
+          backgroundImage: `url(${heroImage4})`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: `top`,
           backgroundSize: `cover`,
@@ -84,7 +84,7 @@ export default function LandingPage({ location }: any) {
               id="hero-title"
               className="text-white text-2xl md:text-4xl lg:text-6xl text-center font-bold w-3/4 self-center"
             >
-              Tailor-made design and Software Solution for{" "}
+              Tailor-made Software and Design Solution for{" "}
               <span className="custom-bg-green-accent text-black px-2">
                 Business Success
               </span>
@@ -693,7 +693,7 @@ export default function LandingPage({ location }: any) {
         </div>
       </section>
 
-      <section id="partners-section" className="h-[55rem] sm:h-[35rem]">
+      {/*<section id="partners-section" className="h-[55rem] sm:h-[35rem]">
         <div className="section-heading">
           <span className="section-tag">
             Our partners
@@ -761,7 +761,7 @@ export default function LandingPage({ location }: any) {
             </div>
           </a>
         </div>
-      </section>
+      </section>*/}
     </Layout>
   );
 }

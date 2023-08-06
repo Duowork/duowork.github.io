@@ -110,7 +110,7 @@ export default function Footer() {
 
   return (
     <footer className="h-full">
-      <div className="newsletter bg-white flex flex-col md:flex-row items-center justify-evenly md:justify-around h-40 mx-auto rounded-md shadow-xl">
+      {/*<div className="newsletter bg-white flex flex-col md:flex-row items-center justify-evenly md:justify-around h-40 mx-auto rounded-md shadow-xl">
         <p
           id="newsletter-header"
           className="font-light w-[27rem] text-xl text-center md:text-3xl md:!w-[15rem]"
@@ -137,7 +137,7 @@ export default function Footer() {
         >
           Subscribe
         </button>
-      </div>
+      </div>*/}
 
       <div className="center p-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 justify-center md:justify-items-center gap-8">
         <div id="logo-container" className="text-white">
