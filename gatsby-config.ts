@@ -24,13 +24,13 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-mdx`,
     `gatsby-transformer-json`,
-    // {
-    //   resolve: "gatsby-source-filesystem",
-    //   options: {
-    //     name: "blog",
-    //     path: `${__dirname}/src/blog`,
-    //   },
-    // },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "blog",
+        path: `${__dirname}/src/blog`,
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
