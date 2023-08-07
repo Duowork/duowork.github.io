@@ -688,7 +688,7 @@ export default function LandingPage({ location }: any) {
             alt=""
             width={350}
             height={350}
-            className="rounded-md hidden lg:block"
+            className="rounded-md !hidden lg:!block"
           />
         </div>
       </section>
