@@ -73,6 +73,7 @@ export default function NavMobile() {
             id="navInitOpen"
             className="mobile-nav-init | block w-full h-full text-2xl custom-text-dark"
             ref={navInitOpen}
+            style={{fontSize: "1.5rem !important"}}
           />
         </button>
 
@@ -96,6 +97,7 @@ export default function NavMobile() {
             id="navInitClose"
             className="mobile-nav-init | hidden w-full h-full text-2xl custom-text-dark"
             ref={navInitClose}
+            style={{fontSize: "1.5rem !important"}}
           />
         </button>
       </div>
