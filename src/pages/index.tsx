@@ -7,7 +7,7 @@ import {
 } from "gatsby-plugin-image";
 // Components
 import Layout from "../layouts/layout";
-import Head from "../sharedComponents/Head";
+import SEO from "../sharedComponents/SEO";
 import Nav from "../sharedComponents/navMenu/Nav";
 import Button from "../sharedComponents/Button";
 // import TestimonialsSection from "./__testimonialsSection";
@@ -19,6 +19,8 @@ import heroImage4 from "../assets/images/hero-image4.jpeg";
 import cloudPlaymp4 from "../assets/video/cloudplay.mp4";
 import cloudPlaywebm from "../assets/video/cloudplay.webm";
 import { Icon } from "@iconify/react";
+
+export const Head = () => (<SEO title="Home" />);
 
 export default function LandingPage({ location }: any) {
 
@@ -58,7 +60,6 @@ export default function LandingPage({ location }: any) {
 
   return (
     <Layout>
-      <Head title="Home" />
 
       <section
         id="hero-section"
