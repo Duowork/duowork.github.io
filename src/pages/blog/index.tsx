@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link, graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage, StaticImage} from "gatsby-plugin-image";
 import Layout from "../../layouts/layout";
 import SEO from "../../sharedComponents/SEO";
-import bg from "../../assets/images/bgDuoWork.jpg";
-import img7 from "../../assets/images/img7.jpg";
+import img7 from "../../assets/images/contact-page-image.jpeg";
+import authorImage from "../../assets/images/author.jpeg";
 
 export default function Blog({ data }: any) {
   const posts = data.allWpPost.nodes;
-  const categories = data.allWpCategory.nodes.slice(0,5);
+  const categories = data.allWpCategory.nodes.slice(0,6);
 
   const image1: any = getImage(posts[0].featuredImage.node.gatsbyImage);
   const postSlice = posts.slice(1, 3); //fetches last 2 post from all posts
@@ -34,12 +34,10 @@ export default function Blog({ data }: any) {
               Home
             </Link>
             <small className="mx-1 text-gray-300">{">"}</small>
-            <Link to={`/blog`} className="">
               {" "}
               <small className="text-[#939498]">Blog</small>
-            </Link>
           </div>
-          <h1 className=" text-[#222222] text-[45px] leading-[52px] mb-[8px]">
+          <h1 className=" text-[#222222] text-[45px] leading-[52px] mb-10">
             Blog
           </h1>
           <p className=" text-[#4A4A4C] text-center text-[12px] md:text-[16px] leading-[24px] w-full md:w-[559px] mb-[15px] md:mb-[80px]">
@@ -64,7 +62,7 @@ export default function Blog({ data }: any) {
                 return (
                   <div
                     key={post.id}
-                    className="slide  rounded-[8px] overflow-hidden flex mb-[76px] text-white items-center pl-[10px] md:pl-[40px] h-[350px] md:h-[450px] relative"
+                    className="slide  rounded-sm overflow-hidden flex mb-[76px] text-white items-center pl-[10px] md:pl-[40px] h-[350px] md:h-[450px] relative"
                   >
                     <Link to={`/blog/${post.slug}`}>
                       <GatsbyImage
@@ -87,21 +85,21 @@ export default function Blog({ data }: any) {
                           {post.title}
                         </h1>
                         <div className="flex items-center justify-start gap-[15px]">
-                          <GatsbyImage
-                            image={image}
-                            alt={post.featuredImage.node.altText}
-                            className="md:w-[57px] w-[30px] h-[30px] md:h-[57px] rounded-full object-cover"
-                          />
+                            <StaticImage
+                              src="../../assets/images/author.jpeg"
+                              alt={post.featuredImage.node.altText}
+                              className="w-[40px]  h-[40px] rounded-full object-cover mr-[10px]"
+                            />  
                           <div>
-                            <p>Duowork </p>
+                            <p>{post.author.node.name}</p>
                             <div className="flex justify-center items-center">
                               {" "}
                               <small className="font-[600] text-[10px] md:text-[16px] leading-[19px]">
                                 {post.date}
                               </small>{" "}
-                              <div className="w-[4px] h-[4px] rounded-full text-white bg-white mx-3 md:mx-10"></div>{" "}
+                              {/* <div className="w-[4px] h-[4px] rounded-full text-white bg-white mx-3 md:mx-10"></div>{" "} */}
                               <small className="font-[400] text-[9px] md:text-[14px] leading-[10px] md:leading-[17px]">
-                                5 Min Read
+                                {/* 5 Min Read */}
                               </small>{" "}
                             </div>
                           </div>
@@ -126,22 +124,22 @@ export default function Blog({ data }: any) {
               })}
             </div>
           </div>
-          <h1 className="text-3xl mb-[20px] md:mb-[71px]"> &#8595; </h1>
 
-          <div className="w-full h-fit mb-[15px] md:mb-[66px] font-[600] text-[24px]  items-center  justify-between flex ">
+          <h1 className="text-3xl mb-[20px] md:mb-[71px]">&#8595;</h1>
+          
+          <div className="w-full h-fit font-[600] text-[24px]  items-center  justify-between flex ">
             <div className="flex w-fit  h-fit gap-[10px] justify-center items-center">
               {" "}
-              <h1 className="hidden md:flex text-[13px] sm:text-[24px] md:font-[600] md:text-[24px] md:leading-[32px] ">
+              <h1 className="hidden md:flex text-[13px] sm:text-[24px] md:font-semibold md:text-[24px] md:leading-[32px] ">
                 Browse The Category{" "}
               </h1>{" "}
               <div className="mt-[3px] md:mt-[10px] w-[35px] h-[1px] bg-black"></div>
             </div>
             <Link to={"/blog/category"}>
               <div className="flex gap-[8px] h-fit  w-fit  justify-center items-center">
-                <h1 className="text-[13px] sm:text-[24px] md:font-[600] md:text-[24px] md:leading-[32px]">
-                  see all category{" "}
+                <h1 className="text-[13px] sm:text-[24px] font-medium md:text-[24px] md:leading-[32px]">
+                  see all category{" "}&#8594;
                 </h1>
-                <p className=" text-xl ">&#8594;</p>
               </div>
             </Link>
           </div>
@@ -155,17 +153,17 @@ export default function Blog({ data }: any) {
                 {categories.map((category: any, idx: number) => (
                   <div
                     key={`${category.id}${idx}`}
-                    className={`w-[38%] h-[100px] md:w-[184px] relative overflow-hidden md:h-[300px] rounded-xl bg-purple-300`}
+                    className={`w-[150px] h-[200px] relative overflow-hidden rounded-md bg-purple-300`}
                   >
                     {" "}
-                    <Link to={`/blog${category.uri}`}>
+                    <Link to={`/blog/category/${category.name.toLowerCase()}`}>
                       <img
                         src={img7}
                         className="w-full absolute top-0 right-0 h-full object-cover"
                         alt=""
                       />{" "}
                       <div className=" absolute bgStyle2 flex justify-center items-center w-full h-full top-0 left-0 ">
-                        <h1 className="relative  text-white">{category.name}</h1>
+                        <h1 className="relative text-white text-center">{category.name}</h1>
                       </div>
                     </Link>
                   </div>
@@ -176,7 +174,7 @@ export default function Blog({ data }: any) {
         </div>
 
         <div className="  px-[20px] md:px-[50px] lg:[90px] w-full">
-          <h1 className="font-[600] text-[20px] sm:text-[24px] mb-[64px]">
+          <h1 className="font-[600] text-[20px] sm:text-[24px] my-20 text-center">
             Featured
           </h1>
           <div className="xl:flex-row flex flex-col w-full mb-[223px] gap-[56px]">
@@ -189,31 +187,30 @@ export default function Blog({ data }: any) {
                   image={image1}
                   alt={posts[0].featuredImage.node.altText}
                   className="w-full rounded-[8px] h-[244px] mb-[32px] object-cover"
+                  objectFit="cover"
+                  backgroundColor="bg-black"
                 />
                 <div className="flex flex-col gap-[12px]">
-                  <div className="flex items-center ">
-                    <GatsbyImage
-                      image={image1}
+                  <div className="flex items-center text-[12px]">
+                    <StaticImage
+                      src="../../assets/images/author.jpeg"
                       alt={posts[0].featuredImage.node.altText}
-                      className="w-[40px]  h-[40px] rounded-full object-cover mr-[14px]"
+                      className="w-[40px]  h-[40px] rounded-full object-cover mr-[10px]"
                     />
-                    <div className="flex justify-center items-center gap-3 text-[14px] font-[500]">
-                      <span>John Doe</span>
-                      <span className="mx-[4px] my-auto">.</span>
+                    <div className="text-gray-500">
+                      <span className="text-[14px] font-[500]">{posts[0].author.node.name}</span>
+                      <span className="mx-1 font-bold text-2xl" style={{verticalAlign: "text-bottom"}}>.</span>
                       <span> {posts[0].date}</span>
                     </div>
                   </div>
                   <h1 className="font-[600] mb-[12px] text-[24px] text-left">
                     {posts[0].title}
                   </h1>
-                  <p className="font-[400] mb-[12px] text-[16px] text-left">
+                  {/* <p className="font-[400] mb-[12px] text-[16px] text-left">
                     {posts[0].title}
-                  </p>
+                  </p> */}
                   <div className="bg-[#9eff51] rounded-[4px] cursor-pointer justify-center items-center gap-[15px] h-[40px] w-[123px] flex ">
-                    <button type="button">Explore </button>
-                    <p className="w-[10px] text-xl  h-full flex items-center">
-                      &#8599;
-                    </p>
+                    <Link to={`/blog/${posts[0].slug}`} type="button" className="text-md">Explore{" "}&#8599;</Link>
                   </div>
                 </div>
               </Link>
@@ -224,44 +221,40 @@ export default function Blog({ data }: any) {
 
                 return (
                   <div key={post.id} className="w-full h-fit sm:h-fit">
-                    <Link
-                      to={`/blog/${post.slug}`}
-                      className="h-full w-full"
-                    >
-                      <div className="flex flex-col sm:flex-row  w-full   gap-[24px] h-fit ">
-                        <GatsbyImage
-                          image={image}
-                          alt={post.featuredImage.node.altText}
-                          className="w-full sm:w-[60%] h-full rounded-[8px] object-cover"
-                        />
+                      <div className="flex flex-col sm:flex-row w-full gap-[24px] h-fit ">
+                        <Link to={`/blog/${post.slug}`} className="w-full sm:w-[60%]">
+                          <GatsbyImage
+                            image={image}
+                            alt={post.featuredImage.node.altText}
+                            className="w-full h-full rounded-[8px] object-fit"
+                          />
+                        </Link>
 
                         <div className="w-full sm:w-[39%]">
                           <div className="flex justify-start items-center text-[12px]">
-                            <GatsbyImage
-                              image={image}
+                            <StaticImage
+                              src="../../assets/images/author.jpeg"
                               alt={post.featuredImage.node.altText}
                               className="w-[40px]  h-[40px] rounded-full object-cover mr-[10px]"
                             />
 
-                            <span className="mr-2">Duowork</span>
-                            <span>.</span>
-                            <span> {post.date}</span>
+                            <div className="text-gray-500">
+                              <span className="text-[14px] font-[500]">{post.author.node.name}</span>
+                              <span className="mx-1 font-bold text-2xl" style={{verticalAlign: "text-bottom"}}>.</span>
+                              <span> {post.date}</span>
+                            </div>
                           </div>
-                          <h1 className="font-[600] mb-[12px] text-[18px] text-left">
+                          <h1 className="font-[600] my-5 text-[18px] text-left">
                             {post.title}
                           </h1>
-                          <p className="font-[400] mb-[12px] text-[16px] text-left">
+                          {/* <p className="font-[400] mb-[12px] text-[16px] text-left">
                             {post.title}
-                          </p>
+                          </p> */}
                           <div className="bg-[#9eff51] rounded-[4px] cursor-pointer justify-center items-center gap-[15px] h-[40px] w-[123px] flex ">
-                            <button type="button">Explore </button>
-                            <p className="w-[10px] text-xl  h-full flex items-center">
-                              &#8599;
-                            </p>
+                            <Link to={`/blog/${post.slug}`} type="button" className="text-md">Explore{" "}&#8599;</Link>
                           </div>
                         </div>
                       </div>
-                    </Link>
                   </div>
                 );
               })}
@@ -291,7 +284,7 @@ export const query = graphql`
         featuredImage {
           node {
             altText
-            gatsbyImage(width: 100, height: 100, fit: COVER, placeholder: BLURRED)
+            gatsbyImage(width: 600, height: 400, fit: CONTAIN, placeholder: BLURRED)
           }
         }
         status
