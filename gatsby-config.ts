@@ -61,7 +61,7 @@ module.exports = {
       options: {
         url:
           // allows a fallback url if WPGRAPHQL_URL is not set in the env, this may be a local or remote WP instance.
-          process.env.WPGRAPHQL_URL || `https://localhost/graphql`,
+          process.env.WPGRAPHQL_URL || `http://duowork-headless-backend.local/graphql`,
         schema: {
           //Prefixes all WP Types with "Wp" so "Post and allPost" become "WpPost and allWpPost".
           typePrefix: `Wp`,
