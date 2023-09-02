@@ -1,9 +1,7 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
-import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
 import SEO from "../../sharedComponents/SEO";
 import Layout from "../../layouts/layout";
-import company from "../../assets/images/companyIsTeam.jpg";
 
 export default function category() {
   const samplepostarray = [
