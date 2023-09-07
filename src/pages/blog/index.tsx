@@ -1,19 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { Link, graphql } from "gatsby";
-import { GatsbyImage, getImage, StaticImage} from "gatsby-plugin-image";
+import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
 import Layout from "../../layouts/layout";
 import SEO from "../../sharedComponents/SEO";
 import img7 from "../../assets/images/contact-page-image.jpeg";
 import authorImage from "../../assets/images/author.jpeg";
+import {
+  AllWpCategoriesPageType,
+  AllCategoriesType,
+} from "../../../data/types/allCategoriesPageTypes";
+import blogCategoriesImages from "../../../data/blogCategoriesImages";
 
 export default function Blog({ data }: any) {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  //
   const posts = data.allWpPost.nodes;
-  const categories = data.allWpCategory.nodes.slice(0,6);
+
+  let allCategories: AllCategoriesType[] = [];
+  const allWpCategories: AllWpCategoriesPageType[] =
+    data.allWpCategory.nodes.slice(0, 6);
 
   const image1: any = getImage(posts[0].featuredImage.node.gatsbyImage);
-  const postSlice = posts.slice(1, 3); //fetches last 2 post from all posts
+
+  //fetches last 2 post from all posts
+  const featuredPosts = posts.slice(0, 3);
+
   const topPosts = posts.slice(1, 4);
-  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -21,9 +34,27 @@ export default function Blog({ data }: any) {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % topPosts.length);
     }, 5000);
 
-    return () => clearInterval(interval); // Cleanup the interval on unmount
+    // Cleanup the interval on unmount
+    return () => clearInterval(interval);
   }, []);
 
+  // Abstract categories data to include images
+  allWpCategories.forEach((category, _) => {
+    if (category.name.toLowerCase() !== "uncategorized") {
+      const categoryName: string = category.name.toLocaleLowerCase();
+      const image: string = blogCategoriesImages[categoryName];
+
+      const categoryData = {
+        id: category["id"],
+        name: categoryName,
+        slug: category["slug"],
+        description: category["description"],
+        image: image,
+      };
+
+      allCategories.push(categoryData);
+    }
+  });
 
   return (
     <Layout>
@@ -33,9 +64,8 @@ export default function Blog({ data }: any) {
             <Link to="/" className="custom-text-dark">
               Home
             </Link>
-            <small className="mx-1 text-gray-300">{">"}</small>
-              {" "}
-              <small className="text-[#939498]">Blog</small>
+            <small className="mx-1 text-gray-300">{">"}</small>{" "}
+            <small className="text-[#939498]">Blog</small>
           </div>
           <h1 className=" text-[#222222] text-[45px] leading-[52px] mb-10">
             Blog
@@ -56,7 +86,9 @@ export default function Blog({ data }: any) {
               }}
             >
               {topPosts.map((post: any) => {
-                const image: any = getImage(post.featuredImage.node.gatsbyImage);
+                const image: any = getImage(
+                  post.featuredImage.node.gatsbyImage,
+                );
                 const highlightedPostTag = post.categories.nodes[0].name;
 
                 return (
@@ -85,11 +117,11 @@ export default function Blog({ data }: any) {
                           {post.title}
                         </h1>
                         <div className="flex items-center justify-start gap-[15px]">
-                            <StaticImage
-                              src="../../assets/images/author.jpeg"
-                              alt={post.featuredImage.node.altText}
-                              className="w-[40px]  h-[40px] rounded-full object-cover mr-[10px]"
-                            />  
+                          <StaticImage
+                            src="../../assets/images/author.jpeg"
+                            alt={post.featuredImage.node.altText}
+                            className="w-[40px]  h-[40px] rounded-full object-cover mr-[10px]"
+                          />
                           <div>
                             <p>{post.author.node.name}</p>
                             <div className="flex justify-center items-center">
@@ -126,7 +158,7 @@ export default function Blog({ data }: any) {
           </div>
 
           <h1 className="text-3xl mb-[20px] md:mb-[71px]">&#8595;</h1>
-          
+
           <div className="w-full h-fit font-[600] text-[24px]  items-center  justify-between flex ">
             <div className="flex w-fit  h-fit gap-[10px] justify-center items-center">
               {" "}
@@ -135,10 +167,10 @@ export default function Blog({ data }: any) {
               </h1>{" "}
               <div className="mt-[3px] md:mt-[10px] w-[35px] h-[1px] bg-black"></div>
             </div>
-            <Link to={"/blog/category"}>
+            <Link to={"/blog/categories"}>
               <div className="flex gap-[8px] h-fit  w-fit  justify-center items-center">
                 <h1 className="text-[13px] sm:text-[24px] font-medium md:text-[24px] md:leading-[32px]">
-                  see all category{" "}&#8594;
+                  see all category &#8594;
                 </h1>
               </div>
             </Link>
@@ -150,20 +182,22 @@ export default function Blog({ data }: any) {
               <div
                 className={`w-full px-[20px] flex flex-wrap md:flex-nowrap h-full my-auto  items-center justify-center  flex-row gap-3`}
               >
-                {categories.map((category: any, idx: number) => (
+                {allCategories.map((category: any, idx: number) => (
                   <div
-                    key={`${category.id}${idx}`}
+                    key={`${category.id}-${idx}`}
                     className={`w-[150px] h-[200px] relative overflow-hidden rounded-md bg-purple-300`}
                   >
                     {" "}
-                    <Link to={`/blog/category/${category.name.toLowerCase()}`}>
+                    <Link to={`/blog/categories/${category.name.toLowerCase()}`}>
                       <img
-                        src={img7}
+                        src={category.image}
                         className="w-full absolute top-0 right-0 h-full object-cover"
                         alt=""
                       />{" "}
-                      <div className=" absolute bgStyle2 flex justify-center items-center w-full h-full top-0 left-0 ">
-                        <h1 className="relative text-white text-center">{category.name}</h1>
+                      <div className="absolute bgStyle2 flex justify-center items-center w-full h-full top-0 left-0 ">
+                        <h1 className="relative text-white text-center">
+                          {category.name.toUpperCase()}
+                        </h1>
                       </div>
                     </Link>
                   </div>
@@ -177,15 +211,17 @@ export default function Blog({ data }: any) {
           <h1 className="font-[600] text-[20px] sm:text-[24px] my-20 text-center">
             Featured
           </h1>
+
           <div className="xl:flex-row flex flex-col w-full mb-[223px] gap-[56px]">
+            {/* Featured but highlighted post */}
             <div className="w-full xl:w-1/2  ">
               <Link
-                to={`/blog/${posts[0].slug}`}
+                to={`/blog/${featuredPosts[0].slug}`}
                 className="h-full w-full"
               >
                 <GatsbyImage
                   image={image1}
-                  alt={posts[0].featuredImage.node.altText}
+                  alt={featuredPosts[0].featuredImage.node.altText}
                   className="w-full rounded-[8px] h-[244px] mb-[32px] object-cover"
                   objectFit="cover"
                   backgroundColor="bg-black"
@@ -194,37 +230,68 @@ export default function Blog({ data }: any) {
                   <div className="flex items-center text-[12px]">
                     <StaticImage
                       src="../../assets/images/author.jpeg"
-                      alt={posts[0].featuredImage.node.altText}
+                      alt={featuredPosts[0].featuredImage.node.altText}
                       className="w-[40px]  h-[40px] rounded-full object-cover mr-[10px]"
                     />
                     <div className="text-gray-500">
-                      <span className="text-[14px] font-[500]">{posts[0].author.node.name}</span>
-                      <span className="mx-1 font-bold text-2xl" style={{verticalAlign: "text-bottom"}}>.</span>
-                      <span> {posts[0].date}</span>
+                      <span className="text-[14px] font-[500]">
+                        {featuredPosts[0].author.node.name}
+                      </span>
+                      <span
+                        className="mx-1 font-bold text-2xl"
+                        style={{ verticalAlign: "text-bottom" }}
+                      >
+                        .
+                      </span>
+                      <span> {featuredPosts[0].date}</span>
                     </div>
                   </div>
                   <h1 className="font-[600] mb-[12px] text-[24px] text-left">
-                    {posts[0].title}
+                    {featuredPosts[0].title}
                   </h1>
-                  {/* <p className="font-[400] mb-[12px] text-[16px] text-left">
-                    {posts[0].title}
-                  </p> */}
+                  <p className=" text-left mb-5 text-[16px] line-clamp-2">
+                    {featuredPosts[0].excerpt}
+                  </p>
                   <div className="bg-[#9eff51] rounded-[4px] cursor-pointer justify-center items-center gap-[15px] h-[40px] w-[123px] flex ">
-                    <Link to={`/blog/${posts[0].slug}`} type="button" className="text-md">Explore{" "}&#8599;</Link>
+                    <Link
+                      to={`/blog/${featuredPosts[0].slug}`}
+                      type="button"
+                      className="text-md"
+                    >
+                      Explore &#8599;
+                    </Link>
                   </div>
                 </div>
               </Link>
             </div>
-            <div className=" w-full xl:w-1/2 h-fit flex flex-col gap-[20px] md:gap-[41px]">
-              {postSlice.map((post: any) => {
-                const image: any = getImage(post.featuredImage.node.gatsbyImage);
 
-                return (
-                  <div key={post.id} className="w-full h-fit sm:h-fit">
+            {/* Featured posts. */}
+            <div className=" w-full xl:w-1/2 h-fit flex flex-col gap-[20px] md:gap-[41px]">
+              {featuredPosts.map((post: any) => {
+                type TagsDataType = { name: string };
+                type TagsObjDataType = { [key: string]: string };
+
+                const tagsObj = {} as TagsObjDataType;
+                const tags: TagsDataType[] = post.tags.nodes;
+                const featuredImage: any = getImage(
+                  post.featuredImage.node.gatsbyImage,
+                );
+                const postExercpt = { __html: post.excerpt };
+
+                //  Convert tags array to object.
+                tags.forEach((tag, _) => (tagsObj[tag.name] = tag.name));
+
+                //  Show only posts with featured tags
+                if (tagsObj.featured) {
+                  return (
+                    <div key={post.id} className="w-full h-fit sm:h-fit">
                       <div className="flex flex-col sm:flex-row w-full gap-[24px] h-fit ">
-                        <Link to={`/blog/${post.slug}`} className="w-full sm:w-[60%]">
+                        <Link
+                          to={`/blog/${post.slug}`}
+                          className="w-full sm:w-[60%]"
+                        >
                           <GatsbyImage
-                            image={image}
+                            image={featuredImage}
                             alt={post.featuredImage.node.altText}
                             className="w-full h-full rounded-[8px] object-fit"
                           />
@@ -239,24 +306,41 @@ export default function Blog({ data }: any) {
                             />
 
                             <div className="text-gray-500">
-                              <span className="text-[14px] font-[500]">{post.author.node.name}</span>
-                              <span className="mx-1 font-bold text-2xl" style={{verticalAlign: "text-bottom"}}>.</span>
+                              <span className="text-[14px] font-[500]">
+                                {post.author.node.name}
+                              </span>
+                              <span
+                                className="mx-1 font-bold text-2xl"
+                                style={{ verticalAlign: "text-bottom" }}
+                              >
+                                .
+                              </span>
                               <span> {post.date}</span>
                             </div>
                           </div>
-                          <h1 className="font-[600] my-5 text-[18px] text-left">
+                          <h1 className="text-left font-[600] my-5 text-[18px] line-clamp-2">
                             {post.title}
                           </h1>
-                          {/* <p className="font-[400] mb-[12px] text-[16px] text-left">
-                            {post.title}
-                          </p> */}
+                          <p
+                            className="text-left text-sm font-medium mb-5 line-clamp-2"
+                            dangerouslySetInnerHTML={postExercpt}
+                          />
                           <div className="bg-[#9eff51] rounded-[4px] cursor-pointer justify-center items-center gap-[15px] h-[40px] w-[123px] flex ">
-                            <Link to={`/blog/${post.slug}`} type="button" className="text-md">Explore{" "}&#8599;</Link>
+                            <Link
+                              to={`/blog/${post.slug}`}
+                              type="button"
+                              className="text-md"
+                            >
+                              Explore &#8599;
+                            </Link>
                           </div>
                         </div>
                       </div>
-                  </div>
-                );
+                    </div>
+                  );
+                }
+
+                return null;
               })}
             </div>
           </div>
@@ -273,18 +357,20 @@ export const query = graphql`
     allWpPost {
       nodes {
         id
-        author {
-          node {
-            name
-          }
-        }
         title
+        slug
+        excerpt
         content
         date(formatString: "MMMM DD, Y")
         featuredImage {
           node {
             altText
-            gatsbyImage(width: 600, height: 400, fit: CONTAIN, placeholder: BLURRED)
+            gatsbyImage(
+              width: 600
+              height: 400
+              fit: CONTAIN
+              placeholder: BLURRED
+            )
           }
         }
         status
@@ -300,7 +386,11 @@ export const query = graphql`
             description
           }
         }
-        slug
+        author {
+          node {
+            name
+          }
+        }
       }
     }
     allWpCategory {
