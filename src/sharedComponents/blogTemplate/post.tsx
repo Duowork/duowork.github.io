@@ -17,7 +17,6 @@ export default function Posts({ data }: any) {
   const postExcerpt = { __html: post.excerpt };
   const postContent = { __html: post.content };
   const bannerImage: any = getImage(post.featuredImage.node.gatsbyImage);
-  // const authorImage =  getImage(post.author.featuredImage.node.gatsbyImage)
 
   const postTag = post.tags.nodes.length !== 0 ? post.tags.nodes[0].name : "";
 
@@ -66,7 +65,7 @@ export default function Posts({ data }: any) {
           >
             <div id="post-author" className="mr-5 flex items-center">
               <img
-                src={img7}
+                src={post.author.node.avatar.url}
                 alt="image"
                 className="w-10 h-10 rounded-full ml-2 object-cover mr-2"
               />{" "}
@@ -137,6 +136,13 @@ export const postPageQuery = graphql`
       author {
         node {
           name
+          email
+          avatar {
+            url
+            width
+            height
+          }
+          description
         }
       }
     }
