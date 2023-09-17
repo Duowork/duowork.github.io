@@ -1,11 +1,11 @@
-require("dotenv").config({ path: `.env` });
+require("dotenv").config({ path: `./.env${process.env.NODE_ENV}` });
 
 module.exports = {
   // Document head meta configuration
   siteMetadata: {
     title: `Duowork`,
     description: `Tailor-made design and software solutions for business success. At Duowork, we specialize in crafting customized and robust solutions for startups and businesses. our mission is to help build and maintain digital ideas and ventures.`,
-    siteUrl: `https://www.duowork.github.io`,
+    siteUrl: `https://duowork.tech`,
     author: {
       name: `Romeo Peter | Isaac Olugbenga`,
       summary: `Founder and co-founder of Duowork.`,
@@ -42,7 +42,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "data",
-        path: `${__dirname}/data`,
+        path: `${__dirname}/src/data`,
       },
     },
     {
@@ -61,7 +61,8 @@ module.exports = {
       options: {
         url:
           // allows a fallback url if WPGRAPHQL_URL is not set in the env, this may be a local or remote WP instance.
-          process.env.WPGRAPHQL_URL || `http://duowork-headless-backend.local/graphql`,
+          process.env.WPGRAPHQL_URL ||
+          `http://duowork-headless-backend.local/graphql`,
         schema: {
           //Prefixes all WP Types with "Wp" so "Post and allPost" become "WpPost and allWpPost".
           typePrefix: `Wp`,
@@ -83,4 +84,8 @@ module.exports = {
       },
     },
   ],
+  // proxy: [{
+  //   prefix: "api/subscribe",
+  //   url: "https://api.getresponse.com/v3/campaigns"
+  // }]
 };
