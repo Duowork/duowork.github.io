@@ -5,8 +5,8 @@ import Layout from "../../../layouts/layout";
 import {
   AllWpCategoriesPageType,
   AllCategoriesType,
-} from "../../../../data/types/allCategoriesPageTypes";
-import blogCategoriesImages from "../../../../data/blogCategoriesImages";
+} from "../../../data/types/allCategoriesPageTypes";
+import blogCategoriesImages from "../../../data/blogCategoriesImages";
 
 export const Head = () => <SEO title="Blog Categories" />;
 
@@ -67,12 +67,14 @@ export default function category({ data }: any) {
             </p>
           ) : (
             allCategories.map((category, _) => {
+              const categoryName = category.name.toLocaleLowerCase();
+
               return (
                 <div
                   key={category.id}
                   className="border border-[#9dff51] hover:border-none hover:shadow-xl rounded-xl p-[16px] w-full sm:w-[48%] lg:w-[31%] h-fit "
                 >
-                  <Link to={`/blog/categories/${category.name.toLowerCase()}`}>
+                  <Link to={`/blog/categories/${categoryName.replace(" ", "-")}`}>
                     <div
                       className={`w-full h-[15rem] rounded-md bg-cover bg-left flex items-center justify-center relative`}
                       style={{ backgroundImage: `url('${category.image}')` }}
