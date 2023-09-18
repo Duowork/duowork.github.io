@@ -1,10 +1,6 @@
 import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
-import {
-  StaticImage,
-  GatsbyImage,
-  getImage,
-} from "gatsby-plugin-image";
+import {StaticImage} from "gatsby-plugin-image";
 // Components
 import Layout from "../layouts/layout";
 import Head from "../sharedComponents/Head";
@@ -693,7 +689,7 @@ export default function LandingPage({ location }: any) {
         </div>
       </section>
 
-      <section id="partners-section" className="h-[55rem] sm:h-[35rem]">
+      {/* <section id="partners-section" className="h-[55rem] sm:h-[35rem]">
         <div className="section-heading">
           <span className="section-tag">
             Our partners
@@ -761,7 +757,7 @@ export default function LandingPage({ location }: any) {
             </div>
           </a>
         </div>
-      </section>
+      </section> */}
     </Layout>
   );
 }
