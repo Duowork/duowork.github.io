@@ -1,8 +1,7 @@
-// Blog post ({mdx.frontmatter__slug}.tsx) styles
-
-.blog-content-container {
-  .blog-item {
-    .blog-item-body {
+#blog-post-container {
+  #post-header {}
+  
+  #post-content {
       margin: 0 auto;
 
       .blog-highlighted-text {
@@ -51,8 +50,8 @@
       }
 
       ul {
-        list-style-type: decimal !important;
-        margin: 1.5rem 0;
+        list-style-type: disc !important;
+        margin: 1.5rem 0 1.5rem 1.5rem;
 
         li {
           margin-bottom: 0.5rem;
@@ -65,17 +64,21 @@
       }
 
       blockquote {
-        border-left: 2px solid $green-light;
+        border-left: 4px solid $green-light;
         margin: 1rem 0;
+        background-color: rgba(gray, 0.1);
+        border-radius: 0.375rem;
+        font-size: 0.8rem;
+        padding: 1rem 0.6rem;
 
         p,
         small {
           margin-left: 1.4rem;
         }
+      }
 
-        p {
-          font-style: italic !important;
-        }
+      .wp-block-image, img {
+        border-radius: 0.375rem;
       }
 
       pre {
@@ -91,10 +94,4 @@
         border-bottom: 1px solid $green-light;
       }
     }
-  }
-}
-
-#blog-post-container {
-  #post-header {}
-  #post-content {}
 }
