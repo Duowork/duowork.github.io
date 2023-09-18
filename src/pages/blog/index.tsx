@@ -3,13 +3,11 @@ import { Link, graphql } from "gatsby";
 import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
 import Layout from "../../layouts/layout";
 import SEO from "../../sharedComponents/SEO";
-import img7 from "../../assets/images/contact-page-image.jpeg";
-import authorImage from "../../assets/images/author.jpeg";
 import {
   AllWpCategoriesPageType,
   AllCategoriesType,
-} from "../../../data/types/allCategoriesPageTypes";
-import blogCategoriesImages from "../../../data/blogCategoriesImages";
+} from "../../data/types/allCategoriesPageTypes";
+import blogCategoriesImages from "../../data/blogCategoriesImages";
 
 export default function Blog({ data }: any) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -23,15 +21,27 @@ export default function Blog({ data }: any) {
 
   const image1: any = getImage(posts[0].featuredImage.node.gatsbyImage);
 
-  //fetches last 2 post from all posts
-  const featuredPosts = posts.slice(0, 3);
+  // Featured posts
+  const featuredPosts = posts.filter((post: any, _: any) => {
+    if (post.tags.nodes.length !== 0) {
+      return (
+        post.tags.nodes[0].name === "featured" ||
+        post.tags.nodes[0].name === "highlight"
+      );
+    }
+  });
 
-  const topPosts = posts.slice(1, 4);
+  console.log(featuredPosts);
+
+  // Latest. Fetch 3 resent posts
+  const latestPosts = posts.slice(0, 3);
+
+  // console.log(latestPosts);
 
   useEffect(() => {
     const interval = setInterval(() => {
       // Update the current slide index every 5 seconds
-      setCurrentSlide((prevSlide) => (prevSlide + 1) % topPosts.length);
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % latestPosts.length);
     }, 5000);
 
     // Cleanup the interval on unmount
@@ -76,7 +86,7 @@ export default function Blog({ data }: any) {
             creativity with our exciting content!
           </p>
 
-          {/* //start new  */}
+          {/* Lastes blog post as slides */}
           <div className="slider">
             <div
               className="slides-wrapper"
@@ -85,7 +95,7 @@ export default function Blog({ data }: any) {
                 transition: "transform 0.5s ease",
               }}
             >
-              {topPosts.map((post: any) => {
+              {latestPosts.map((post: any) => {
                 const image: any = getImage(
                   post.featuredImage.node.gatsbyImage,
                 );
@@ -117,9 +127,9 @@ export default function Blog({ data }: any) {
                           {post.title}
                         </h1>
                         <div className="flex items-center justify-start gap-[15px]">
-                          <StaticImage
-                            src="../../assets/images/author.jpeg"
-                            alt={post.featuredImage.node.altText}
+                          <img
+                            src={post.author.node.avatar.url}
+                            alt={post.author.node.name}
                             className="w-[40px]  h-[40px] rounded-full object-cover mr-[10px]"
                           />
                           <div>
@@ -146,7 +156,7 @@ export default function Blog({ data }: any) {
                           </h1>
                           <div className="h-[10px] md:h-[20px] my-auto w-[1px] rotate-[5deg]  bg-gray-700"></div>
                           <h1 className="text-[8px] md:text-[12.8571px] pt-1 text-[#222222] font-[500]">
-                            {topPosts.length}
+                            {latestPosts.length}
                           </h1>
                         </div>
                       </div>
@@ -157,6 +167,7 @@ export default function Blog({ data }: any) {
             </div>
           </div>
 
+          {/* Arrow down below slider */}
           <h1 className="text-3xl mb-[20px] md:mb-[71px]">&#8595;</h1>
 
           <div className="w-full h-fit font-[600] text-[24px]  items-center  justify-between flex ">
@@ -176,6 +187,7 @@ export default function Blog({ data }: any) {
             </Link>
           </div>
         </div>
+
         <div className="flex mb-[50px] justify-evenly items-center h-fit w-full gap-[41px]">
           <div className="relative flex flex-col  justify-center items-center pt-[10px] md:pt-[60px] w-[98vw] h-fit ">
             <div className="w-full h-1/2  mx-auto my-auto overflow-x-hidden ">
@@ -188,7 +200,9 @@ export default function Blog({ data }: any) {
                     className={`w-[150px] h-[200px] relative overflow-hidden rounded-md bg-purple-300`}
                   >
                     {" "}
-                    <Link to={`/blog/categories/${category.name.toLowerCase()}`}>
+                    <Link
+                      to={`/blog/categories/${category.name.toLowerCase()}`}
+                    >
                       <img
                         src={category.image}
                         className="w-full absolute top-0 right-0 h-full object-cover"
@@ -212,62 +226,91 @@ export default function Blog({ data }: any) {
             Featured
           </h1>
 
-          <div className="xl:flex-row flex flex-col w-full mb-[223px] gap-[56px]">
-            {/* Featured but highlighted post */}
-            <div className="w-full xl:w-1/2  ">
-              <Link
-                to={`/blog/${featuredPosts[0].slug}`}
-                className="h-full w-full"
-              >
-                <GatsbyImage
-                  image={image1}
-                  alt={featuredPosts[0].featuredImage.node.altText}
-                  className="w-full rounded-[8px] h-[244px] mb-[32px] object-cover"
-                  objectFit="cover"
-                  backgroundColor="bg-black"
-                />
-                <div className="flex flex-col gap-[12px]">
-                  <div className="flex items-center text-[12px]">
-                    <StaticImage
-                      src="../../assets/images/author.jpeg"
-                      alt={featuredPosts[0].featuredImage.node.altText}
-                      className="w-[40px]  h-[40px] rounded-full object-cover mr-[10px]"
-                    />
-                    <div className="text-gray-500">
-                      <span className="text-[14px] font-[500]">
-                        {featuredPosts[0].author.node.name}
-                      </span>
-                      <span
-                        className="mx-1 font-bold text-2xl"
-                        style={{ verticalAlign: "text-bottom" }}
-                      >
-                        .
-                      </span>
-                      <span> {featuredPosts[0].date}</span>
-                    </div>
-                  </div>
-                  <h1 className="font-[600] mb-[12px] text-[24px] text-left">
-                    {featuredPosts[0].title}
-                  </h1>
-                  <p className=" text-left mb-5 text-[16px] line-clamp-2">
-                    {featuredPosts[0].excerpt}
-                  </p>
-                  <div className="bg-[#9eff51] rounded-[4px] cursor-pointer justify-center items-center gap-[15px] h-[40px] w-[123px] flex ">
+          {/* Highlighted posts. */}
+          <div className="grid grid-cols-1 md:grid-cols-2 w-full mb-[223px] gap-[56px]">
+            {featuredPosts.map((post: any, _: any) => {
+              type TagsDataType = { name: string };
+              type TagsObjDataType = { [key: string]: string };
+
+              const tagsObj = {} as TagsObjDataType;
+              const tags: TagsDataType[] = post.tags.nodes;
+              const postExercpt = { __html: post.excerpt };
+
+              //  Convert tags array to object.
+              tags.forEach((tag, _) => (tagsObj[tag.name] = tag.name));
+
+              const highlightedPostImage: any = getImage(
+                post.featuredImage.node.gatsbyImage,
+              );
+
+              // Featured but highlighted post
+              if (tagsObj.highlight) {
+                return (
+                  <div
+                    className={`${tagsObj.highlight} | w-full`}
+                    key={post.id}
+                  >
                     <Link
-                      to={`/blog/${featuredPosts[0].slug}`}
-                      type="button"
-                      className="text-md"
+                      to={`/blog/${post.slug}`}
+                      className="h-full w-full"
                     >
-                      Explore &#8599;
+                      <GatsbyImage
+                        image={highlightedPostImage}
+                        alt={post.featuredImage.node.altText}
+                        className="w-full rounded-[8px] h-[244px] mb-[32px] object-cover"
+                        objectFit="cover"
+                        backgroundColor="bg-black"
+                      />
+                      <div className="flex flex-col gap-[12px]">
+                        <div className="flex items-center text-[12px]">
+                          <img
+                            src={post.author.node.avatar.url}
+                            alt={post.author.node.avatar.title}
+                            className="w-[40px]  h-[40px] rounded-full object-cover mr-[10px]"
+                          />
+                          <div className="text-gray-500">
+                            <span className="text-[14px] font-[500]">
+                              {post.author.node.name}
+                            </span>
+                            <span
+                              className="mx-1 font-bold text-2xl"
+                              style={{ verticalAlign: "text-bottom" }}
+                            >
+                              .
+                            </span>
+                            <span> {post.date}</span>
+                          </div>
+                        </div>
+                        <h1 className="font-[600] mb-[12px] text-[24px] text-left">
+                          {post.title}
+                        </h1>
+                        <p
+                          className=" text-left mb-5 text-[16px] line-clamp-2"
+                          dangerouslySetInnerHTML={{
+                            __html: post.excerpt,
+                          }}
+                        />
+                        <div className="bg-[#9eff51] rounded-[4px] cursor-pointer justify-center items-center gap-[15px] h-[40px] w-[123px] flex ">
+                          <Link
+                            to={`/blog/${post.slug}`}
+                            type="button"
+                            className="text-md"
+                          >
+                            Explore &#8599;
+                          </Link>
+                        </div>
+                      </div>
                     </Link>
                   </div>
-                </div>
-              </Link>
-            </div>
+                );
+              }
 
-            {/* Featured posts. */}
-            <div className=" w-full xl:w-1/2 h-fit flex flex-col gap-[20px] md:gap-[41px]">
-              {featuredPosts.map((post: any) => {
+              return null;
+            })}
+
+            {/* Featured post */}
+            <div className="w-full flex flex-col items-center justify-between gap-10">
+              {featuredPosts.map((post: any, _: any) => {
                 type TagsDataType = { name: string };
                 type TagsObjDataType = { [key: string]: string };
 
@@ -281,10 +324,12 @@ export default function Blog({ data }: any) {
                 //  Convert tags array to object.
                 tags.forEach((tag, _) => (tagsObj[tag.name] = tag.name));
 
-                //  Show only posts with featured tags
                 if (tagsObj.featured) {
                   return (
-                    <div key={post.id} className="w-full h-fit sm:h-fit">
+                    <div
+                      key={post.id}
+                      className={`${tagsObj.featured} | sm:h-fit w-full h-fit`}
+                    >
                       <div className="flex flex-col sm:flex-row w-full gap-[24px] h-fit ">
                         <Link
                           to={`/blog/${post.slug}`}
@@ -299,9 +344,9 @@ export default function Blog({ data }: any) {
 
                         <div className="w-full sm:w-[39%]">
                           <div className="flex justify-start items-center text-[12px]">
-                            <StaticImage
-                              src="../../assets/images/author.jpeg"
-                              alt={post.featuredImage.node.altText}
+                            <img
+                              src={post.author.node.avatar.url}
+                              alt={post.author.node.name}
                               className="w-[40px]  h-[40px] rounded-full object-cover mr-[10px]"
                             />
 
@@ -354,7 +399,7 @@ export const Head = () => <SEO title="Blog" />;
 
 export const query = graphql`
   query blogPosts {
-    allWpPost {
+    allWpPost(sort: { fields: date, order: DESC }) {
       nodes {
         id
         title
@@ -389,6 +434,13 @@ export const query = graphql`
         author {
           node {
             name
+            email
+            avatar {
+              url
+              width
+              height
+            }
+            description
           }
         }
       }
