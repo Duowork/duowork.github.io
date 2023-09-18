@@ -29,7 +29,7 @@ export default function Layout({ children }: any) {
   return (
     <main id="duowork">
       {/* Desktop navigation */}
-      {location !== undefined && location.pathname === "/" ? null : <Nav />}
+      {location && location.pathname === "/" ? null : <Nav />}
 
       {/* Mobile navigation */}
       <NavMobile />
