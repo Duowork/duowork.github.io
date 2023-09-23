@@ -2,134 +2,159 @@ import React, { useState } from "react";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import { Icon } from "@iconify/react";
+import { Formik } from "formik";
+import { toast } from "react-toastify";
+
+const subscribeFormInitValue = { email: "" };
+
+const toastNotify = (alertType: string, message: string) => {
+  if (alertType === "success") {
+    toast.success(message, {
+      hideProgressBar: true,
+      theme: "light",
+    });
+  }
+
+  if (alertType === "warning") {
+    toast.warning(message, {
+      hideProgressBar: true,
+      theme: "light",
+    });
+  }
+
+  if (alertType === "error") {
+    toast.error(message, {
+      hideProgressBar: true,
+      theme: "light",
+    });
+  }
+};
+
+const validateForm = (input: { email: string }) => {
+  const errors = {} as { email: string };
+  let message: string;
+
+  if (!input.email) {
+    console.log(input.email);
+    message = "Email field can not be empty 📭";
+
+    toastNotify("error", message);
+    errors.email = message;
+  } else if (input.email.length > 30) {
+    message = "Email characters are too long 🤥";
+
+    toastNotify("warning", message);
+    errors.email = message;
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(input.email)) {
+    message = "Invalid email address 👎🏿";
+
+    // toastNotify("error", message);
+    errors.email = message;
+  }
+};
 
 export default function Footer() {
-  const [state, setState] = useState({
-    isLoading: false,
-    email: "",
-    message: {
-      message: "",
-      color: "",
-    },
-    error: "",
-  });
 
-  const handleSubmit = async () => {
-    setState((state) => ({ ...state, isLoading: true }));
+  const handleSubmit = async (values: any, { resetForm }: any) => {
 
-    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    console.log(process.env.GATSBY_GET_RESPONSE_KEY);
 
-    // match email
-    if (state.email === "") {
-      setState((state) => ({
-        ...state,
-        isLoading: false,
-        message: {
-          message: "Email field can not be empty 👎🏿",
-          color: "text-red-800",
-        },
-      }));
-      return;
-    }
-
-    if (emailRegex.test(state.email) === false) {
-      console.log(emailRegex.test(state.email));
-      setState((state) => ({
-        ...state,
-        isLoading: false,
-        message: {
-          message: "Invalid email 👎🏿",
-          color: "text-red-800",
-        },
-      }));
-      return;
-    }
+    // Terminate request subsequent request if email value is empty
+    if (!values.email) return;
 
     try {
-      const res = await fetch("/api/subscriber", {
-        method: "POST",
+
+      const res = await fetch("api/subscribe", {
+        method: "GET",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
+          "X-Auth-Token": `api-key ${process.env.GATSBY_GET_RESPONSE_KEY}`,
         },
-        body: JSON.stringify({
-          name: "Lark",
-          campaign: { campaignId: "f1jOH" },
-          email: state.email,
-        }),
+        // body: JSON.stringify({
+        //   name: "Trailblaizer ✨",
+        //   campaign: { campaignId: "f1jOH" },
+        //   email: values.email,
+        // }),
       }).then((data) => data.json());
 
       // Email added to contact list.
       if (res.status === 202) {
-        setState((state) => ({
-          ...state,
-          isLoading: false,
-          email: "",
-          message: {
-            message: "You're now subscribed! TTYS 🎉📱",
-            color: "text-green-800",
-          },
-        }));
+        const message = "You're now subscribed! TTYS 🎉📱";
+
+        toastNotify("success", message);
       }
 
       // Conflict with data. Possibly data already exist.
       if (res.status === 409) {
-        setState((state) => ({
-          ...state,
-          isLoading: false,
-          email: "",
-          message: {
-            message: "This email is aready subscribed 👎🏿",
-            color: "text-red-800",
-          },
-        }));
+        const message = "This email is aready subscribed 👎🏿";
+
+        toastNotify("error", message);
       }
 
+      // Server error
       if (res.status === 500) {
-        setState((state) => ({
-          ...state,
-          isLoading: false,
-          email: "",
-          message: {
-            message: "There seem to be problem! Try again later ⏳",
-            color: "text-red-800",
-          },
-        }));
+        const message = "There seem to be problem! Try again later ⏳";
+        toastNotify("error", message);
       }
     } catch (e) {
-      setState((state) => ({
-        ...state,
-        isLoading: false,
-        email: "",
-        message: {
-          message: "Unable to send email!",
-          color: "text-red-800",
-        },
-      }));
+      const message = "Unable to send email!";
+      toastNotify("error", message);
     }
   };
 
   return (
     <footer className="h-full">
-      <div className="newsletter bg-white flex flex-col md:flex-row items-center justify-evenly md:justify-around h-40 mx-auto rounded-md shadow-xl">
+      <div
+        id="#newsletter"
+        className="newsletter bg-white flex flex-col md:flex-row items-center justify-evenly md:justify-around h-0 sm:h-40 mx-auto rounded-md shadow-xl"
+      >
         <p
           id="newsletter-header"
           className="font-light w-[27rem] text-xl text-center md:text-3xl md:!w-[15rem]"
         >
           Subscribe To Our Newsletters
         </p>
-        <div className="newsletter__input-container border rounded-full pl-5 pr-2 py-2 h-20 flex items-center justify-between mb-3 sm:mb-0">
-          <input
-            type="email"
-            placeholder="Enter your mail"
-            className="border-0 outline-0 w-full sm:self-left"
-          />
-          <button
-            type="button"
-            className="Newsletter subscribe-btn text-sm hidden sm:block"
-          >
-            Subscribe
-          </button>
-        </div>
+        <Formik
+          initialValues={subscribeFormInitValue}
+          onSubmit={handleSubmit}
+          validate={validateForm}
+        >
+          {({
+            values,
+            errors,
+            touched,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            isSubmitting,
+          }) => (
+            <form onSubmit={handleSubmit} className="">
+              <div className="newsletter__input-container border rounded-full pl-5 pr-2 py-2 h-20 flex items-center justify-between mb-3 sm:mb-0">
+                <input
+                  id="newsletter-input"
+                  name="email"
+                  type="email"
+                  placeholder="Enter your mail"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.email}
+                  className="border-0 outline-0 w-full sm:self-left"
+                />
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="Newsletter subscribe-btn text-sm hidden sm:block"
+                >
+                  Subscribe
+                </button>
+              </div>
+              <small className="text-[0.7rem] text-red-300">
+                {touched.email && errors.email}
+              </small>
+              {/* <span className="block w-5 h-5 bg-green-400 rounded-full p-2 my-[0.5rem]"></span> */}
+            </form>
+          )}
+        </Formik>
         <button
           id="mobile-subscribe-btn"
           type="button"
