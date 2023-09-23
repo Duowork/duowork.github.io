@@ -1,4 +1,5 @@
 /*GatsbyJS build-time functionalities*/
+
 const path = require("path");
 const { slash } = require("gatsby-core-utils");
 

@@ -3,7 +3,7 @@ import { Link, useStaticQuery, graphql } from "gatsby";
 import {StaticImage} from "gatsby-plugin-image";
 // Components
 import Layout from "../layouts/layout";
-import Head from "../sharedComponents/Head";
+import SEO from "../sharedComponents/SEO";
 import Nav from "../sharedComponents/navMenu/Nav";
 import Button from "../sharedComponents/Button";
 // import TestimonialsSection from "./__testimonialsSection";
@@ -15,6 +15,8 @@ import heroImage4 from "../assets/images/hero-image4.jpeg";
 import cloudPlaymp4 from "../assets/video/cloudplay.mp4";
 import cloudPlaywebm from "../assets/video/cloudplay.webm";
 import { Icon } from "@iconify/react";
+
+export const Head = () => (<SEO title="Home" />);
 
 export default function LandingPage({ location }: any) {
 
@@ -54,13 +56,12 @@ export default function LandingPage({ location }: any) {
 
   return (
     <Layout>
-      <Head title="Home" />
 
       <section
         id="hero-section"
         className="h-[40rem] md:h-[50rem] lg:h-[45rem]"
         style={{
-          backgroundImage: `url(${heroImage2})`,
+          backgroundImage: `url(${heroImage4})`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: `top`,
           backgroundSize: `cover`,
@@ -80,7 +81,7 @@ export default function LandingPage({ location }: any) {
               id="hero-title"
               className="text-white text-2xl md:text-4xl lg:text-6xl text-center font-bold w-3/4 self-center"
             >
-              Tailor-made design and Software Solution for{" "}
+              Tailor-made Software and Design Solution for{" "}
               <span className="custom-bg-green-accent text-black px-2">
                 Business Success
               </span>
@@ -684,7 +685,7 @@ export default function LandingPage({ location }: any) {
             alt=""
             width={350}
             height={350}
-            className="rounded-md hidden lg:block"
+            className="rounded-md !hidden lg:!block"
           />
         </div>
       </section>

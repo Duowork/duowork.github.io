@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import { Icon } from "@iconify/react";
 import { Link } from "gatsby";
 
-
 export default function NavMobile() {
   // Navigation ref
   const navInitOpen = useRef<any>(null);
@@ -14,9 +13,7 @@ export default function NavMobile() {
     const mobileNavElem = mobileNav.current;
     const targetElement = e.target;
 
-    if (
-      targetElement.attributes.id.nodeValue === "navInitOpen"
-    ) {
+    if (targetElement.attributes.id.nodeValue === "navInitOpen") {
       if (mobileNavElem !== null) {
         mobileNavElem.classList.add("mobile-nav-container");
 
@@ -28,9 +25,7 @@ export default function NavMobile() {
           navInitClose.current.style.display = "block";
         }
       }
-    } else if (
-      targetElement.attributes.id.nodeValue === "navInitClose"
-    ) {
+    } else if (targetElement.attributes.id.nodeValue === "navInitClose") {
       // Else it'll be 'navInitClose'
 
       if (mobileNavElem !== null) {
@@ -56,8 +51,7 @@ export default function NavMobile() {
       <div id="open-close-icons" className="p-2 rounded">
         <button
           type="button"
-          id="openMobileNav"
-          className="block"
+          className="mobile-nav-init | block w-full h-fulll text-2xl"
           title="Open nav menu"
           onClick={(e) => handleToggle(e)}
         >
@@ -69,17 +63,16 @@ export default function NavMobile() {
               ref={navInitOpen}
             /> */}
           <Icon
-            icon="eva:menu-2-fill"
             id="navInitOpen"
-            className="mobile-nav-init | block w-full h-full text-2xl custom-text-dark"
+            icon="heroicons-outline:menu-alt-3"
             ref={navInitOpen}
+            className="block custom-text-dark"
           />
         </button>
 
         <button
           type="button"
-          id="closeMobileNav"
-          className="block"
+          className="mobile-nav-init | block w-full h-full text-2xl"
           title="Open nav menu"
           onClick={(e) => handleToggle(e)}
         >
@@ -92,10 +85,10 @@ export default function NavMobile() {
             /> */}
 
           <Icon
-            icon="eva:menu-2-fill"
             id="navInitClose"
-            className="mobile-nav-init | hidden w-full h-full text-2xl custom-text-dark"
+            icon="heroicons-outline:menu-alt-3"
             ref={navInitClose}
+            className="hidden custom-text-dark"
           />
         </button>
       </div>
@@ -117,9 +110,9 @@ export default function NavMobile() {
           </Link>
         </li>
         <li className="nav-item-link">
-          <Link to="/blog" className="link">
+          {/* <Link to="/blog" className="link">
             Blog <Icon icon="material-symbols:news" className="link-icon" />
-          </Link>
+          </Link> */}
         </li>
         <li className="nav-item-link">
           <Link

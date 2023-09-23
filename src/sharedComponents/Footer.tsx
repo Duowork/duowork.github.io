@@ -211,9 +211,9 @@ export default function Footer() {
             <p className="items">
               <Link to="/#our-work">Portfolio</Link>
             </p>
-            <p className="items">
+            {/* <p className="items">
               <Link to="/blog">Blog</Link>
-            </p>
+            </p> */}
             <p className="items">
               <Link to="/#our-services">Contact us</Link>
             </p>
