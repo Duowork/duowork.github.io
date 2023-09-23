@@ -57,12 +57,12 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  {/* <i className="fa fa-email fa-1x" aria-hidden="true"></i> {" "} */}
+                  <i className="fa fa-email fa-1x" aria-hidden="true"></i> {" "}
                   <span>reach@duowork.tech</span>
                 </div>
 
                 <div>
-                  {/* <i className="fa fa-location fa-1x" aria-hidden="true"></i> {" "} */}
+                  <i className="fa fa-location fa-1x" aria-hidden="true"></i> {" "}
                   <span>Abuja, Nigeria</span>
                 </div>
               </div>
