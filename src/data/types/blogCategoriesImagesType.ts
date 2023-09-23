@@ -3,7 +3,7 @@ type BlogCategoriesImagesType = {
   design: string;
   "software development": string;
   startup: string;
-  "use-case": string;
+  "use-cases": string;
   duowork: string;
   founder: string;
   marketing: string;

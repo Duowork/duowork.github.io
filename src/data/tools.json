@@ -4,15 +4,15 @@
     "tools": [
       {
         "name": "figma",
-        "logo": "../src/assets/images/tools/figma98.png"
+        "logo": "../assets/images/tools/figma98.png"
       },
       {
         "name": "Photoshop",
-        "logo": "../src/assets/images/tools/photoshop96.png"
+        "logo": "../assets/images/tools/photoshop96.png"
       },
       {
         "name": "Illustration",
-        "logo": "../src/assets/images/tools/illustrator96.png"
+        "logo": "../assets/images/tools/illustrator96.png"
       }
     ]
   },
@@ -21,19 +21,19 @@
     "tools": [
       {
         "name": "ReactJS",
-        "logo": "../src/assets/images/tools/react96.png"
+        "logo": "../assets/images/tools/react96.png"
       },
       {
         "name": "GatsbyJS",
-        "logo": "../src/assets/images/tools/gatsbyjs96.png"
+        "logo": "../assets/images/tools/gatsbyjs96.png"
       },
       {
         "name": "NextJS",
-        "logo": "../src/assets/images/tools/Nextjs.png"
+        "logo": "../assets/images/tools/Nextjs.png"
       },
       {
         "name": "TypeScript",
-        "logo": "../src/assets/images/tools/typescript96.png"
+        "logo": "../assets/images/tools/typescript96.png"
       }
     ]
   },
@@ -42,11 +42,11 @@
     "tools": [
       {
         "name": "React Native",
-        "logo": "../src/assets/images/tools/react96.png"
+        "logo": "../assets/images/tools/react96.png"
       },
       {
         "name": "Flutter",
-        "logo": "../src/assets/images/tools/flutter96.png"
+        "logo": "../assets/images/tools/flutter96.png"
       }
     ]
   },
@@ -55,15 +55,15 @@
     "tools": [
       {
         "name": "Django",
-        "logo": "../src/assets/images/tools/django96.png"
+        "logo": "../assets/images/tools/django96.png"
       },
       {
         "name": "ExpressJS",
-        "logo": "../src/assets/images/tools/expressjs96.png"
+        "logo": "../assets/images/tools/expressjs96.png"
       },
       {
         "name": "Headless CMS",
-        "logo": "../src/assets/images/tools/wordpress.png"
+        "logo": "../assets/images/tools/wordpress.png"
       }
     ]
   },
@@ -72,15 +72,15 @@
     "tools": [
       {
         "name": "MySQL",
-        "logo": "../src/assets/images/tools/mysql96.png"
+        "logo": "../assets/images/tools/mysql96.png"
       },
       {
         "name": "PostgreSQL",
-        "logo": "../src/assets/images/tools/postgresql96.png"
+        "logo": "../assets/images/tools/postgresql96.png"
       },
       {
         "name": "MongoDB",
-        "logo": "../src/assets/images/tools/mongodb96.png"
+        "logo": "../assets/images/tools/mongodb96.png"
       }
     ]
   },
@@ -89,15 +89,15 @@
     "tools": [
       {
         "name": "AWS",
-        "logo": "../src/assets/images/tools/aws96.png"
+        "logo": "../assets/images/tools/aws96.png"
       },
       {
         "name": "Azure",
-        "logo": "../src/assets/images/tools/azure96.png"
+        "logo": "../assets/images/tools/azure96.png"
       },
       {
         "name": "GCP",
-        "logo": "../src/assets/images/tools/GCP96.png"
+        "logo": "../assets/images/tools/GCP96.png"
       }
     ]
   },
@@ -106,15 +106,15 @@
     "tools": [
       {
         "name": "GitHub Actions",
-        "logo": "../src/assets/images/tools/github96.png"
+        "logo": "../assets/images/tools/github96.png"
       },
       {
         "name": "Docker",
-        "logo": "../src/assets/images/tools/docker96.png"
+        "logo": "../assets/images/tools/docker96.png"
       },
       {
         "name": "Jenkins",
-        "logo": "../src/assets/images/tools/jenkins96.png"
+        "logo": "../assets/images/tools/jenkins96.png"
       }
     ]
   }
