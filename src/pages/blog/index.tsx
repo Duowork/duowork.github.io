@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, graphql } from "gatsby";
-import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage, getSrcSet, getSrc } from "gatsby-plugin-image";
 import Layout from "../../layouts/layout";
 import SEO from "../../sharedComponents/SEO";
 import {
@@ -19,8 +19,6 @@ export default function Blog({ data }: any) {
   const allWpCategories: AllWpCategoriesPageType[] =
     data.allWpCategory.nodes.slice(0, 6);
 
-  const image1: any = getImage(posts[0].featuredImage.node.gatsbyImage);
-
   // Featured posts
   const featuredPosts = posts.filter((post: any, _: any) => {
     if (post.tags.nodes.length !== 0) {
@@ -31,13 +29,9 @@ export default function Blog({ data }: any) {
     }
   });
 
-  console.log(featuredPosts);
-
   // Latest. Fetch 3 resent posts
   const latestPosts = posts.slice(0, 3);
-
-  // console.log(latestPosts);
-
+ 
   useEffect(() => {
     const interval = setInterval(() => {
       // Update the current slide index every 5 seconds
@@ -96,25 +90,34 @@ export default function Blog({ data }: any) {
               }}
             >
               {latestPosts.map((post: any) => {
-                const image: any = getImage(
+                const sliderImage: any = getImage(
                   post.featuredImage.node.gatsbyImage,
                 );
                 const highlightedPostTag = post.categories.nodes[0].name;
 
+                const x = getSrcSet(post.featuredImage.node.gatsbyImage);
+                const s = getSrc(post.featuredImage.node.gatsbyImage);
+
+                console.log(sliderImage);
+
                 return (
                   <div
                     key={post.id}
-                    className="slide  rounded-sm overflow-hidden flex mb-[76px] text-white items-center pl-[10px] md:pl-[40px] h-[350px] md:h-[450px] relative"
+                    className="slide | rounded-sm overflow-hidden flex mb-[76px] text-white items-center h-[350px] md:h-[450px]"
                   >
-                    <Link to={`/blog/${post.slug}`}>
+                    <Link
+                      to={`/blog/${post.slug}`}
+                      className="h-full w-full relative rounded-sm"
+                    >
                       <GatsbyImage
-                        image={image}
+                        image={sliderImage}
                         alt={post.featuredImage.node.altText}
-                        className="absolute top-0 rounded-[8px] overflow-hidden  left-0 w-full h-full object-cover"
+                        className="absolute top-0 rounded-sm overflow-hidden  left-0 w-full h-full object-cover"
                       />
 
                       <div className="absolute bgStyle  h-full  top-0 left-0 w-full"></div>
-                      <div className="absolute bottom-[10px] md:bottom-[49px]">
+
+                      <div className="absolute bottom-[10px] md:bottom-[49px] pl-[10px] md:pl-[40px]">
                         <div className="rounded-[100px] md:mb-[16px] mb-[8px] text-black bg-[#9EFF51] py-2 md:py-6 w-fit h-[32px] px-[12px] flex justify-center items-center">
                           {" "}
                           <span className="w-[6px] h-[6px] rounded-full mr-[6px] bg-[#222222]"></span>{" "}
@@ -139,16 +142,14 @@ export default function Blog({ data }: any) {
                               <small className="font-[600] text-[10px] md:text-[16px] leading-[19px]">
                                 {post.date}
                               </small>{" "}
-                              {/* <div className="w-[4px] h-[4px] rounded-full text-white bg-white mx-3 md:mx-10"></div>{" "} */}
-                              <small className="font-[400] text-[9px] md:text-[14px] leading-[10px] md:leading-[17px]">
-                                {/* 5 Min Read */}
-                              </small>{" "}
                             </div>
                           </div>
                         </div>
                       </div>
+
                       <div className="w-[35px] md:w-[59px] flex justify-center items-center h-[35px]  md:h-[47px]  text-black bg-[#26311d] absolute bottom-0 right-[5px]"></div>
                       <div className="w-[40px] md:w-[64px] flex justify-center items-center h-[40px]  md:h-[58px]  text-black bg-[#78985e] absolute bottom-0 right-[11px]"></div>
+
                       <div className="w-[45px] md:w-[70px]  flex justify-center items-center  md:h-[58px] h-[40px]  text-black bg-[#9EFF51] absolute bottom-0 right-[21px]">
                         <div className="flex w-fit h-fit items-start justify-center">
                           <h1 className="text-[10px] md:text-[25px] font-[700]">
@@ -250,10 +251,7 @@ export default function Blog({ data }: any) {
                     className={`${tagsObj.highlight} | w-full`}
                     key={post.id}
                   >
-                    <Link
-                      to={`/blog/${post.slug}`}
-                      className="h-full w-full"
-                    >
+                    <Link to={`/blog/${post.slug}`} className="h-full w-full">
                       <GatsbyImage
                         image={highlightedPostImage}
                         alt={post.featuredImage.node.altText}
@@ -354,18 +352,22 @@ export default function Blog({ data }: any) {
                               <span className="text-[14px] font-[500]">
                                 {post.author.node.name}
                               </span>
+
                               <span
                                 className="mx-1 font-bold text-2xl"
                                 style={{ verticalAlign: "text-bottom" }}
                               >
                                 .
                               </span>
+
                               <span> {post.date}</span>
                             </div>
                           </div>
+
                           <h1 className="text-left font-[600] my-5 text-[18px] line-clamp-2">
                             {post.title}
                           </h1>
+
                           <p
                             className="text-left text-sm font-medium mb-5 line-clamp-2"
                             dangerouslySetInnerHTML={postExercpt}
