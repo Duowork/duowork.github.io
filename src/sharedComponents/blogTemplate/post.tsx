@@ -1,10 +1,10 @@
 /*Blog post template for dynamic content generated from Wordpress.*/
- 
 
 import React from "react";
 import { Link, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
+import AuthorBio from "./AuthorBio";
 import Layout from "../../layouts/layout";
 import Head from "../Head";
 
@@ -16,10 +16,19 @@ export default function Posts({ data }: any) {
   const postExcerpt = { __html: post.excerpt };
   const postContent = { __html: post.content };
   const bannerImage: any = getImage(post.featuredImage.node.gatsbyImage);
-
   const postTag = post.tags.nodes.length !== 0 ? post.tags.nodes[0].name : "";
 
-  // console.log(post);
+  const authorName: string = post.author.node.name;
+  const authorImage: string = post.author.node.avatar.url;
+  const authorDescription: string = post.author.node.description;
+  const authorEmail: string = post.author.node.email;
+
+
+  const authorBioData = {
+    authorImage,
+    authorName,
+    authorDescription,
+  };
 
   return (
     <Layout>
@@ -27,7 +36,7 @@ export default function Posts({ data }: any) {
         id="blog-post-container"
         className="flex flex-col items-center mb-60"
       >
-        <header id="post-header" className="mb-10 max-w-[700px]">
+        <header id="post-header" className="mb-10 max-w-[700px] px-10 sm:px-0">
           <div className="breadcrumb-nav mb-20 pt-5 text-center text-sm">
             <Link to="/" className="custom-text-dark">
               Home
@@ -64,11 +73,11 @@ export default function Posts({ data }: any) {
           >
             <div id="post-author" className="mr-5 flex items-center">
               <img
-                src={post.author.node.avatar.url}
+                src={authorImage}
                 alt="image"
                 className="w-10 h-10 rounded-full ml-2 object-cover mr-2"
               />{" "}
-              <small>{post.author.node.name}</small>
+              <small>{authorName}</small>
             </div>
 
             <div id="post-date">
@@ -95,9 +104,11 @@ export default function Posts({ data }: any) {
 
         <section
           id="post-content"
-          className="max-w-[700px]"
+          className="max-w-[700px] px-10 sm:px-0"
           dangerouslySetInnerHTML={postContent}
         />
+
+        <AuthorBio data={{ authorImage, authorName, authorDescription, authorEmail }} />
       </article>
     </Layout>
   );
