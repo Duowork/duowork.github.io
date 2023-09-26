@@ -7,6 +7,9 @@ import Layout from "../../layouts/layout";
 import Head from "../../sharedComponents/Head";
 import ContactForm from "./__ContactForm";
 
+// Icons
+import {EnvelopeIcon, MapPinIcon} from "@heroicons/react/24/outline"
+
 export default function Contact() {
   return (
     <Layout>
@@ -28,7 +31,7 @@ export default function Contact() {
           </h2>
 
           <p className="text-sm text-gray-400 font-light text-center px-[3.5rem] sm:px-5 ">
-            Let us know by filling form and we'll get back to you ASAP!
+            fill the form below and we'll get back to you ASAP!
           </p>
         </div>
 
@@ -51,18 +54,18 @@ export default function Contact() {
               </div>
 
               <div className="text-white flex flex-col items-start justify-between h-[200px]">
-                <div>
+                {/* <div>
                   <i className="fa fa-phone fa-1x" aria-hidden="true"></i>{" "}
                   <a href="tel:+2347030259781">+234707654321</a>
-                </div>
+                </div> */}
 
                 <div>
-                  <i className="fa fa-email fa-1x" aria-hidden="true"></i> {" "}
+                  <EnvelopeIcon className="w-7 h-7 inline-block"/> {" "}            
                   <span>reach@duowork.tech</span>
                 </div>
 
                 <div>
-                  <i className="fa fa-location fa-1x" aria-hidden="true"></i> {" "}
+                  <MapPinIcon className="w-7 h-7 inline-block"/>
                   <span>Abuja, Nigeria</span>
                 </div>
               </div>
@@ -129,24 +132,24 @@ export default function Contact() {
               Why <span className="custom-bg-green-accent">choose us</span>
             </h2>
             <p className="font-light px-2 mb-5 sm:px-5 md:px-0">
-              At Duowork, we passionate about helping businesses and startups
+              At Duowork, we are passionate about helping businesses and startups
               succeed by providing tailor-made software solutions that drives
               growth and innovation.{" "}
               <span className="hidden">
                 With years of experience in the industry
               </span>
-              Our team of skilled developers, designers, and tech enthusiasts is
-              dedicated to delivery high-quality, custom software solutions that
-              align with your unique business objectives.
+              Our team of skilled developers, designers, and tech enthusiasts are
+              dedicated to delivery high-quality, custom solutions that
+              align with business objectives.
             </p>
           </div>
 
           <StaticImage
-            src="../../assets/images/contact-page-image.jpeg"
+            src="../../assets/images/why-work.jpeg"
             alt="Duowork team representatiion"
             width={450}
             height={250}
-            className="rounded-md shadow-md md:ml-5"
+            className="rounded-md shadow-md md:ml-5 shadow-md"
           />
         </div>
       </section>

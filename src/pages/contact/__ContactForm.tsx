@@ -170,7 +170,7 @@ export default function ContactForm() {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.clientEmail}
-                    placeholder="username@host.com"
+                    placeholder="username@example.com"
                     className="select-label mt-1 block w-full text-sm font-light text-sm border focus:outline-none p-2 rounded-md"
                   />
                   <small className="text-red-400">
@@ -209,7 +209,7 @@ export default function ContactForm() {
                     </option>
                     <option value="Task automation">Task automation</option>
                     <option value="Software code management">
-                      web app redesign and rework
+                      App redesign and rework
                     </option>
                     <option value="Other">Other</option>
                   </select>
@@ -220,7 +220,7 @@ export default function ContactForm() {
                   </small>
                 </div>
 
-                <div className="col-span-6">
+                {/* <div className="col-span-6">
                   <label
                     htmlFor="#service-budget"
                     className="w-full block text-sm"
@@ -248,7 +248,7 @@ export default function ContactForm() {
                       touched.serviceBudget &&
                       errors.serviceBudget}
                   </small>
-                </div>
+                </div> */}
 
                 <div className="col-span-6">
                   <label
