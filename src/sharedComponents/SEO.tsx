@@ -1,6 +1,6 @@
 /*
   Gatsby uses this component to insert data in  
-  the <head> elmenent of the HMTL document. This also helps improve SEO
+  the <head> elmenent of the HMTL document. This helps improve SEO
 */
 
 import React from "react";
