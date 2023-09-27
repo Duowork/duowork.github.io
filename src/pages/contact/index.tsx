@@ -4,16 +4,17 @@ import { StaticImage } from "gatsby-plugin-image";
 
 /* Components */
 import Layout from "../../layouts/layout";
-import Head from "../../sharedComponents/Head";
+import SEO from "../../sharedComponents/SEO";
 import ContactForm from "./__ContactForm";
 
 // Icons
 import {EnvelopeIcon, MapPinIcon} from "@heroicons/react/24/outline"
 
+export const Head = () => (<SEO title="Contact us" />);
+
 export default function Contact() {
   return (
     <Layout>
-      <Head title="Contact us" />
 
       <section id="duowork-contact-form" className="h-auto mt-5 bg-white">
         <div className="breadcrumb-nav mb-10 pt-5 text-center text-sm">
