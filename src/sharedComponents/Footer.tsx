@@ -4,6 +4,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import { Icon } from "@iconify/react";
 import { Formik } from "formik";
 import { toast } from "react-toastify";
+import sendContact from "../APIs/mailJet";
 
 const subscribeFormInitValue = { email: "" };
 
@@ -39,63 +40,38 @@ const validateForm = (input: { email: string }) => {
     message = "Email field can not be empty 📭";
 
     toastNotify("error", message);
-    errors.email = message;
+    // errors.email = message;
   } else if (input.email.length > 30) {
     message = "Email characters are too long 🤥";
 
     toastNotify("warning", message);
-    errors.email = message;
+    // errors.email = message;
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(input.email)) {
     message = "Invalid email address 👎🏿";
 
     // toastNotify("error", message);
     errors.email = message;
   }
+
+  return errors;
 };
 
 export default function Footer() {
-
   const handleSubmit = async (values: any, { resetForm }: any) => {
-
-    console.log(process.env.GATSBY_GET_RESPONSE_KEY);
 
     // Terminate request subsequent request if email value is empty
     if (!values.email) return;
 
     try {
+      const data = {
+        isExcludedFromCampaign: false,
+        name: "Trailblazer",
+        email: values.email,
+      };
 
-      const res = await fetch("api/subscribe", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json;charset=utf-8",
-          "X-Auth-Token": `api-key ${process.env.GATSBY_GET_RESPONSE_KEY}`,
-        },
-        // body: JSON.stringify({
-        //   name: "Trailblaizer ✨",
-        //   campaign: { campaignId: "f1jOH" },
-        //   email: values.email,
-        // }),
-      }).then((data) => data.json());
+      const auth = `${process.env.GATSBY_MAILJET_PUBLIC_KEY}:${process.env.GATSBY_MAILJET_SECRET_KEY}`;
 
-      // Email added to contact list.
-      if (res.status === 202) {
-        const message = "You're now subscribed! TTYS 🎉📱";
-
-        toastNotify("success", message);
-      }
-
-      // Conflict with data. Possibly data already exist.
-      if (res.status === 409) {
-        const message = "This email is aready subscribed 👎🏿";
-
-        toastNotify("error", message);
-      }
-
-      // Server error
-      if (res.status === 500) {
-        const message = "There seem to be problem! Try again later ⏳";
-        toastNotify("error", message);
-      }
+      sendContact("api/subscribe", "POST", auth, data, toastNotify);
     } catch (e) {
       const message = "Unable to send email!";
       toastNotify("error", message);
@@ -104,7 +80,7 @@ export default function Footer() {
 
   return (
     <footer className="h-full">
-      <div
+      {/* <div
         id="#newsletter"
         className="newsletter bg-white flex flex-col md:flex-row items-center justify-evenly md:justify-around h-0 sm:h-40 mx-auto rounded-md shadow-xl"
       >
@@ -151,7 +127,7 @@ export default function Footer() {
               <small className="text-[0.7rem] text-red-300">
                 {touched.email && errors.email}
               </small>
-              {/* <span className="block w-5 h-5 bg-green-400 rounded-full p-2 my-[0.5rem]"></span> */}
+              <span className="block w-5 h-5 bg-green-400 rounded-full p-2 my-[0.5rem]"></span>
             </form>
           )}
         </Formik>
@@ -162,7 +138,7 @@ export default function Footer() {
         >
           Subscribe
         </button>
-      </div>
+      </div> */}
 
       <div className="center p-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 justify-center md:justify-items-center gap-8">
         <div id="logo-container" className="text-white">
@@ -175,8 +151,7 @@ export default function Footer() {
             </a>
           </div>
           <p className="items text-sm">
-            We help businesses and startups build and manage their digital ideas
-            througn custom software solutions.
+           Tailor-made software for business success.
           </p>
           <p className="icons items">
             <a
@@ -189,7 +164,7 @@ export default function Footer() {
               reach@duowork.tech
             </a>
           </p>
-          <p className="icons items">
+          {/* <p className="icons items">
             <a
               href="tel:+2347030259781"
               target={"_blank"}
@@ -199,7 +174,7 @@ export default function Footer() {
               <Icon icon="mdi:phone" className="text-gray-400 text-2xl mr-2" />
               +2347030259781
             </a>
-          </p>
+          </p> */}
         </div>
 
         <div id="menu" className="text-white">
@@ -264,7 +239,7 @@ export default function Footer() {
             </p>
           </div>
           <p className="items">
-            <a href="#">Jobs</a>
+            {/* <a href="#">Jobs</a> */}
           </p>
         </div>
       </div>
