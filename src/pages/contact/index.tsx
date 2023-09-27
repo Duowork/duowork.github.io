@@ -10,7 +10,7 @@ import ContactForm from "./__ContactForm";
 // Icons
 import {EnvelopeIcon, MapPinIcon} from "@heroicons/react/24/outline"
 
-export const Head = () => (<SEO title="Contact us" description="How can we be of service?" />);
+export const Head = () => (<SEO title="Contact us" />);
 
 export default function Contact() {
   return (
