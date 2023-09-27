@@ -38,9 +38,9 @@ export default function Nav(): React.ReactElement | null {
         <li className="nav-item-link">
           <Link to="/#services-section">Service</Link>
         </li>
-        {/* <li className="nav-item-link">
+        <li className="nav-item-link">
           <Link to="/blog">Blog</Link>
-        </li> */}
+        </li>
       </ul>
 
       <div className="hidden md:flex items-center justify-evenly w-[20%] landing-page-nav__item-right">
