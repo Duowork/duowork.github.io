@@ -2,13 +2,20 @@
 
 import React from "react";
 import { Link, graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage, getSrc } from "gatsby-plugin-image";
 
 import AuthorBio from "./AuthorBio";
 import Layout from "../../layouts/layout";
-import Head from "../Head";
+import SEO from "../SEO";
 
-export const head = () => <Head />;
+export const Head = ({ data }: any) => {
+  const post = data.post;
+  const blogThumbnailImage = getSrc(post.featuredImage.node.gatsbyImage);
+
+  return (
+    <SEO title="Blog" description={post.title} image={blogThumbnailImage} />
+  );
+};
 
 export default function Posts({ data }: any) {
   const post = data.post;
@@ -22,13 +29,6 @@ export default function Posts({ data }: any) {
   const authorImage: string = post.author.node.avatar.url;
   const authorDescription: string = post.author.node.description;
   const authorEmail: string = post.author.node.email;
-
-
-  const authorBioData = {
-    authorImage,
-    authorName,
-    authorDescription,
-  };
 
   return (
     <Layout>
@@ -108,7 +108,9 @@ export default function Posts({ data }: any) {
           dangerouslySetInnerHTML={postContent}
         />
 
-        <AuthorBio data={{ authorImage, authorName, authorDescription, authorEmail }} />
+        <AuthorBio
+          data={{ authorImage, authorName, authorDescription, authorEmail }}
+        />
       </article>
     </Layout>
   );
