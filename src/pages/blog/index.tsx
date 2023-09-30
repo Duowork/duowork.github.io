@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, graphql } from "gatsby";
-import { GatsbyImage, getImage, getSrcSet, getSrc } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../../layouts/layout";
 import SEO from "../../sharedComponents/SEO";
 import {
@@ -94,11 +94,6 @@ export default function Blog({ data }: any) {
                   post.featuredImage.node.gatsbyImage,
                 );
                 const highlightedPostTag = post.categories.nodes[0].name;
-
-                const x = getSrcSet(post.featuredImage.node.gatsbyImage);
-                const s = getSrc(post.featuredImage.node.gatsbyImage);
-
-                console.log(sliderImage);
 
                 return (
                   <div
