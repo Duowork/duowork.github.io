@@ -1,4 +1,6 @@
-require("dotenv").config({ path: `./.env${process.env.NODE_ENV}` });
+require("dotenv").config({ path: `./.env.development` });
+
+console.log(process.env.WPGRAPHQL_URL);
 
 module.exports = {
   // Document head meta configuration
@@ -59,18 +61,28 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
+        verbose: true,
+        // allows a fallback url if WPGRAPHQL_URL is not set in the env, this may be a local or remote WP instance.
         url:
-          // allows a fallback url if WPGRAPHQL_URL is not set in the env, this may be a local or remote WP instance.
-          process.env.WPGRAPHQL_URL ||
-          `http://duowork-headless-backend.local/graphql`,
+          process.env.NODE_ENV === `development`
+            ? `http://duowork-headless-backend.local/graphql`
+            : process.env.WPGRAPHQL_URL,
+        html: {
+          // Determines the image quality that Sharp will use when generating inline html image thumbnails.
+          imageQuality: 80,
+        },
         schema: {
           //Prefixes all WP Types with "Wp" so "Post and allPost" become "WpPost and allWpPost".
           typePrefix: `Wp`,
+          // The number of concurrent GraphQL requests to make at any time during node sourcing.
+          requestConcurrency: 10,
+          // The amount of time in ms before GraphQL requests will time out.
+          timeout: 50000,
         },
-        develop: {
-          //caches media files outside of Gatsby's default cache an thus allows them to persist through a cache reset.
-          hardCacheMediaFiles: true,
-        },
+        // develop: {
+        //   //caches media files outside of Gatsby's default cache an thus allows them to persist through a cache reset.
+        //   hardCacheMediaFiles: true,
+        // },
         type: {
           Post: {
             limit:
