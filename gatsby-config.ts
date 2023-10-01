@@ -1,7 +1,5 @@
 require("dotenv").config({ path: `./.env.development` });
 
-console.log(process.env.WPGRAPHQL_URL);
-
 module.exports = {
   // Document head meta configuration
   siteMetadata: {
