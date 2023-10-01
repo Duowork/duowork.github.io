@@ -9,47 +9,13 @@ import ToolsSection from "./__toolsSection";
 import { Icon } from "@iconify/react";
 
 // Media assets
-import bgImage from "../assets/images/cloudPlayImg.png";
 import heroImage2 from "../assets/images/hero-image2.jpeg";
 import heroImage4 from "../assets/images/hero-image4.jpeg";
-import cloudPlaymp4 from "../assets/video/cloudplay.mp4";
-import cloudPlaywebm from "../assets/video/cloudplay.webm";
 
 
 export const Head = () => (<SEO title="Home" />);
 
 export default function LandingPage({ location }: any) {
-
-  /*Background video should only play on stable network strength.
-  Connection object is available to Safari browser.*/
-  const BackgroundVideoPlayback = () => {
-    if (
-      typeof window !== "undefined" &&
-      window.navigator.connection !== undefined
-    ) {
-      const networkSpeed = window.navigator.connection.downlink;
-
-      // Check internet download speed
-      if (networkSpeed !== undefined && networkSpeed >= 1.5) {
-        return (
-          <>
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              poster={bgImage}
-              className="hidden sm:block"
-            >
-              <source src={cloudPlaymp4} type="video/mp4" />
-              <source src={cloudPlaywebm} type="video/webm" />
-            </video>
-          </>
-        );
-      }
-    }
-    return null;
-  };
 
   // JSON data for team, testimonial and tools section
   const { allTeamsJson, allTestimonialsJson, allToolsJson } = dataQuery();
@@ -61,7 +27,7 @@ export default function LandingPage({ location }: any) {
         id="hero-section"
         className="h-[40rem] md:h-[50rem] lg:h-[45rem]"
         style={{
-          backgroundImage: `url(${heroImage2})`,
+          backgroundImage: `url(${heroImage4})`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: `top`,
           backgroundSize: `cover`,
