@@ -108,9 +108,9 @@ export default function Posts({ data }: any) {
           dangerouslySetInnerHTML={postContent}
         />
 
-        <AuthorBio
+        {/* <AuthorBio
           data={{ authorImage, authorName, authorDescription, authorEmail }}
-        />
+        /> */}
       </article>
     </Layout>
   );
