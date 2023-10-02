@@ -47,7 +47,6 @@ export default function NavMobile() {
 
   return (
     <nav id="mobile-nav" className="flex md:!hidden" ref={mobileNav}>
-      {/* <div id="movile-nav-container"> */}
       <div id="open-close-icons" className="p-2 rounded">
         <button
           type="button"
@@ -55,13 +54,6 @@ export default function NavMobile() {
           title="Open nav menu"
           onClick={(e) => handleToggle(e)}
         >
-          {/* <img
-              id="navInitOpen"
-              src={navBurgerBar}
-              alt="Navbar open icon"
-              className="mobile-nav-init block"
-              ref={navInitOpen}
-            /> */}
           <Icon
             id="navInitOpen"
             icon="heroicons-outline:menu-alt-3"
@@ -76,14 +68,6 @@ export default function NavMobile() {
           title="Open nav menu"
           onClick={(e) => handleToggle(e)}
         >
-          {/* <img
-              id="navInitClose"
-              src={navXmark}
-              alt="Navbar close icon"
-              className="mobile-nav-init hidden"
-              ref={navInitClose}
-            /> */}
-
           <Icon
             id="navInitClose"
             icon="heroicons-outline:menu-alt-3"
@@ -110,9 +94,9 @@ export default function NavMobile() {
           </Link>
         </li>
         <li className="nav-item-link">
-          {/* <Link to="/blog" className="link">
+          <Link to="/blog" className="link">
             Blog <Icon icon="material-symbols:news" className="link-icon" />
-          </Link> */}
+          </Link>
         </li>
         <li className="nav-item-link">
           <Link
@@ -123,7 +107,6 @@ export default function NavMobile() {
           </Link>
         </li>
       </ul>
-      {/* </div> */}
     </nav>
   );
 }
