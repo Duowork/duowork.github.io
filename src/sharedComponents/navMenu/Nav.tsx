@@ -26,7 +26,7 @@ export default function Nav(): React.ReactElement | null {
       <ul
         id="nav-items"
         className={`hidden md:flex flex-row justify-between landing-page-nav__item-center ${
-          location?.pathname === "/" ? "text-white" : "text-black"
+          location !== undefined && location.pathname === "/" ? "text-white" : "text-black"
         }`}
       >
         <li className="nav-item-link">
