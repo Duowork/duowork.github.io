@@ -69,7 +69,7 @@ export default function Posts({ data }: any) {
 
           <div
             id="post-author-and-date"
-            className="flex flex-col sm:flex-row items-center my-5"
+            className="flex flex-row items-center my-5"
           >
             <div id="post-author" className="mr-5 flex items-center">
               <img
@@ -81,7 +81,7 @@ export default function Posts({ data }: any) {
             </div>
 
             <div id="post-date">
-              {/* Check for post has been update the present update date */}
+              {/* Logic should update date (in bracket as show below) when post is updated */}
               <small className="text-gray-400">
                 {post.date}
                 {/* (updated July 01, 2023) */}
