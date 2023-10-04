@@ -6,8 +6,9 @@ const blogCategoriesImages: BlogCategoriesImagesType = {
   "software development":
     "https://images.pexels.com/photos/1181359/pexels-photo-1181359.jpeg?auto=compress&cs=tinysrgb&w=800",
   startup:
-    "https://images.pexels.com/photos/7550298/pexels-photo-7550298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    "use-cases": "https://images.pexels.com/photos/8973487/pexels-photo-8973487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "https://images.pexels.com/photos/7550542/pexels-photo-7550542.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  "use-cases":
+    "https://images.pexels.com/photos/8973487/pexels-photo-8973487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   duowork: "/Duowork.webp",
   founder:
     "https://images.pexels.com/photos/8067769/pexels-photo-8067769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
