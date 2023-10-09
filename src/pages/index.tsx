@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
-import {StaticImage} from "gatsby-plugin-image";
+import { StaticImage } from "gatsby-plugin-image";
 import Layout from "../layouts/layout";
 import SEO from "../sharedComponents/SEO";
 import Nav from "../sharedComponents/navMenu/Nav";
@@ -12,17 +12,14 @@ import { Icon } from "@iconify/react";
 import heroImage2 from "../assets/images/hero-image2.jpeg";
 import heroImage4 from "../assets/images/hero-image4.jpeg";
 
-
-export const Head = () => (<SEO title="Home" />);
+export const Head = () => <SEO title="Home" />;
 
 export default function LandingPage({ location }: any) {
-
   // JSON data for team, testimonial and tools section
   const { allTeamsJson, allTestimonialsJson, allToolsJson } = dataQuery();
 
   return (
     <Layout>
-
       <section
         id="hero-section"
         className="h-[40rem] md:h-[50rem] lg:h-[45rem]"
@@ -57,7 +54,7 @@ export default function LandingPage({ location }: any) {
               className="text-white text-center mt-10 self-center text-lg px-[2.25rem] sm:px-0 font-light max-w-[35rem] sm:w-1/2"
             >
               We help businesses and startups build and manage their digital
-              ideas througn custom design and software solutions.
+              ideas through custom design and software solutions.
             </p>
 
             <Link
@@ -84,22 +81,20 @@ export default function LandingPage({ location }: any) {
 
       <section id="services-section" className="my-20">
         <div className="section-heading">
-        <span className="section-tag">
-          Our Services
-        </span>
-        <h2
-          id="service-header"
-          className="section-title"
-        >
-          What <span className="service-title__highlight | custom-bg-green-accent">we offer</span>
-        </h2>
+          <span className="section-tag">Our Services</span>
+          <h2 id="service-header" className="section-title">
+            What{" "}
+            <span className="service-title__highlight | custom-bg-green-accent">
+              we offer
+            </span>
+          </h2>
 
-        <p className="section-description">
-          Unlock your business potential with our tailor-made software
-          solutions. From custom web and mobile applications to cloud
-          development and e-commerce platforms, we deliver high-quality
-          solutions that drive growth and innovation.
-        </p>
+          <p className="section-description">
+            Unlock your business potential with our tailor-made software
+            solutions. From custom web and mobile applications to cloud
+            development and e-commerce platforms, we deliver high-quality
+            solutions that drive growth and innovation.
+          </p>
         </div>
 
         <div
@@ -209,8 +204,8 @@ export default function LandingPage({ location }: any) {
                 </h3>
 
                 <p className="text-white">
-                  We help business streamline their operations with task
-                  automation for increased productivity and efficiecy.
+                  We create powerful server-side applications. From database design 
+                  and optimization to API development, we ensure your system runs efficiently and securely.
                 </p>
               </div>
             </div>
@@ -235,62 +230,12 @@ export default function LandingPage({ location }: any) {
                 </h3>
 
                 <p className="text-white">
-                  We help business streamline their operations with task
-                  automation for increased productivity and efficiecy.
+                We bridge the gap between front-end and back-end with
+                our Fullstack Development proficiency. We'll handle everything
+                from crafting intuitive user interfaces to implementing robust
+                server logic.
                 </p>
               </div>
-            </div>
-          </div>
-
-          <div
-            id="backend-development-service"
-            className="services basis-1/3 rounded-xl p-7 mb-7 md:mb-0 md:mr-7 block lg:!hidden"
-          >
-            <div className="service-icon w-full">
-              <StaticImage
-                src="../assets/icons/be-dev.png"
-                alt="Product design icon"
-                width={40}
-                height={40}
-              />
-            </div>
-
-            <div className="service-description">
-              <h3 className="text-white text-xl font-semibold py-4">
-                <span className="underline-green-accent">Back</span>-end API
-                development
-              </h3>
-
-              <p className="text-white">
-                We help business streamline their operations with task
-                automation for increased productivity and efficiecy.
-              </p>
-            </div>
-          </div>
-
-          <div
-            id="fullstack-development-service"
-            className="services basis-1/3 rounded-xl p-7 block lg:!hidden"
-          >
-            <div className="service-icon w-full">
-              <StaticImage
-                src="../assets/icons/fs-dev.png"
-                alt="Full-stack development icon"
-                width={40}
-                height={40}
-              />
-            </div>
-
-            <div className="service-description">
-              <h3 className="text-white text-xl font-semibold py-4">
-                <span className="underline-green-accent">Full</span>-stack
-                development
-              </h3>
-
-              <p className="text-white">
-                We help business streamline their operations with task
-                automation for increased productivity and efficiecy.
-              </p>
             </div>
           </div>
         </div>
@@ -303,23 +248,19 @@ export default function LandingPage({ location }: any) {
         className="w-auto h-auto px-2 sm:px-10 mb-20"
       >
         <div className="section-heading">
-        <span className="section-tag">
-          Our Portfolio
-        </span>
-        <h2
-          id="portfolio-header"
-          className="section-title"
-        >
-          Project we've{" "}
-          <span className="service-title__highlight">worked on</span>
-        </h2>
+          <span className="section-tag">Our Portfolio</span>
+          <h2 id="portfolio-header" className="section-title">
+            Project we've{" "}
+            <span className="service-title__highlight">worked on</span>
+          </h2>
 
-        <p className="section-description">
-         Explore our impressive portfolio of successful solutions. 
-         Our expertise showcases through delivering innovative, user-centric, and scalable
-         software with aim of helping the clients achieve their objectives. 
-         We can bring you vision to life and drive your business forward.
-        </p>
+          <p className="section-description">
+            Explore our impressive portfolio of successful solutions. Our
+            expertise showcases through delivering innovative, user-centric, and
+            scalable software with aim of helping the clients achieve their
+            objectives. We can bring you vision to life and drive your business
+            forward.
+          </p>
         </div>
 
         <div
@@ -398,7 +339,7 @@ export default function LandingPage({ location }: any) {
                 className="portfolio-link | flex items-center justify-center text-center text-sm rounded-full"
                 rel="noopener"
               >
-               View work <Icon icon="solar:alt-arrow-right-linear" />
+                View work <Icon icon="solar:alt-arrow-right-linear" />
               </a>
             </div>
           </div>
@@ -563,7 +504,7 @@ export default function LandingPage({ location }: any) {
             <p className="process-description text-gray-700">
               This is where the solution is ready to go live. We launch the
               project and conduct an onboarding training for staff. We provide
-              support and are always availble for future project modifications
+              support and are always available for future project modifications
             </p>
           </div>
         </div>
@@ -640,7 +581,7 @@ export default function LandingPage({ location }: any) {
               Want to send us an email instead?
             </p>
             <a
-              href="mailto:reach.duowork@gmail.com"
+              href="mailto:reach@duowork.tech"
               className="custom-bg-green-accent rounded-full !px-4 !py-2 text-black"
             >
               reach@duowork.tech
@@ -736,7 +677,7 @@ type quertDataType = [
     clientCompany: string;
     clientImage: any;
     clientQuote: string;
-  }
+  },
 ];
 
 export function dataQuery() {
