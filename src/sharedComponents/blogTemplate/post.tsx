@@ -62,7 +62,7 @@ export default function Posts({ data }: any) {
 
           <h1
             id="post-title"
-            className="text-2xl sm:text-3xl font-semibold my-5 max-w-[600px]"
+            className="text-2xl md:text-3xl font-semibold my-5 max-w-[600px]"
           >
             {post.title}
           </h1>

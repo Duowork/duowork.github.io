@@ -1,6 +1,6 @@
 /*
   Gatsby uses this component to insert data in  
-  the <head> elmenent of the HTML document. This helps improve SEO
+  the <head> element of the HTML document. This helps improve SEO
 */
 
 import React from "react";
@@ -61,7 +61,7 @@ export default function SEO({
       <meta name="og:type" content="website" />
 
       {/* Twitter meta tags */}
-      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content={`@${seo.socialMedia.twitter}`} />
       <meta name="twitter:title" content={seo.title} />
       <meta

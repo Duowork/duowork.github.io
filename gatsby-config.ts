@@ -13,6 +13,8 @@ module.exports = {
     socialMedia: {
       twitter: `duoworkhq`,
       instagram: `duoworkhq`,
+      thread: `duoworkhq`,
+      linkedIn: `duowork`
     },
   },
 
