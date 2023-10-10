@@ -30,8 +30,6 @@ export default function LandingPage({ location }: any) {
           backgroundSize: `cover`,
         }}
       >
-        {/* Auto play */}
-        {/* <BackgroundVideoPlayback /> */}
 
         <div id="overlay" className="!h-full">
           <Nav />
@@ -121,8 +119,8 @@ export default function LandingPage({ location }: any) {
 
               <p className="text-white font-light">
                 We develop designs that encapsulate business idea and
-                requirement through precedural designs for optimized interfacing
-                and overal user experience.
+                requirement through procedural designs for optimized interfacing
+                and overall user experience.
               </p>
             </div>
           </div>

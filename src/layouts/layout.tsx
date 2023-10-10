@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 import Nav from "../sharedComponents/navMenu/Nav";
 import NavMobile from "../sharedComponents/navMenu/NavMobile";
@@ -13,7 +13,7 @@ export default function Layout({ children }: any) {
   const cursorDotRef = useRef<HTMLImageElement>(null);
   const cursorDotOutlineRef = useRef<HTMLImageElement>(null);
 
-  const location = typeof window !== "undefined" ? window.location : undefined;
+  const [showAltNav, setShowAltNav] = useState(false);
 
   useEffect((): any => {
     let componentIsMounted = true;
@@ -23,13 +23,15 @@ export default function Layout({ children }: any) {
       customCursor(cursorDotRef, cursorDotOutlineRef);
     }
 
+    if (typeof window !== "undefined") setShowAltNav(!showAltNav);
+
     return () => (componentIsMounted = false);
   }, []);
 
   return (
     <main id="duowork">
       {/* Desktop navigation */}
-      {location && location.pathname === "/" ? null : <Nav />}
+      {showAltNav && window.location.pathname !== "/" ? <Nav /> : null}
 
       {/* Mobile navigation */}
       <NavMobile />
