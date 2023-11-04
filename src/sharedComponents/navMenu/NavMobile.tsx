@@ -1,78 +1,36 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Icon } from "@iconify/react";
 import { Link } from "gatsby";
 
 export default function NavMobile() {
   // Navigation ref
-  const navInitOpen = useRef<any>(null);
-  const navInitClose = useRef<any>(null);
-  const mobileNav = useRef<HTMLElement>(null);
+  const mobileNavRef = useRef<HTMLElement>(null);
+  const mobileNavElem = mobileNavRef.current;
 
-  const handleToggle = (e: any) => {
-    e.preventDefault();
-    const mobileNavElem = mobileNav.current;
-    const targetElement = e.target;
+  const [showNav, setShowNav] = useState(false);
 
-    if (targetElement.attributes.id.nodeValue === "navInitOpen") {
-      if (mobileNavElem !== null) {
-        mobileNavElem.classList.add("mobile-nav-container");
-
-        if (navInitOpen.current !== null && navInitClose.current !== null) {
-          // Hide menu bar
-          navInitOpen.current.style.display = "none";
-
-          // show X mark
-          navInitClose.current.style.display = "block";
-        }
-      }
-    } else if (targetElement.attributes.id.nodeValue === "navInitClose") {
-      // Else it'll be 'navInitClose'
-
-      if (mobileNavElem !== null) {
-        if (mobileNavElem.classList.contains("mobile-nav-container")) {
-          // Remove class that shows nav
-          mobileNavElem.classList.remove("mobile-nav-container");
-
-          if (navInitOpen.current !== null && navInitClose.current !== null) {
-            // Hide X mark
-            navInitClose.current.style.display = "none";
-
-            // Show menu bar
-            navInitOpen.current.style.display = "block";
-          }
-        }
-      }
-    }
-  };
+  // Trigger mobile navigation to show based on 'showNav' state
+  if (showNav) {
+    mobileNavElem?.classList.add("mobile-nav-container");
+  } else {
+    mobileNavElem?.classList.remove("mobile-nav-container");
+  }
 
   return (
-    <nav id="mobile-nav" className="flex md:!hidden" ref={mobileNav}>
+    <nav id="mobile-nav" className="flex md:!hidden" ref={mobileNavRef}>
       <div id="open-close-icons" className="p-2 rounded">
         <button
           type="button"
           className="mobile-nav-init | block w-full h-fulll text-2xl"
           title="Open nav menu"
-          onClick={(e) => handleToggle(e)}
+          onClick={() => {
+            setShowNav(!showNav)
+          }}
         >
           <Icon
             id="navInitOpen"
             icon="heroicons-outline:menu-alt-3"
-            ref={navInitOpen}
             className="block custom-text-dark"
-          />
-        </button>
-
-        <button
-          type="button"
-          className="mobile-nav-init | block w-full h-full text-2xl"
-          title="Open nav menu"
-          onClick={(e) => handleToggle(e)}
-        >
-          <Icon
-            id="navInitClose"
-            icon="heroicons-outline:menu-alt-3"
-            ref={navInitClose}
-            className="hidden custom-text-dark"
           />
         </button>
       </div>
