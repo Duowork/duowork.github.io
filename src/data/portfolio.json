@@ -1,0 +1,25 @@
+[{
+  "id": 101,
+  "projectName": "Larks podcast",
+  "projectDescription": "Larks Podcast is a contemporary podcast that's more about the \"laff\" than the \"feel.\"",
+  "projectTag": "Podcasting web app",
+  "projectLink": "https://larkspodcast.com",
+  "projectImage": "./larks-mockup.png"
+},
+{
+  "id": 102,
+  "projectName": "Aerave",
+  "projectDescription": "Explore live events and buy tickets online.",
+  "projectTag": "Ticketing web app",
+  "projectLink": "https://aerave.app",
+  "projectImage": "./aerave-mockup.jpg"
+},
+  {
+    "id": 100,
+    "projectName": "Gobeacon International",
+    "projectDescription": "Real estate marketing website integrated with Contentful CMS.",
+    "projectTag": "Headless CMS web app",
+    "projectLink": "https:gobeaconinternational.com",
+    "projectImage": "./gobeacon-mockup.jpeg"
+  }
+]
