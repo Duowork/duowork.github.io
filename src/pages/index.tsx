@@ -1,22 +1,26 @@
 import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
+import { Icon } from "@iconify/react";
+
 import Layout from "../layouts/layout";
 import SEO from "../sharedComponents/SEO";
 import Nav from "../sharedComponents/navMenu/Nav";
-import Button from "../sharedComponents/Button";
 import ToolsSection from "./__toolsSection";
-import { Icon } from "@iconify/react";
+import PortfolioSection from "./__portfolioSection";
 
 // Media assets
 import heroImage2 from "../assets/images/hero-image2.jpeg";
 import heroImage4 from "../assets/images/hero-image4.jpeg";
 
+// Source data
+import portfolioJSONData from "../data/portfolio.json"
+
 export const Head = () => <SEO title="Home" />;
 
 export default function LandingPage({ location }: any) {
   // JSON data for team, testimonial and tools section
-  const { allTeamsJson, allTestimonialsJson, allToolsJson } = dataQuery();
+  const { allToolsJson } = dataQuery();
 
   return (
     <Layout>
@@ -77,7 +81,7 @@ export default function LandingPage({ location }: any) {
         </div>
       </section>
 
-      <section id="services-section" className="my-20">
+      <section id="services" className="my-20">
         <div className="section-heading">
           <span className="section-tag">Our Services</span>
           <h2 id="service-header" className="section-title">
@@ -241,161 +245,8 @@ export default function LandingPage({ location }: any) {
 
       {/* <TestimonialsSection testimonials={allTestimonialsJson.nodes} /> */}
 
-      <section
-        id="portfolio-section"
-        className="w-auto h-auto px-2 sm:px-10 mb-20"
-      >
-        <div className="section-heading">
-          <span className="section-tag">Our Portfolio</span>
-          <h2 id="portfolio-header" className="section-title">
-            Project we've{" "}
-            <span className="service-title__highlight">worked on</span>
-          </h2>
-
-          <p className="section-description">
-            Explore our impressive portfolio of successful solutions. Our
-            expertise showcases through delivering innovative, user-centric, and
-            scalable software with aim of helping the clients achieve their
-            objectives. We can bring you vision to life and drive your business
-            forward.
-          </p>
-        </div>
-
-        <div
-          id="portfolio"
-          className="flex flex-col items-center justify-center mb-10"
-        >
-          <div className="portfolio-item flex flex-col md:flex-row items-center sm:ml-20 pt-10">
-            <StaticImage
-              src="../assets/images/portfolio/Ebonybeauty2.jpeg"
-              alt="A screenshort of a website landing page"
-              className="portfolio-item__image w-6/12 h-80 rounded-lg max-w-full h-auto mb-10 sm:mr-20 shadow-xl"
-            />
-            <div className="portfolio-item__description-container">
-              <h3 className="portfolio-name font-semibold text-2xl sm:text-3xl">
-                Ebony Beauty
-              </h3>
-              <p className="portfolio-description w-80 py-5 text-md text-gray-500">
-                Ebony beauty is a lagos-based retail store with aim to be the
-                ultimate destination for beauty products.
-              </p>
-              <p className="portfolio-tag mb-10">E-commerce web app</p>
-              <a
-                href="https://ebonybeautyhaven.com/"
-                target="_blank"
-                className="portfolio-link | flex items-center justify-center text-center text-sm font-light py-2 rounded-full"
-                rel="noopener"
-              >
-                View work <Icon icon="solar:alt-arrow-right-linear" />
-              </a>
-            </div>
-          </div>
-
-          <div className="portfolio-item flex flex-col-reverse sm:flex-col md:flex-row items-center sm:ml-20 pt-10">
-            <div className="portfolio-item__description-container">
-              <h3 className="portfolio-name font-semibold text-2xl sm:text-3xl">
-                Larks podcast
-              </h3>
-              <p className="portfolio-description w-80 py-5">
-                Larks Podcast is a contemporary podcast that's more about the
-                "laffs" than the "feels."
-              </p>
-              <p className="portfolio-tag mb-10">Podcasting web app</p>
-              <a
-                href="https://larkspodcast.com"
-                target="_blank"
-                className="portfolio-link | flex items-center justify-center text-center text-sm rounded-full"
-                rel="noopener"
-              >
-                View work <Icon icon="solar:alt-arrow-right-linear" />
-              </a>
-            </div>
-            <StaticImage
-              src="../assets/images/portfolio/larks-banner2.png"
-              alt="A screenshort of a website landing page"
-              className="portfolio-item__image w-6/12 h-80 rounded-lg max-w-full h-auto mb-10 sm:mr-20 shadow-xl"
-            />
-          </div>
-
-          <div className="portfolio-item flex flex-col md:flex-row items-center sm:ml-20 pt-10">
-            <StaticImage
-              src="../assets/images/portfolio/AdeolaAzeez2.jpeg"
-              alt="A screenshort of a website landing page"
-              className="portfolio-item__image w-6/12 h-80 rounded-lg max-w-full h-auto mb-10 sm:mr-20 shadow-xl"
-            />
-            <div className="portfolio-item__description-container">
-              <h3 className="portfolio-name font-semibold text-2xl sm:text-3xl">
-                Adeola Azeez
-              </h3>
-              <p className="portfolio-description w-80 py-5">
-                A political campaign web presence for Adeola Azeez.
-              </p>
-              <p className="portfolio-tag mb-10">website</p>
-              <a
-                href="https://adeolaazeez.com/"
-                target="_blank"
-                className="portfolio-link | flex items-center justify-center text-center text-sm rounded-full"
-                rel="noopener"
-              >
-                View work <Icon icon="solar:alt-arrow-right-linear" />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <Button
-          btnType="button"
-          isLink={true}
-          linkTo="/contact"
-          value="Hire us"
-          btnClass="custom-bg-green-accent custom-text-dark | block mx-auto text-sm font-medium px-7 py-5 w-[195px] h-[50px] rounded-[1.75rem]"
-        />
-      </section>
-
-      {/* <section id="team-section" className="px-10  h-auto pb-10 pt-10 sm:pt-20 mb-40 h-auto">
-        <div className="section-heading">
-          <span className="section-tag">
-            Our Team
-          </span>
-          <h3 className="section-title">
-            Meet{" "}
-            <span className="service-title__highlight">
-              The Team
-            </span>
-          </h3>
-          <p className="section-description">
-            Meet our dedicated team of skilled developers, designers, and tech enthusiasts. 
-            With a passion for excellence, we work together to bring your digital ideas to life, 
-            ensuring top-notch quality, seamless user experiences, and on-time project delivery
-          </p>
-        </div>
-
-        <div
-          id="team-container"
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center"
-        >
-          {allTeamsJson.nodes.length > 0 && allTeamsJson.nodes.map((team: any) => {
-            const image = getImage(team.teamMemberImage);
-
-            return (
-              <div className="team-card" key={team.id}>
-              <div className="team-card__image">
-                {image !== undefined?(<GatsbyImage
-                  image={image}
-                  alt="testimonials__card-image"
-                />):(<img src={image} alt={team.teamMemberName} className="testimonials__card-image"/>)}
-              </div>
-            <div className="team-card__body | px-5 py-2">
-              <h4 className="team-card__name | text-1xl">{team.teamMemberName}</h4>
-              <small className="team-card__role | text-gray-500 font-light">
-               {team.teamMemberRole}
-              </small>
-            </div>
-          </div>
-            )
-          })}
-        </div>
-      </section> */}
+      {/* Project portfolio */}
+      <PortfolioSection portfolios={portfolioJSONData}/>
 
       <section
         id="process-section"
@@ -508,6 +359,7 @@ export default function LandingPage({ location }: any) {
         </div>
       </section>
 
+      {/* Project tools */}
       <ToolsSection toolsStack={allToolsJson.nodes} />
 
       <section id="contact-section" className="h-auto px-5 sm:px-10 mb-40">
@@ -681,31 +533,6 @@ type quertDataType = [
 export function dataQuery() {
   const data = useStaticQuery(graphql`
     query {
-      allTestimonialsJson {
-        nodes {
-          id
-          clientName
-          clientCompany
-          clientImage {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-          clientQuote
-        }
-      }
-      allTeamsJson {
-        nodes {
-          id
-          teamMemberName
-          teamMemberRole
-          teamMemberImage {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-      }
       allToolsJson {
         nodes {
           id
