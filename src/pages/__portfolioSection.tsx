@@ -24,7 +24,7 @@ export default function PortfolioSection(props: { [key: string]: any }) {
         <span className="section-tag">Our Portfolio</span>
         <h2 id="portfolio-header" className="section-title">
           Project we've{" "}
-          <span className="service-title__highlight">worked on</span>
+          <span className="service-title__highlight bg-color-accent">worked on</span>
         </h2>
 
         <p className="section-description">
@@ -63,7 +63,7 @@ export default function PortfolioSection(props: { [key: string]: any }) {
                 <a
                   href={portfolio.projectLink}
                   target="_blank"
-                  className="portfolio-link | flex items-center justify-center text-center text-sm font-light py-2 rounded-full self-center sm:self-start"
+                  className="portfolio-link bg-color-secondary text-color-accent | flex items-center justify-center text-center text-sm font-light py-2 rounded-full self-center sm:self-start"
                   rel="noopener"
                 >
                   View work{" "}
@@ -83,7 +83,7 @@ export default function PortfolioSection(props: { [key: string]: any }) {
         isLink={true}
         linkTo="/contact"
         value="Hire us"
-        btnClass="custom-bg-green-accent custom-text-dark | block mx-auto text-sm font-medium px-7 py-5 w-[195px] h-[50px] rounded-[1.75rem]"
+        btnClass="bg-color-accent text-color-secondary | block mx-auto text-sm font-medium px-7 py-5 w-[195px] h-[50px] rounded-[1.75rem] py-[0] px-[0.5rem]"
       />
     </section>
   );
