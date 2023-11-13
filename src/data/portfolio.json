@@ -1,7 +1,7 @@
 [{
   "id": 101,
   "projectName": "Larks podcast",
-  "projectDescription": "Larks Podcast is a contemporary podcast that's more about the \"laff\" than the \"feel.\"",
+  "projectDescription": "A podcast web app with audio player and live update tracking of new episode session",
   "projectTag": "Podcasting web app",
   "projectLink": "https://larkspodcast.com",
   "projectImage": "./larks-mockup.jpeg"
@@ -9,7 +9,7 @@
 {
   "id": 102,
   "projectName": "Aerave",
-  "projectDescription": "Explore live events and buy tickets online.",
+  "projectDescription": "Ticketing web app to explore live events and buy tickets online.",
   "projectTag": "Ticketing web app",
   "projectLink": "https://aerave.app",
   "projectImage": "./aerave-mockup.jpg"
