@@ -17,7 +17,7 @@ export default function PortfolioSection(props: { [key: string]: any }) {
 
   return (
     <section
-      id="portfolio-section"
+      id="portfolio"
       className="w-auto h-auto px-2 sm:px-10 mb-20"
     >
       <div className="section-heading">
