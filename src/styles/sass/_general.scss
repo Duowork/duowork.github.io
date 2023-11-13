@@ -51,8 +51,15 @@ body {
   .custom-text-dark {
     color: $secondary-color;
   }
+  .text-secondary {
+    color: $secondary-color;
+  }
 
   .custom-underline-green-accent {
+    border-bottom: 3px solid $primary-green-4;
+  }
+
+  .underline-color-accent {
     border-bottom: 3px solid $primary-green-4;
   }
 
@@ -60,16 +67,33 @@ body {
     background-color: $primary-green-4;
     padding: 0 0.5rem;
   }
+  .bg-color-accent{
+    background-color: $primary-green-4;
+  }
 
   .custom-text-green-accent {
     color: $primary-green-4;
   }
+  .text-color-accent {
+    color: $primary-green-4;
+  }
 
   .custom-bg-dark {
+    // style should be removed
     background-color: $secondary-color;
   }
 
-  /* General styles for tags in pages/components starts */
+  .text-color-secondary {
+    color: $secondary-color;
+  }
+  .bg-color-secondary {
+    background-color: $secondary-color;
+  }
+
+  /*
+    General styles for tags in pages/components starts 
+  */
+  
   h1,
   h2,
   h3,
@@ -128,5 +152,4 @@ body {
       border-radius: 5px !important;
     }
   }
-  /* General styles for tags in pages/components ends */
 }
