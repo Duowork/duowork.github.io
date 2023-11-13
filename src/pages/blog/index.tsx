@@ -80,7 +80,7 @@ export default function Blog({ data }: any) {
             creativity with our exciting content!
           </p>
 
-          {/* Lastes blog post as slides */}
+          {/* Latest blog post as slides */}
           <div className="slider">
             <div
               className="slides-wrapper"
@@ -230,7 +230,6 @@ export default function Blog({ data }: any) {
 
               const tagsObj = {} as TagsObjDataType;
               const tags: TagsDataType[] = post.tags.nodes;
-              const postExercpt = { __html: post.excerpt };
 
               //  Convert tags array to object.
               tags.forEach((tag, _) => (tagsObj[tag.name] = tag.name));
@@ -250,7 +249,7 @@ export default function Blog({ data }: any) {
                       <GatsbyImage
                         image={highlightedPostImage}
                         alt={post.featuredImage.node.altText}
-                        className="w-full rounded-[8px] h-[244px] mb-[32px] object-cover"
+                        className="w-full rounded-[8px] h-[300px] mb-[32px] object-cover"
                         objectFit="cover"
                         backgroundColor="bg-black"
                       />
@@ -331,7 +330,7 @@ export default function Blog({ data }: any) {
                           <GatsbyImage
                             image={featuredImage}
                             alt={post.featuredImage.node.altText}
-                            className="w-full h-full rounded-[8px] object-fit"
+                            className="w-full h-fit rounded-[8px] object-fit"
                           />
                         </Link>
 
