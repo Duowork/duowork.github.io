@@ -32,8 +32,6 @@ export default function categoryBlogs({ data, params }: any) {
     }
   };
 
-  console.log(data);
-
   return (
     <Layout>
       <section className="lg:px-[70px] overflow-x-hidden mb-[260px] px-[20px] categoryPage ">
@@ -87,7 +85,7 @@ export default function categoryBlogs({ data, params }: any) {
                     <GatsbyImage
                       image={postImage}
                       alt={post.featuredImage.node.altText}
-                      className="w-full h-[15rem] rounded-[6px] block mx-auto"
+                      className="w-full h-auto rounded-[6px] block mx-auto"
                     />
 
                     <small className="inline-block text-sm px-2 py-[0.2rem] leading-[20px] bg-[#95de2836] rounded-full my-5 text-gray-600">
