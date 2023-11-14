@@ -184,13 +184,13 @@ export default function Footer() {
               <Link to="/">Home</Link>
             </p>
             <p className="items">
-              <Link to="/#our-work">Portfolio</Link>
+              <Link to="/#portfolios">Portfolio</Link>
             </p>
             {/* <p className="items">
               <Link to="/blog">Blog</Link>
             </p> */}
             <p className="items">
-              <Link to="/#our-services">Contact us</Link>
+              <Link to="/#contact">Contact us</Link>
             </p>
           </div>
         </div>
@@ -199,19 +199,19 @@ export default function Footer() {
           <h3 className="text-2xl font-semibold">Services</h3>
           <div id="services">
             <p className="items">
-              <Link to="/#our-services">Product Design</Link>
+              <Link to="/#">Product Design</Link>
             </p>
             <p className="items">
-              <Link to="/#our-services">Mobile development</Link>
+              <Link to="/#">Mobile development</Link>
             </p>
             <p className="items">
-              <Link to="/#our-services">Web development</Link>
+              <Link to="/#">Web development</Link>
             </p>
             <p className="items">
-              <Link to="/#our-services">Business automation</Link>
+              <Link to="/#">Business automation</Link>
             </p>
             <p className="items">
-              <Link to="/#our-services">Software consulting</Link>
+              <Link to="/#">Software consulting</Link>
             </p>
           </div>
         </div>
@@ -223,17 +223,17 @@ export default function Footer() {
             className="flex flex-col justify-between align-items flex-wrap"
           >
             <p className="items">
-              <a href="/contact" title="Contact us">
+              <a href="/#" title="Contact us">
                 About us
               </a>
             </p>
             <p className="icons items">
-              <a href="#" title="Terms and Condition">
+              <a href="/#" title="Terms and Condition">
                 Terms & Condition
               </a>
             </p>
             <p className="icons items">
-              <a href="#" title="Privacy policy">
+              <a href="/#" title="Privacy policy">
                 Privacy policy
               </a>
             </p>
