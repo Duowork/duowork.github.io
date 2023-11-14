@@ -1,25 +1,26 @@
-[{
-  "id": 101,
-  "projectName": "Larks podcast",
-  "projectDescription": "A podcast web app with audio player and live update tracking of new episode session",
-  "projectTag": "Podcasting web app",
-  "projectLink": "https://larkspodcast.com",
-  "projectImage": "./larks-mockup.jpeg"
-},
-{
-  "id": 102,
-  "projectName": "Aerave",
-  "projectDescription": "Ticketing web app to explore live events and buy tickets online.",
-  "projectTag": "Ticketing web app",
-  "projectLink": "https://aerave.app",
-  "projectImage": "./aerave-mockup.jpg"
-},
+[
+  {
+    "id": 101,
+    "projectName": "Larks podcast",
+    "projectDescription": "A podcast web app with audio player and live update tracking of new episode session",
+    "projectTag": "Podcasting web app",
+    "projectLink": "https://larkspodcast.com",
+    "projectImage": "../assets/images/portfolios/larks-mockup.jpeg"
+  },
+  {
+    "id": 102,
+    "projectName": "Aerave",
+    "projectDescription": "Ticketing web app to explore live events and buy tickets online.",
+    "projectTag": "Ticketing web app",
+    "projectLink": "https://aerave.app",
+    "projectImage": "../assets/images/portfolios/aerave-mockup.jpg"
+  },
   {
     "id": 100,
     "projectName": "Gobeacon International",
     "projectDescription": "Real estate marketing website integrated with Contentful CMS.",
     "projectTag": "Headless CMS web app",
     "projectLink": "https:gobeaconinternational.com",
-    "projectImage": "./gobeacon-mockup.jpeg"
+    "projectImage": "../assets/images/portfolios/gobeacon-mockup.jpeg"
   }
 ]
