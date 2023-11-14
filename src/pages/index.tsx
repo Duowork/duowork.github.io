@@ -11,10 +11,7 @@ import PortfolioSection from "./__portfolioSection";
 
 // Media assets
 import heroImage2 from "../assets/images/hero-image2.jpeg";
-import heroImage4 from "../assets/images/hero-image4.jpeg";
-
-// Source data
-import portfolioJSONData from "../data/portfolio.json"
+// import heroImage4 from "../assets/images/hero-image4.jpeg";
 
 export const Head = () => <SEO title="Home" />;
 
@@ -28,7 +25,7 @@ export default function LandingPage({ location }: any) {
         id="hero-section"
         className="h-[40rem] md:h-[50rem] lg:h-[45rem]"
         style={{
-          backgroundImage: `url(${heroImage4})`,
+          backgroundImage: `url(${heroImage2})`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: `top`,
           backgroundSize: `cover`,
@@ -246,7 +243,7 @@ export default function LandingPage({ location }: any) {
       {/* <TestimonialsSection testimonials={allTestimonialsJson.nodes} /> */}
 
       {/* Project portfolio */}
-      <PortfolioSection portfolios={portfolioJSONData}/>
+      <PortfolioSection/>
 
       <section
         id="process-section"
@@ -362,7 +359,7 @@ export default function LandingPage({ location }: any) {
       {/* Project tools */}
       <ToolsSection toolsStack={allToolsJson.nodes} />
 
-      <section id="contact-section" className="h-auto px-5 sm:px-10 mb-40">
+      <section id="contact" className="h-auto px-5 sm:px-10 mb-40">
         <div
           id="contact-section__details"
           className="max-w-[950px] h-[30rem] mx-auto rounded-xl flex flex-col text-center px-5 sm:px-0 sm:text-left sm:flex-row items-center justify-center mb-10"
