@@ -66,7 +66,7 @@ export default function PortfolioSection() {
                 <p className="portfolio-description w-80 py-5 text-md text-gray-500">
                   {portfolio.projectDescription}
                 </p>
-                <p className="portfolio-tag mb-10">{portfolio.projectTag}</p>
+                {/* <p className="portfolio-tag mb-10">{portfolio.projectTag}</p> */}
                 <a
                   href={portfolio.projectLink}
                   target="_blank"
