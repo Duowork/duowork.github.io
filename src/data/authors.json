@@ -1,0 +1,41 @@
+[
+  {
+    "firstName": "Jasmine",
+    "lastName": "Jade",
+    "fullName": "Jasmine Jade",
+    "email": null,
+    "bio": null,
+    "image": "../assets/images/authors/jasmine.jpeg",
+    "accounts": {
+      "website": "https://thejasminejade.com",
+      "twitter": "https://twitter.com/thejasminejade",
+      "instagram": "https://instagram.com/thejasminejade/"
+    }
+  },
+  {
+    "firstName": "Isaac",
+    "lastName": "Olugbenga",
+    "fullName": "Isaac Olugbenga",
+    "email": null,
+    "bio": null,
+    "image": "../assets/images/authors/isaac.jpeg",
+    "accounts": {
+      "website": "https://isaacolugbenga.com/",
+      "twitter": "https://twitter.com/Isaacolugbengai",
+      "instagram": "https://instagram.com/isaacolugbengai"
+    }
+  },
+  {
+    "firstName": "Romeo",
+    "lastName": "Peter",
+    "fullName": "Romeo Agbor Peter",
+    "email": "romeo@duowork.tech",
+    "bio": "Romeo is a software developer, writer and the lead tinkerer at Duowork",
+    "image": "../assets/images/authors/romeo.jpg",
+    "accounts": {
+      "website": "https://duowork.tech",
+      "twitter": "https://twitter.com/_romeopeter",
+      "instagram": "https://instagram.com/_romeopeter"
+    }
+  }
+]
