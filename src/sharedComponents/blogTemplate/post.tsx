@@ -18,17 +18,22 @@ export const Head = ({ data }: any) => {
 };
 
 export default function Posts({ data }: any) {
-  const post = data.post;
+  const { post, allAuthorsJson: staticAuthorsData } = data;
 
+  const firstName: string = post.author.node.firstName;
   const postExcerpt = { __html: post.excerpt };
   const postContent = { __html: post.content };
   const bannerImage: any = getImage(post.featuredImage.node.gatsbyImage);
   const postTag = post.tags.nodes.length !== 0 ? post.tags.nodes[0].name : "";
 
-  const authorName: string = post.author.node.name;
-  const authorImage: string = post.author.node.avatar.url;
-  const authorDescription: string = post.author.node.description;
-  const authorEmail: string = post.author.node.email;
+  // Static author data
+  const author = staticAuthorsData.nodes.filter(
+    (author: any) => author.firstName.toLowerCase() === firstName.toLowerCase(),
+  )[0];
+
+  const authorImage: any = getImage(
+    author.image?.childImageSharp.gatsbyImageData,
+  );
 
   return (
     <Layout>
@@ -72,12 +77,12 @@ export default function Posts({ data }: any) {
             className="flex flex-row items-center my-5"
           >
             <div id="post-author" className="mr-5 flex items-center">
-              <img
-                src={authorImage}
-                alt="image"
+              <GatsbyImage
+                image={authorImage && authorImage}
+                alt={firstName && firstName}
                 className="w-10 h-10 rounded-full ml-2 object-cover mr-2"
               />{" "}
-              <small>{authorName}</small>
+              <small>{author && author.fullName}</small>
             </div>
 
             <div id="post-date">
@@ -108,9 +113,7 @@ export default function Posts({ data }: any) {
           dangerouslySetInnerHTML={postContent}
         />
 
-        {/* <AuthorBio
-          data={{ authorImage, authorName, authorDescription, authorEmail }}
-        /> */}
+        <AuthorBio data={{ author }} />
       </article>
     </Layout>
   );
@@ -147,14 +150,26 @@ export const postPageQuery = graphql`
       }
       author {
         node {
-          name
-          email
-          avatar {
-            url
-            width
-            height
+          firstName
+        }
+      }
+    }
+    allAuthorsJson {
+      nodes {
+        id
+        firstName
+        fullName
+        email
+        bio
+        accounts {
+          website
+          twitter
+          instagram
+        }
+        image {
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED)
           }
-          description
         }
       }
     }
