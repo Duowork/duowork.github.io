@@ -16,8 +16,8 @@
     "firstName": "Isaac",
     "lastName": "Olugbenga",
     "fullName": "Isaac Olugbenga",
-    "email": null,
-    "bio": null,
+    "email": "isaac@duowork.tech",
+    "bio": "Isaac is a creative brand identity designer, the co-founder of Duowork",
     "image": "../assets/images/authors/isaac.jpeg",
     "accounts": {
       "website": "https://isaacolugbenga.com/",
@@ -30,7 +30,7 @@
     "lastName": "Peter",
     "fullName": "Romeo Agbor Peter",
     "email": "romeo@duowork.tech",
-    "bio": "Romeo is a software developer, writer and the lead tinkerer at Duowork",
+    "bio": "Romeo is a designer, writer and the lead tinkerer at Duowork",
     "image": "../assets/images/authors/romeo.jpg",
     "accounts": {
       "website": "https://duowork.tech",
