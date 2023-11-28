@@ -15,6 +15,7 @@ const blogCategoriesImages: BlogCategoriesImagesType = {
   marketing:
     "https://images.pexels.com/photos/935949/pexels-photo-935949.jpeg?auto=compress&cs=tinysrgb&w=800",
   seo: "https://images.pexels.com/photos/9822732/pexels-photo-9822732.jpeg?auto=compress&cs=tinysrgb&w=800",
+  branding: "https://images.pexels.com/photos/7661590/pexels-photo-7661590.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 };
 
 export default blogCategoriesImages;
