@@ -1,4 +1,11 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, {
+  useRef,
+  useEffect,
+  useState,
+  Children,
+  cloneElement,
+  ReactNode,
+} from "react";
 
 import Nav from "../sharedComponents/navMenu/Nav";
 import NavMobile from "../sharedComponents/navMenu/NavMobile";
@@ -8,7 +15,11 @@ import { ToastContainer } from "react-toastify";
 import customCursor from "../utils/customCursor";
 import "react-toastify/dist/ReactToastify.min.css";
 
-export default function Layout({ children }: any) {
+type LayoutProp = {
+  children: ReactNode;
+};
+
+export default function Layout({ children }: LayoutProp) {
   // Custom cursor ref
   const cursorDotRef = useRef<HTMLImageElement>(null);
   const cursorDotOutlineRef = useRef<HTMLImageElement>(null);
@@ -28,6 +39,18 @@ export default function Layout({ children }: any) {
     return () => (componentIsMounted = false);
   }, []);
 
+  const modifyClassName = (child: ReactNode) => {
+    if (React.isValidElement(child)) {
+      return cloneElement(child, {
+        className: `${child.props.className || ""} ${
+          showAltNav && window.location.pathname !== "/" ? "mt-20" : null
+        }`,
+      } as any);
+    }
+
+    return child;
+  };
+
   return (
     <main id="duowork">
       {/* Desktop navigation */}
@@ -36,8 +59,8 @@ export default function Layout({ children }: any) {
       {/* Mobile navigation */}
       <NavMobile />
 
-      {/* Sections */}
-      {children}
+      {/* Map over and modify each child with a 'mt-20' style value to the 'className attribute' */}
+      {Children.map(children, modifyClassName)}
 
       <Footer />
 
@@ -56,11 +79,11 @@ export default function Layout({ children }: any) {
       />
 
       {/* Custom cursor elements */}
-      <div className="cursor-dot text-white" ref={cursorDotRef}></div>
+      {/* <div className="cursor-dot text-white" ref={cursorDotRef}></div>
       <div
         className="cursor-dot-outline text-white"
         ref={cursorDotOutlineRef}
-      ></div>
+      ></div> */}
     </main>
   );
 }
