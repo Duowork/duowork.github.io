@@ -4,11 +4,37 @@ import { StaticImage } from "gatsby-plugin-image";
 import Button from "../Button";
 
 export default function Nav(): React.ReactElement | null {
-  const location = typeof window !== "undefined" ? window.location : undefined;
+  const [isBrowser, setIsBrowser] = React.useState(false);
+
+  React.useEffect((): any => {
+
+    const detectIfCurrentSectionVisited = () => {
+      const scrollTop = window.scrollY;
+
+      // Change nav menu background when scroll > 800px
+      if (scrollTop > 80) {
+        document
+          .querySelector("#desktop-nav-menu")
+          ?.classList.add("nav-shadow-on-scroll");
+      } else {
+        document
+          .querySelector("#desktop-nav-menu")
+          ?.classList.remove("nav-shadow-on-scroll");
+      }
+    };
+
+    document.addEventListener("scroll", detectIfCurrentSectionVisited);
+
+    // Check if window object is accessible
+    if (typeof window !== "undefined") setIsBrowser(!isBrowser);
+  }, []);
+
+  const isHome = isBrowser && window.location.pathname === "/";
 
   return (
     <nav
-      className={`landing-page-nav__general text-white flex flex-row justify-between ml-10 mr-10 mt-5`}
+      id="desktop-nav-menu"
+      className={`text-white flex flex-row justify-between px-10 py-4 md:py-2`}
     >
       <div
         id="logo-container"
@@ -25,8 +51,8 @@ export default function Nav(): React.ReactElement | null {
 
       <ul
         id="nav-items"
-        className={`hidden md:flex flex-row justify-between landing-page-nav__item-center ${
-          location?.pathname === "/" ? "text-white" : "text-black"
+        className={`hidden md:flex flex-row justify-between nav-menu__item-center ${
+          isHome ? "text-white" : "text-black"
         }`}
       >
         <li className="nav-item-link">
@@ -43,7 +69,7 @@ export default function Nav(): React.ReactElement | null {
         </li>
       </ul>
 
-      <div className="hidden md:flex items-center justify-evenly w-[20%] landing-page-nav__item-right">
+      <div className="hidden md:flex items-center justify-evenly nav-menu__item-right">
         <div id="cta-nav-item-contact" className="nav-item-link">
           <Button
             value="Contact us"
@@ -52,32 +78,6 @@ export default function Nav(): React.ReactElement | null {
             linkTo="/contact"
           />
         </div>
-
-        {/* <div id="language-selector">
-          <button
-            className="language-selector__button btn"
-            aria-label="english Select your language"
-            aria-expanded="false"
-            aria-controls="language-selector-dropdown"
-            type="button"
-          >
-            <div className="flex items-center justify-center">
-              <span
-                aria-hidden="true"
-                className="w-auto h-auto mr-2 language-selector__flag"
-              >
-                <StaticImage
-                  src="../../assets/svgs/english.svg"
-                  alt=""
-                  width={22}
-                  height={22}
-                  className="rounded-full"
-                />
-              </span>
-              <span className="language-selector__label">eng</span>
-            </div>
-          </button>
-        </div> */}
       </div>
     </nav>
   );
