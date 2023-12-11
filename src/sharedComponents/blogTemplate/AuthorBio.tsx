@@ -37,7 +37,7 @@ export default function AuthorBio({ data }: AuthorBioDataType) {
         <GatsbyImage
           image={authorImage}
           alt={fullName}
-          class="w-20 h-20 rounded-full border-2 border-green-200 sm:mr-5"
+          class="w-[9rem] h-20 rounded-full border-2 border-green-200 sm:mr-5"
         />
         <div id="written-by-author">
           <span className="text-gray-400 mr-[0.5rem]">Written by</span>
