@@ -5,15 +5,19 @@
     and all h1-h6  are set to default font-family.
   ***/
 
+// Add box-sizing and transition to all tags nest in body tag
+* {
+  box-sizing: border-box !important;
+  transition: all 200ms ease-in-out;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
 body {
-  /* Classs attribute styles with custom color 
+  /* Class attribute styles with custom color 
   (colors not provided by tailwind) that can be used in a page/component */
 
-  // Add box-sizing and transition to all tags nest in body tag
-  * {
-    box-sizing: border-box !important;
-    transition: all 200ms ease-in-out;
-  }
+  // cursor: none;
 
   /* Old UI custom Text/Bg/underline colors starts */
   .custom-text-green-light {
@@ -67,7 +71,7 @@ body {
     background-color: $primary-green-4;
     padding: 0 0.5rem;
   }
-  .bg-color-accent{
+  .bg-color-accent {
     background-color: $primary-green-4;
   }
 
@@ -93,7 +97,7 @@ body {
   /*
     General styles for tags in pages/components starts 
   */
-  
+
   h1,
   h2,
   h3,

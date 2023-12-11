@@ -1,4 +1,5 @@
 #duowork {
+  position: relative;
   .section-heading {
     .section-tag {
       display: block !important;
@@ -21,7 +22,7 @@
         font-family: $font-family-title;
       }
     }
-    
+
     .section-description {
       text-align: center;
       line-height: 1.375;
@@ -36,50 +37,48 @@
     }
   }
 
-  #hero-section {
-    position: relative;
+  #desktop-nav-menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
 
-    .landing-page-nav__general {
-      #nav-items {
-        min-width: 400px;
+    #nav-items {
+      min-width: 400px;
 
-        .nav-item-link {
-          align-self: center;
+      .nav-item-link {
+        align-self: center;
 
-          &:link {
-            color: white;
-          }
-          &:visited {
-            color: $accent-color;
-          }
-          &:hover {
-            color: $accent-color;
-          }
-          &:active {
-            color: $accent-color;
-          }
+        &:link {
+          color: white;
         }
-      }
-
-      .landing-page-nav__item-right {
-        #language-selector {
-          .language-selector__button {
-            span.language-selector__flag {
-              line-height: 0.5;
-
-              div.gatsby-image-wrapper {
-                width: 20px;
-                height: 20px;
-                border-radius: 20px;
-              }
-            }
-            span.language-selector__label {
-              font-variant: all-petite-caps;
-            }
-          }
+        &:visited {
+          color: $accent-color;
+        }
+        &:hover {
+          color: $accent-color;
+        }
+        &:active {
+          color: $accent-color;
         }
       }
     }
+
+    // When scroll > 100
+    &.nav-shadow-on-scroll {
+      background: white;
+      box-shadow: $box-shadow !important;
+
+      #nav-items {
+        .nav-item-link {
+          color:$secondary-color !important;
+        }
+      }
+    }
+  }
+
+  #hero-section {
+    position: relative;
 
     // Overlay background image with opaque black
     #overlay {
