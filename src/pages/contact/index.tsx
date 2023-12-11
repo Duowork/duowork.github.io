@@ -16,7 +16,7 @@ export default function Contact() {
   return (
     <Layout>
 
-      <section id="duowork-contact-form" className="h-auto mt-5 bg-white">
+      <section id="duowork-contact-form" className="h-auto bg-white">
         <div className="breadcrumb-nav mb-10 pt-5 text-center text-sm">
           <Link to="/" className="custom-text-dark">
             Home
