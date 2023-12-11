@@ -1,21 +1,16 @@
 import React from "react";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
-
-/* Components */
 import Layout from "../../layouts/layout";
 import SEO from "../../sharedComponents/SEO";
 import ContactForm from "./__ContactForm";
+import { EnvelopeIcon, MapPinIcon } from "@heroicons/react/24/outline";
 
-// Icons
-import {EnvelopeIcon, MapPinIcon} from "@heroicons/react/24/outline"
-
-export const Head = () => (<SEO title="Contact us" />);
+export const Head = () => <SEO title="Contact us" />;
 
 export default function Contact() {
   return (
     <Layout>
-
       <section id="duowork-contact-form" className="h-auto bg-white">
         <div className="breadcrumb-nav mb-10 pt-5 text-center text-sm">
           <Link to="/" className="custom-text-dark">
@@ -61,12 +56,12 @@ export default function Contact() {
                 </div> */}
 
                 <div>
-                  <EnvelopeIcon className="w-7 h-7 inline-block"/> {" "}            
+                  <EnvelopeIcon className="w-7 h-7 inline-block" />{" "}
                   <span>reach@duowork.tech</span>
                 </div>
 
                 <div>
-                  <MapPinIcon className="w-7 h-7 inline-block"/>
+                  <MapPinIcon className="w-7 h-7 inline-block" />
                   <span>Abuja, Nigeria</span>
                 </div>
               </div>
@@ -133,14 +128,14 @@ export default function Contact() {
               Why <span className="custom-bg-green-accent">choose us</span>
             </h2>
             <p className="font-light px-2 mb-5 sm:px-5 md:px-0">
-              At Duowork, we are passionate about helping businesses and startups
-              succeed by providing tailor-made software solutions that drives
-              growth and innovation.{" "}
+              At Duowork, we are passionate about helping businesses and
+              startups succeed by providing tailor-made software solutions that
+              drives growth and innovation.{" "}
               <span className="hidden">
                 With years of experience in the industry
               </span>
-              Our team of skilled developers, designers, and tech enthusiasts are
-              dedicated to delivery high-quality, custom solutions that
+              Our team of skilled developers, designers, and tech enthusiasts
+              are dedicated to delivery high-quality, custom solutions that
               align with business objectives.
             </p>
           </div>
