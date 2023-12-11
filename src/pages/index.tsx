@@ -19,6 +19,7 @@ export default function LandingPage({ location }: any) {
 
   return (
     <Layout>
+      {/* Menu navigation */}
       <Nav />
 
       {/* Intro */}
