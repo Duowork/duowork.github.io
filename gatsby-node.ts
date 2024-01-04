@@ -4,7 +4,7 @@ const path = require("path");
 const { slash } = require("gatsby-core-utils");
 
 // Self-signed certificate error
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
 
 exports.createPages = async ({ graphql, actions }: any) => {
   const { createPage } = actions;
