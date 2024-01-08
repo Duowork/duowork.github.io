@@ -21,8 +21,6 @@ export default function categoryBlogs({ data, params }: any) {
         return categoryLongDescription[categoryName];
       case "software development":
         return categoryLongDescription[categoryName];
-      case "seo":
-        return categoryLongDescription[categoryName];
       case "brand":
         return categoryLongDescription[categoryName];
       case "startup":
