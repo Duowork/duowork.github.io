@@ -1,0 +1,41 @@
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "Duowork",
+  "description": "Duowork is a design and code nexus custom software agency building industry-specific digital solutions for startups and businesses",
+  "url": "https://duowork.tech",
+  "logo": "https://cdn.ahrefs.com/images/logo/logo_180x80.jpg",
+  "email": "support@ahrefs.tech",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "SG",
+    "postalCode": "048581",
+    "streetAddress": "16 Raffles Quay"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Dmitry Gerasimenko",
+    "gender": "Male",
+    "jobTitle": "CEO",
+    "image": "https://cdn.ahrefs.com/images/team/dmitry-g.jpg",
+    "sameAs": [
+      "https://twitter.com/botsbreeder",
+      "https://www.linkedin.com/in/dmitrygerasimenko/"
+    ]
+  },
+  "foundingDate": "2022-08-20",
+  "sameAs": [
+    "https://www.crunchbase.com/organization/ahrefs",
+    "https://www.linkedin.com/company/ahrefs",
+    "https://twitter.com/duoworkhq",
+    "https://www.youtube.com/channel/UCWquNQV8Y0_defMKnGKrFOQ"
+  ],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "email": "reach@duowork.tech",
+      "url": "https://duowork.tech"
+    }
+  ]
+}
