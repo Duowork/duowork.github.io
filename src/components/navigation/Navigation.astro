@@ -1,0 +1,119 @@
+---
+import logo from "./logo.png";
+import { Image } from "astro:assets";
+import Button from "../Button.jsx";
+---
+
+<script>
+  // Change navigation text to when when home otherwise black
+  const navItemsContain = document.querySelector("nav-items");
+  window.location.pathname === "/"
+    ? navItemsContain?.classList.add("text-white")
+    : navItemsContain?.classList.add("text-black");
+
+  // Detect scroll
+  document.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+
+    // Change nav menu background when scroll > 800px
+    if (scrollTop > 80) {
+      document
+        .querySelector("#desktop-nav-menu")
+        ?.classList.add("nav-shadow-on-scroll");
+    } else {
+      document
+        .querySelector("#desktop-nav-menu")
+        ?.classList.remove("nav-shadow-on-scroll");
+    }
+  });
+</script>
+
+<nav
+  id="desktop-nav-menu"
+  class="text-white flex flex-row justify-between px-10 py-4 md:py-2"
+>
+  <div
+    id="logo-container"
+    class="w-11 h-11 bg-white rounded-full flex flex-row justify-center items-center landing-page-nav__item-left"
+  >
+    <a href="/">
+      <Image src={logo} alt="Website logo, Duowork" id="logo" />
+    </a>
+  </div>
+
+  <ul
+    id="nav-items"
+    class="hidden md:flex flex-row justify-between nav-menu__item-center"
+  >
+    <li class="nav-item-a">
+      <a href="/">Home</a>
+    </li>
+    <li class="nav-item-a">
+      <a href="/#portfolios">Portfolio</a>
+    </li>
+    <li class="nav-item-a">
+      <a href="/#services">Service</a>
+    </li>
+    <li class="nav-item-a">
+      <a href="/blog">Blog</a>
+    </li>
+  </ul>
+
+  <div
+    class="hidden md:flex items-center justify-evenly nav-menu__item-right"
+  >
+    <div id="cta-nav-item-contact" class="nav-item-link">
+      <Button
+        client:idle
+        value="Contact us"
+        btnClass="cta-btn nav-contact-cta"
+        isLink={true}
+        linkTo="/contact"
+      />
+    </div>
+  </div>
+</nav>
+
+<style lang="scss">
+@import "../../styles/main.scss";
+
+  #desktop-nav-menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+
+    #nav-items {
+      min-width: 400px;
+
+      .nav-item-link {
+        align-self: center;
+
+        &:link {
+          color: white;
+        }
+        &:visited {
+          color: $accent-color;
+        }
+        &:hover {
+          color: $accent-color;
+        }
+        &:active {
+          color: $accent-color;
+        }
+      }
+    }
+
+    // When scroll > 100px
+    &.nav-shadow-on-scroll {
+      background: white;
+      box-shadow: $box-shadow !important;
+
+      #nav-items {
+        .nav-item-link {
+          color: $secondary-color !important;
+        }
+      }
+    }
+  }
+</style>
