@@ -15,8 +15,137 @@ import Footer from "@components/footer/Footer";
   </body>
 </html>
 
-<style>
+<style is:global>
+  /*** 
+    UTILITY STYLES
+    These styles are not specific to any component/page.
+    eg: '.custom-underline-green-accent' provides green underline with the accent colors
+    and all h1-h6  are set to default font-family.
+  ***/
+
+// Add box-sizing and transition to all tags nest in body tag
+* {
+  box-sizing: border-box !important;
+}
+
+body {
+  /**
+    Class attribute styles with custom color 
+    (colors not provided by tailwind) that can be used in a page/component
+  */
+
+  transition: all 200ms ease-in-out;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  
+    
+
   main {
     position: relative;
   }
+
+  /* New UI custom colors */
+  .custom-text-dark {
+    color: $secondary-color;
+  }
+  .text-secondary {
+    color: $secondary-color;
+  }
+
+  .custom-underline-green-accent {
+    border-bottom: 3px solid $primary-green-4;
+  }
+
+  .underline-color-accent {
+    border-bottom: 3px solid $primary-green-4;
+  }
+
+  .custom-bg-green-accent {
+    background-color: $primary-green-4;
+    padding: 0 0.5rem;
+  }
+  .bg-color-accent {
+    background-color: $primary-green-4;
+  }
+
+  .custom-text-green-accent {
+    color: $primary-green-4;
+  }
+  .text-color-accent {
+    color: $primary-green-4;
+  }
+
+  .custom-bg-dark {
+    /* style should be removed */
+    background-color: $secondary-color;
+  }
+
+  .text-color-secondary {
+    color: $secondary-color;
+  }
+  .bg-color-secondary {
+    background-color: $secondary-color;
+  }
+
+  /* General styles for tags in pages/components */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $font-family-title !important;
+  }
+
+  p,
+  div,
+  a,
+  span,
+  button,
+  label,
+  b,
+  em,
+  i,
+  strong {
+    font-family: $font-family-body;
+  }
+
+  .landing-page-nav__general {
+    #nav-items {
+      min-width: 400px;
+
+      .nav-item-link {
+        align-self: center;
+      }
+    }
+  }
+  .cta-btn {
+    background-color: $green-light;
+    height: 50px;
+    border-radius: 1.8rem;
+
+    &.nav-contact-cta {
+      width: 160px;
+      background-color: $accent-color !important;
+      color: $secondary-color;
+    }
+
+    &.intro-cta-btn {
+      width: 250px;
+    }
+
+    &.services-request-cta {
+      width: 200px;
+      height: 40px !important;
+      background-color: white !important;
+    }
+
+    &.service-contact-cta {
+      width: 200px;
+      height: 40px;
+      border-radius: 5px !important;
+    }
+  }
+}
+
 </style>
