@@ -1,14 +1,22 @@
 ---
 import Head from "../components/Head.astro";
-import Navigation from "../components/Navigation.astro";
-import Footer from "../components/Footer.astro";
+import Navigation from "@components/navigation/Navigation.astro";
+import Footer from "@components/footer/Footer";
 ---
 
 <html lang="en">
   <Head />
   <body>
-    <Navigation />
-    <slot />
-    <Footer />
+    <Navigation/>
+    <main id="duowork">
+      <slot />
+    </main>
+    <Footer client:visible />
   </body>
 </html>
+
+<style>
+  main {
+    position: relative;
+  }
+</style>
