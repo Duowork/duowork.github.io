@@ -1,8 +1,55 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from "@layouts/BaseLayout.astro"
+import HeroSection from "@components/home/HeroSection.astro";
+import ServiceSection from "@components/home/ServiceSection.astro";
 const pageTitle = "Duowork | Home";
 ---
 
 <BaseLayout>
-	<h1>{pageTitle}</h1>
+  <!-- Hero -->
+  <HeroSection />
+
+  <!-- Service -->
+  <ServiceSection />
 </BaseLayout>
+
+<style is:global lang="scss">
+  @import "../styles/main.scss";
+
+  .section-heading {
+    .section-tag {
+      display: block !important;
+      text-align: center;
+      font-size: medium;
+      font-weight: bold;
+      color: $secondary-color;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-title {
+      font-size: 1.875rem;
+      font-weight: bold;
+      margin-top: 0.2rem;
+      margin-bottom: 1.25rem;
+      text-align: center;
+
+      .service-title__highlight {
+        @extend .custom-bg-green-accent;
+        font-family: $font-family-title;
+      }
+    }
+
+    .section-description {
+      text-align: center;
+      line-height: 1.375;
+      max-width: 35rem;
+      max-width: 35rem;
+      font-size: small;
+      font-weight: 300;
+      margin-top: 1.25rem;
+      margin-bottom: 2.5rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+</style>
