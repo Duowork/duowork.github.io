@@ -15,7 +15,7 @@ import Footer from "@components/footer/Footer";
   </body>
 </html>
 
-<style is:global>
+<style is:global lang="scss">
   /*** 
     UTILITY STYLES
     These styles are not specific to any component/page.
@@ -23,7 +23,9 @@ import Footer from "@components/footer/Footer";
     and all h1-h6  are set to default font-family.
   ***/
 
-// Add box-sizing and transition to all tags nest in body tag
+  @import "../styles/main.scss";
+
+/* Add box-sizing and transition to all tags nest in body tag */
 * {
   box-sizing: border-box !important;
 }
@@ -48,6 +50,7 @@ body {
   .custom-text-dark {
     color: $secondary-color;
   }
+  
   .text-secondary {
     color: $secondary-color;
   }
