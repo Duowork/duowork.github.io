@@ -37,7 +37,25 @@ const portfolio = defineCollection({
     ),
 });
 
+const process = defineCollection({
+  type: "data",
+  schema: ({ image }) =>
+    z.array(
+      z.object({
+        title: z.string(),
+        image: z.object({
+          src: image(),
+          alt: z.string(),
+          width: z.number(),
+          height: z.number()
+        }),
+        description: z.string(),
+      }),
+    ),
+});
+
 export const collection = {
   authors: authors,
   portfolio: portfolio,
+  process: process,
 };
