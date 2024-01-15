@@ -1,16 +1,34 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro"
+import BaseLayout from "@layouts/BaseLayout.astro";
 import HeroSection from "@components/home/HeroSection.astro";
 import ServiceSection from "@components/home/ServiceSection.astro";
-const pageTitle = "Duowork | Home";
+import PortfolioSection from "@components/home/PortfolioSection.astro";
+import ProcessSection from "@components/home/ProcessSection.astro";
+import ToolsSection from "@components/home/toolsSection/ToolsSection.astro";
+import ContactSection from "@components/home/contact/ContactSection.astro";
 ---
 
 <BaseLayout>
   <!-- Hero -->
   <HeroSection />
 
-  <!-- Service -->
+  <!-- Agency's services -->
   <ServiceSection />
+
+  <!-- Agency's porfolio -->
+  <PortfolioSection />
+
+  <!-- Agency's process -->
+  <ProcessSection />
+
+  <!-- Agency's testimonials -->
+  <!-- <TestimonialSection> -->
+
+  <!-- Agency's work tools -->
+  <ToolsSection />
+
+  <!-- Contact section -->
+  <ContactSection />
 </BaseLayout>
 
 <style is:global lang="scss">
@@ -34,7 +52,7 @@ const pageTitle = "Duowork | Home";
       text-align: center;
 
       .service-title__highlight {
-        @extend .custom-bg-green-accent;
+        @extend .custom-bg-green-accent !optional;
         font-family: $font-family-title;
       }
     }
