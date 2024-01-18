@@ -1,0 +1,259 @@
+[
+    {
+      "category": "design",
+      "tools": [
+        {
+          "name": "figma",
+          "image": {
+            "src": "../assets/images/tools/figma98.png",
+            "alt": "Duowork's work tool icon",
+            "width": 40,
+            "height": 40
+          }
+        },
+        {
+          "name": "Photoshop",
+          "image": {
+            "src": "../assets/images/tools/photoshop96.png",
+            "alt": "Duowork's work tool icon",
+            "width": 40,
+            "height": 40
+          }
+        },
+        {
+          "name": "Illustrator",
+          "image": {
+            "src": "../assets/images/tools/illustrator96.png",
+            "alt": "Duowork's work tool icon",
+            "width": 40,
+            "height": 40
+          }
+        }
+      ]
+    },
+    {
+      "category": "frontend",
+      "tools": [
+        {
+          "name": "ReactJS",
+          "image": {
+            "src": "../assets/images/tools/react96.png",
+            "alt": "Duowork's work tool icon",
+            "width": 40,
+            "height": 40
+          }
+        },
+        {
+          "name": "GatsbyJS",
+          "image": {
+            "src": "../assets/images/tools/gatsbyjs96.png",
+            "alt": "Duowork's work tool icon",
+            "width": 40,
+            "height": 40
+          }
+        },
+        {
+          "name": "NextJS",
+          "image": {
+            "src": "../assets/images/tools/Nextjs.png",
+            "alt": "Duowork's work tool icon",
+            "width": 40,
+            "height": 40
+          }
+        },
+        {
+          "name": "TypeScript",
+          "image": {
+            "src": "../assets/images/tools/typescript96.png",
+            "alt": "Duowork's work tool icon",
+            "width": 40,
+            "height": 40
+          }
+        }
+      ]
+    },
+    {
+      "category": "mobile",
+      "tools": [
+        {
+          "name": "React Native",
+          "image": {
+            "src":  "../assets/images/tools/react96.png",
+            "alt": "Duowork's work tool icon",
+            "width": 40,
+            "height": 40
+          }
+        },
+        {
+          "name": "Flutter",
+          "image": {
+            "src":  "../assets/images/tools/flutter96.png",
+            "alt": "Duowork's work tool icon",
+            "width": 40,
+            "height": 40
+          }
+        }
+      ]
+    },
+    {
+      "category": "backend",
+      "tools": [
+        {
+          "name": "Django",
+          "logo": "../assets/images/tools/django96.png",
+          "image": {
+            "src":  "../assets/images/tools/django96.png",
+            "alt": "Duowork's work tool icon",
+            "width": 40,
+            "height": 40
+          }
+        },
+        {
+          "name": "ExpressJS",
+          "logo": "../assets/images/tools/expressjs96.png",
+          "image": {
+            "src":  "../assets/images/tools/expressjs96.png",
+            "alt": "Duowork's work tool icon",
+            "width": 40,
+            "height": 40
+          }
+        },
+        {
+          "name": "Wordpress",
+          "logo": "../assets/images/tools/wordpress.png",
+          "image": {
+            "src":  "../assets/images/tools/wordpress.png",
+            "alt": "Duowork's work tool icon",
+            "width": 40,
+            "height": 40
+          }
+        },
+        {
+          "name": "Sanity",
+          "logo": "../assets/images/tools/wordpress.png",
+          "image": {
+            "src":  "../assets/images/tools/wordpress.png",
+            "alt": "Duowork's work tool icon",
+            "width": 40,
+            "height": 40
+          }
+        }
+      ]
+    },
+    {
+      "category": "Database",
+      "tools": [
+        {
+          "name": "MySQL",
+          "logo": "../assets/images/tools/mysql96.png",
+          "image": {
+            "src":  "../assets/images/tools/mysql96.png",
+            "alt": "Duowork's work tool icon",
+            "width": 40,
+            "height": 40
+          }
+        },
+        {
+          "name": "PostgreSQL",
+          "logo": "../assets/images/tools/postgresql96.png",
+          "image": {
+            "src":  "../assets/images/tools/postgresql96.png",
+            "alt": "Duowork's work tool icon",
+            "width": 40,
+            "height": 40
+          }
+        },
+        {
+          "name": "MongoDB",
+          "logo": "../assets/images/tools/mongodb96.png",
+          "image": {
+            "src":  "../assets/images/tools/mongodb96.png",
+            "alt": "Duowork's work tool icon",
+            "width": 40,
+            "height": 40
+          }
+        },
+        {
+          "name": "SQL Lite",
+          "logo": "../assets/images/tools/mongodb96.png",
+          "image": {
+            "src":  "../assets/images/tools/mongodb96.png",
+            "alt": "Duowork's work tool icon",
+            "width": 40,
+            "height": 40
+          }
+        }
+      ]
+    },
+    {
+      "category": "Cloud",
+      "tools": [
+        {
+          "name": "AWS",
+          "logo": "../assets/images/tools/aws96.png",
+          "image": {
+            "src":  "../assets/images/tools/aws96.png",
+            "alt": "Duowork's work tool icon",
+            "width": 40,
+            "height": 40
+          }
+        },
+        {
+          "name": "Azure",
+          "logo": "../assets/images/tools/azure96.png",
+          "image": {
+            "src":  "../assets/images/tools/azure96.png",
+            "alt": "Duowork's work tool icon",
+            "width": 40,
+            "height": 40
+          }
+        },
+        {
+          "name": "GCP",
+          "logo": "../assets/images/tools/GCP96.png",
+          "image": {
+            "src":  "../assets/images/tools/GCP96.png",
+            "alt": "Duowork's work tool icon",
+            "width": 40,
+            "height": 40
+          }
+        }
+      ]
+    },
+    {
+      "category": "DevOps",
+      "tools": [
+        {
+          "name": "GitHub Actions",
+          "logo": "../assets/images/tools/github96.png",
+          "image": {
+            "src":  "../assets/images/tools/github96.png",
+            "alt": "Duowork's work tool icon",
+            "width": 40,
+            "height": 40
+          }
+        },
+        {
+          "name": "Docker",
+          "logo": "../assets/images/tools/docker96.png",
+          "image": {
+            "src":  "../assets/images/tools/docker96.png",
+            "alt": "Duowork's work tool icon",
+            "width": 40,
+            "height": 40
+          }
+        },
+        {
+          "name": "Jenkins",
+          "logo": "../assets/images/tools/jenkins96.png",
+          "image": {
+            "src":  "../assets/images/tools/jenkins96.png",
+            "alt": "Duowork's work tool icon",
+            "width": 40,
+            "height": 40
+          }
+        }
+      ]
+    }
+  ]
+  
