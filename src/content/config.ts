@@ -47,11 +47,27 @@ const process = defineCollection({
           src: image(),
           alt: z.string(),
           width: z.number(),
-          height: z.number()
+          height: z.number(),
         }),
         description: z.string(),
       }),
     ),
+});
+
+const tools = defineCollection({
+  type: "data",
+  schema: ({ image }) =>
+    z.object({
+      category: z.string(),
+      tools: z.array(
+        z.object({
+          name: z.string(),
+          image: z.object({
+            alt: image(),
+          })
+        }),
+      ),
+    }),
 });
 
 export const collection = {
