@@ -1,0 +1,159 @@
+---
+import { getEntry } from "astro:content";
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import capWordFirstLetter from "@utils/capWordFirstLetter";
+import toolsImage from "./toolsImages";
+
+const images: { [any: string]: ImageMetadata } = toolsImage();
+const toolsData: any = await getEntry("agencyWorkTools", "tools");
+
+type ToolsDataType = {
+  id: string;
+  category: string;
+  toolsName: string[];
+  toolsImagePaths: string[];
+};
+---
+
+<script>
+  const contentTabList = document.querySelectorAll(".tools-tablist__content");
+  const categoryTabList = document.querySelectorAll(".tools-tablist__item");
+
+  const handleCategoryClick = (e: Event, tabIndex: number) => {
+    e.preventDefault();
+
+    if (contentTabList.length > 0) {
+      for (let i = 0; i < contentTabList.length; i++) {
+        // Skp null iteration to prevent error
+        if (contentTabList[i] === null) break;
+
+        if (tabIndex === i && contentTabList[i].classList.contains("hidden")) {
+          contentTabList[i].classList.remove("hidden");
+          contentTabList[i].classList.add("block");
+        } else {
+          // Hide the rest of the content
+          contentTabList[i].classList.add("hidden");
+        }
+      }
+    }
+  };
+
+  categoryTabList.forEach((category, tabIndex) => {
+    category.addEventListener("click", (e) => handleCategoryClick(e, tabIndex));
+  });
+</script>
+
+<section id="toolsSection" class="px-10 h-auto pb-10 pt-10 sm:pt-20 mb-40">
+  <div class="section-heading">
+    <span class="section-tag"> Our Tools</span>
+    <h3 class="section-title">
+      <span class="service-title__highlight"> The Technologies</span> We Use.
+    </h3>
+    <p class="section-description">
+      We work with tried and tested technologies and platforms that are suited
+      for building software products that meet business needs and requirement.
+      Our tools include:
+    </p>
+  </div>
+
+  <div
+    id="tools-category-container"
+    class="tools-tablist flex flex-col items-center"
+  >
+    <!-- Tools category -->
+    <div
+      id="tools-menu"
+      class="tools-tablist__btn | inline-flex flex-row items-center justify-center mb-5 border-b border-gray-200 border-w-20 pb-2"
+      role="tablist"
+    >
+      {
+        toolsData.data.map((item: ToolsDataType, idx: number) => {
+          const category = item.category;
+
+          return (
+            <a
+              href={`#${category.toLowerCase()}-${idx}`}
+              class="tools-tablist__item | px-[1rem] py-1 font-semibold block rounded-full"
+              role="tab"
+            >
+              {capWordFirstLetter(category)}
+            </a>
+          );
+        })
+      }
+    </div>
+
+    <!-- Tools content -->
+    <div id="tools-content" class="w-full sm:max-w-[40rem]">
+      {
+        toolsData.data.map((item: any, idx: number) => (
+          <div
+            id={`${item.category.toLowerCase()}-${item.id}`}
+            class={`tools-tablist__content | flex justify-start flex-wrap bg-gray-100 py-4 px-2 rounded-xl ${
+              idx === 0 ? "block" : "hidden"
+            }`}
+          >
+            {item.tools.map((tool: any, idx: number) => {
+              const imageName = tool.image.srcName;
+              const image: ImageMetadata =
+                images[imageName] && images[imageName];
+
+              return (
+                <div class="flex flex-col items-start sm:items-center mr-10 mb-3">
+                  {image ? (
+                    <Image
+                      src={image}
+                      alt={tool.image.alt}
+                      class="tool-image"
+                    />
+                  ) : (
+                    <img
+                      src={tool.image.alt}
+                      alt={tool.image.alt}
+                      class="tool-image"
+                    />
+                  )}
+                  <div class="tool-name | text-sm font-semibold">
+                    {tool.name}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @import "../../../styles/main.scss";
+
+  section {
+    #tools-category-container {
+      #tools-menu {
+        @include respond-below(md) {
+          width: 100%;
+          overflow-x: scroll;
+        }
+
+        .tools-tablist__item {
+          &:hover {
+            background-color: $accent-color;
+          }
+        }
+      }
+
+      #tools-content {
+        .tools-tablist__content {
+          .tool-image {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+</style>
