@@ -140,7 +140,7 @@
         }
       },
       {
-        "name": "Wordpress (Headless)",
+        "name": "Wordpress",
         "logo": "../assets/images/tools/wordpress.png",
         "image": {
           "srcName": "wordpressImage",
@@ -150,7 +150,7 @@
         }
       },
       {
-        "name": "Sanity (Headless)",
+        "name": "Sanity",
         "logo": "../assets/images/tools/wordpress.png",
         "image": {
           "srcName": "sanityImage",
