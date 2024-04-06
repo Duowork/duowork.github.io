@@ -48,7 +48,7 @@
         @content;
       }
     } @else {
-      @warn 'Inavlid breakpoint: #{$breakpoint}.';
+      @warn 'Invalid breakpoint: #{$breakpoint}.';
     }
   }
   
