@@ -23,7 +23,9 @@ import typescriptImage from "./images/typescript96.png";
 import reactNativeImage from "./images/react96.png";
 import postgreSQLImage from "./images/postgresql96.png";
 import astroJsImage from "./images/astrojs.svg"
-// import SqlLiteImage from "./images/postgresql96.png"
+import sanityImage from "./images/sanity.svg"
+import SqlLiteImage from "./images/sqliteImage.svg"
+import airtableImage from "./images/airtableImage.svg"
 
 export default function () {
   return {
@@ -51,6 +53,9 @@ export default function () {
     typescriptImage,
     reactNativeImage,
     postgreSQLImage,
-    astroJsImage
+    astroJsImage,
+    sanityImage,
+    SqlLiteImage,
+    airtableImage
   };
 }

@@ -39,7 +39,7 @@ const images: { [name: string]: ImageMetadata } = processSectionImages();
               src={images[process.image.srcName]}
               alt={process.image.alt}
               width={45}
-              height={process.image.height}
+              height={45}
               class="process-number"
             />
             <strong class="title" set:html={process.title} />
@@ -72,7 +72,7 @@ const images: { [name: string]: ImageMetadata } = processSectionImages();
           .process-title {
             display: flex;
             flex-direction: column;
-            align-items: start;
+            align-items: flex-start;
             justify-content: space-between;
 
             .process-number {
