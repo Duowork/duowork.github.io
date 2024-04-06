@@ -1,5 +1,5 @@
 ---
-import logo from "./logo.png";
+import logo from "../../assets/logo.png";
 import { Image } from "astro:assets";
 import Button from "../Button.jsx";
 ---
@@ -10,8 +10,6 @@ import Button from "../Button.jsx";
   window.location.pathname === "/"
     ? navItemsContainer?.classList.add("text-white")
     : navItemsContainer?.classList.add("text-black");
-  
-  console.log(navItemsContainer)
 
   // Detect scroll
   document.addEventListener("scroll", () => {
@@ -39,7 +37,7 @@ import Button from "../Button.jsx";
     class="w-11 h-11 bg-white rounded-full flex flex-row justify-center items-center landing-page-nav__item-left"
   >
     <a href="/">
-      <Image src={logo} alt="Website logo, Duowork" id="logo" />
+      <Image id="logo" src={logo} alt="Website logo, Duowork" />
     </a>
   </div>
 
