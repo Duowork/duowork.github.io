@@ -2,8 +2,11 @@ import { Icon } from "@iconify/react";
 import { Formik } from "formik";
 import validateForm from "./validateForm";
 import footerStyle from "./footerStyle.module.scss";
+import logo from "../../assets/logo.png"
 
 export default function Footer() {
+  const footerYear = new Date().getFullYear()
+
   const services = [
     "Product design",
     "mobile development",
@@ -82,8 +85,8 @@ export default function Footer() {
             id={footerStyle.logo}
             className="w-11 h-11 bg-white rounded-full flex flex-row justify-center items-center"
           >
-            <a href="/">
-              {/* <StaticImage src="../assets/logos/logo.png" alt="Duowork logo" /> */}
+            <a href="/" title="Duowork logo">
+              <img src={logo.src} alt="Duowork logo" />
             </a>
           </div>
           <p className="text-sm my-4">
@@ -96,7 +99,8 @@ export default function Footer() {
               title="Email"
               className="flex items-center"
             >
-              {/* <Icon icon="mdi:email" className="text-gray-400 text-2xl mr-2" /> */}
+              //@ts-ignore
+              <Icon icon="mdi:email" className="text-gray-400 text-2xl mr-2" />
               reach@duowork.tech
             </a>
           </p>
@@ -150,7 +154,7 @@ export default function Footer() {
 
       <div id="sm-copywrite" className="text-white py-5">
         <p className="text-sm font-light text-center text-white p-2">
-          © 2024 Duowork | All Rights Reserved.
+          © {footerYear} Duowork | All Rights Reserved.
         </p>
       </div>
     </footer>
