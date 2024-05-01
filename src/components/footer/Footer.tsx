@@ -97,10 +97,9 @@ export default function Footer() {
               href="mailto:reach@duowork.tech"
               target={"_blank"}
               title="Email"
-              className="flex items-center"
+              className="flex items-center underline"
             >
-              //@ts-ignore
-              <Icon icon="mdi:email" className="text-gray-400 text-2xl mr-2" />
+              {/* <Icon icon="mdi:email" className="text-gray-400 text-2xl mr-2" /> */}
               reach@duowork.tech
             </a>
           </p>
