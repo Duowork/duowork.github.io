@@ -25,7 +25,11 @@ type PortfolioDataType = {
 };
 ---
 
-<section class="w-auto h-auto px-2 sm:px-10 mb-20">
+<section
+  id="portfolios"
+  class="w-auto h-auto px-2 sm:px-10 mb-20"
+  transition:animate="slide"
+>
   <div class="section-heading">
     <span class="section-tag">Our Portfolio</span>
     <h2 id="portfolio-header" class="section-title">
@@ -54,7 +58,6 @@ type PortfolioDataType = {
               class="portfolio-item__image w-6/12 h-80 rounded-xl max-w-full h-auto mb-10 md:mr-10"
               loading="lazy"
             />
-
 
             <div class="portfolio-item__description-container | flex flex-col">
               <h3 class="portfolio-name font-semibold text-2xl sm:text-3xl">

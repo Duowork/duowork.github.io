@@ -1,8 +1,13 @@
 ---
-import Baselayout from "../../layouts/Baselayout.astro"
-const pageTitle = "Duowork | blog"
+import BaseHead from "@components/BaseHead.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Blog from "@components/blog/blog.astro";
+const pageTitle = "Blog";
 ---
 
-<Baselayout>
-    <h1>{pageTitle}</h1>
-</Baselayout>
+<BaseLayout>
+  <BaseHead slot="document-head" pageTitle={pageTitle} />
+  <Blog />
+</BaseLayout>
+
+<style></style>

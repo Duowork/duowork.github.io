@@ -1,9 +1,11 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Contact from "@components/contact/Contact.astro";
-const pageTitle = "Duowork | Contact";
+import BaseHead from "@components/BaseHead.astro";
+const pageTitle = "Contact";
 ---
 
 <BaseLayout>
+  <BaseHead slot="document-head" pageTitle={pageTitle} />
   <Contact />
 </BaseLayout>
