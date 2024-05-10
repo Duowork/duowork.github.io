@@ -1,12 +1,12 @@
 ---
-import Head from "../components/Head.astro";
+import BaseHead from "../components/BaseHead.astro";
 import Navigation from "@components/navigation/Navigation.astro";
 import Footer from "@components/footer/Footer";
 import { ToastContainer } from "react-toastify";
 ---
 
 <html lang="en">
-  <Head />
+  <slot name="document-head" />
   <body>
     <Navigation />
     <main id="duowork">
