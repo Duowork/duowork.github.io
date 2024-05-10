@@ -11,11 +11,10 @@ import Button from "../Button.jsx";
     ? navItemsContainer?.classList.add("text-white")
     : navItemsContainer?.classList.add("text-black");
 
-  // Detect scroll
+  // Detect scroll and change nav background
   document.addEventListener("scroll", () => {
     const scrollTop = window.scrollY;
 
-    // Change nav menu background when scroll > 800px
     if (scrollTop > 80) {
       document
         .querySelector("#desktop-nav-menu")
@@ -49,7 +48,9 @@ import Button from "../Button.jsx";
       <a href="/" class="nav-item-link">Home</a>
     </li>
     <li class="nav-item">
-      <a href="/#portfolios" class="nav-item-link">Portfolio</a>
+      <a href="/#portfolio" class="nav-item-link" data-astro-history="auto"
+        >Portfolio</a
+      >
     </li>
     <li class="nav-item">
       <a href="/#services" class="nav-item-link">Service</a>
@@ -59,9 +60,7 @@ import Button from "../Button.jsx";
     </li>
   </ul>
 
-  <div
-    class="hidden md:flex items-center justify-evenly nav-menu__item-right"
-  >
+  <div class="hidden md:flex items-center justify-evenly nav-menu__item-right">
     <div id="cta-nav-item-contact" class="nav-item-link">
       <Button
         client:idle
@@ -75,7 +74,7 @@ import Button from "../Button.jsx";
 </nav>
 
 <style lang="scss">
-@import "../../styles/main.scss";
+  @import "../../styles/main.scss";
 
   #desktop-nav-menu {
     position: fixed;
@@ -88,7 +87,6 @@ import Button from "../Button.jsx";
       align-self: center;
 
       .nav-item-link {
-
         &:link {
           color: white;
         }
