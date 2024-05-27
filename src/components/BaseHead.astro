@@ -1,12 +1,13 @@
 ---
 import { ViewTransitions } from "astro:transitions";
-const siteName = "Duowork Software Solutions";
-const title = "Duowork Software Solutions";
-const description = "Custom software solution for business successs.";
-const imageUrl = "https://www.duowork.tech/metaimage.jpeg";
-const pageUrl = "https://www.duowork.tech";
-const twitterHandle = "@duoworhq";
-const { pageTitle } = Astro.props;
+const {
+  siteName = "Duowork Software Solutions",
+  title = "Duowork Software Solutions",
+  description = "https://www.duowork.tech/metaimage.jpeg",
+  imageUrl = "https://www.duowork.tech/metaimage.jpeg",
+  pageUrl = "https://www.duowork.tech",
+  twitterHandle = "@duoworhq",
+} = Astro.props;
 ---
 
 <head>
@@ -14,7 +15,7 @@ const { pageTitle } = Astro.props;
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="generator" content={Astro.generator} />
   <title>
-    {pageTitle ? `Duowork | ${pageTitle}` : "Duowork software solutions"}
+    {title ? `Duowork | ${title}` : title}
   </title>
   <ViewTransitions />
 
