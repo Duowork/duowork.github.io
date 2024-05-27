@@ -1,4 +1,5 @@
 import { Icon } from "@iconify/react";
+import { PiEnvelopeSimpleLight } from "react-icons/pi";
 import { Formik } from "formik";
 import validateForm from "./validateForm";
 import footerStyle from "./footerStyle.module.scss";
@@ -86,7 +87,7 @@ export default function Footer() {
             className="w-11 h-11 bg-white rounded-full flex flex-row justify-center items-center"
           >
             <a href="/" title="Duowork logo">
-              <img src={logo.src} alt="Duowork logo" />
+              <img src="/logo.png" alt="Duowork logo" />
             </a>
           </div>
           <p className="text-sm my-4">
@@ -99,7 +100,7 @@ export default function Footer() {
               title="Email"
               className="flex items-center underline"
             >
-              {/* <Icon icon="mdi:email" className="text-gray-400 text-2xl mr-2" /> */}
+              <PiEnvelopeSimpleLight className="text-white text-2xl mr-2" />
               reach@duowork.tech
             </a>
           </p>
