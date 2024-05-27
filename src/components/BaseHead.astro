@@ -1,12 +1,44 @@
 ---
-const { pageTitle } = Astro.props;
 import { ViewTransitions } from "astro:transitions";
+const siteName = "Duowork Software Solutions";
+const title = "Duowork Software Solutions";
+const description = "Custom software solution for business successs.";
+const imageUrl = "https://www.duowork.tech/metaimage.jpeg";
+const pageUrl = "https://www.duowork.tech";
+const twitterHandle = "@duoworhq";
+const { pageTitle } = Astro.props;
 ---
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="generator" content={Astro.generator} />
-  <title>{pageTitle ? `Duowork | ${pageTitle}` : "Duowork"}</title>
+  <title>
+    {pageTitle ? `Duowork | ${pageTitle}` : "Duowork software solutions"}
+  </title>
   <ViewTransitions />
+
+  <!-- Google Meta Tags -->
+  <meta name="description" content={description} />
+  <meta
+    name="keywords"
+    content="custom-software-solution, abuja-website-agency, duowork-software-solutions, custom-software, tailor-made-software."
+  />
+  <meta name="author" content="Duowork software solutions | Romeo Peter" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content={twitterHandle} />
+  <meta name="twitter:title" content={siteName} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={imageUrl} />
+
+  <!-- Facebook Open Graph Meta Tags -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={imageUrl} />
+  <meta property="og:url" content={pageUrl} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={siteName} />
 </head>
