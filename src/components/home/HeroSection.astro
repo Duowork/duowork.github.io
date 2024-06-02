@@ -2,101 +2,105 @@
 
 ---
 
-<section id="hero-section" class="h-[40rem] md:h-[50rem] lg:h-[45rem]">
-    <div id="overlay" class="!h-full">
-        <div id="hero-container" class="flex flex-col item-center justify-center h-full">
+<section id="hero-section" class="h-[40rem] md:h-[50rem] lg:h-[100vh]">
+  <div id="overlay" class="!h-full">
+    <div
+      id="hero-container"
+      class="flex flex-col item-center justify-center h-full"
+    >
+        <div class="w-full text-2xl md:text-4xl lg:text-6xl text-center">
             <h1
-                id="hero-title"
-                class="text-white text-2xl md:text-4xl lg:text-6xl text-center font-bold w-3/4 self-center"
+            id="hero-title"
+            class="text-white text-center font-bold self-center mb-3 md:mb-5"
             >
-                Custom Software Solution for
-                <span class="custom-bg-green-accent text-black px-2">
-                    Business Success
-                </span>
+            Tailor-made Software Solution for
             </h1>
-
-            <p id="hero-description"
-                class="text-white text-center mt-10 self-center text-lg px-[2.25rem] sm:px-0 font-light max-w-[35rem] sm:w-1/2"
-            >
-                We help businesses and startups build and manage their digital
-                ideas through custom design and software solutions.
-            </p>
-
-            <a
-                href="/contact"
-                id="hero-button"
-                class="flex items-center mt-10 w-auto self-center text-white rounded-xl cta-btn"
-                title="Get started"
-                type="button"
-            >
-                <span id="button-text" class="text-center">
-                Talk to us
-                </span>{" "}
-                <span
-                id="right-arrow"
-                class="text-center rounded-tr-xl rounded-br-xl"
-                aria-hidden="true"
-                >
-                &rarr;
-                </span>
-            </a>
+            <span class="custom-bg-green-accent text-black px-2">
+            Business Success
+            </span>
         </div>
+
+      <p
+        id="hero-description"
+        class="text-white text-center mt-10 self-center text-lg px-[2.25rem] sm:px-0 font-light max-w-[35rem] sm:w-1/2"
+      >
+        We help businesses and startups build and manage their digital ideas
+        through custom design and software solutions.
+      </p>
+
+      <a
+        href="/contact"
+        id="hero-button"
+        class="flex items-center mt-10 w-auto self-center text-white rounded-xl cta-btn"
+        title="Get started"
+        type="button"
+      >
+        <span id="button-text" class="text-center"> Talk to us </span>{" "}
+        <span
+          id="right-arrow"
+          class="text-center rounded-tr-xl rounded-br-xl"
+          aria-hidden="true"
+        >
+          &rarr;
+        </span>
+      </a>
     </div>
+  </div>
 </section>
 
 <style lang="scss">
-    @import "../../styles/main.scss";
-    
-    section {
-        background-image: url("../../assets/teamImg.jpeg");
-        background-repeat: no-repeat;
-        background-position: top;
-        background-size: cover;
-        position: relative;
+  @import "../../styles/main.scss";
 
-        // Opaque black overlay
-        #overlay {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.8);
+  section {
+    background-image: url("../../assets/teamImg.jpeg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    position: relative;
 
-            #hero-container {
-                #hero-title {
-                    line-height: 1.5;
-                }
+    // Opaque black overlay
+    #overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.8);
 
-                #hero-button {
-                    width: 200px;
-                    max-width: 200px;
-                    border: 1px solid $accent-color;
-                    background-color: transparent !important;
-
-                    #button-text {
-                        display: inline-block;
-                        width: 70%;
-                        font-weight: 300;
-                        font-size: medium;
-                    }
-
-                    #right-arrow {
-                        height: 100%;
-                        width: 30%;
-                        color: $secondary-color;
-                        font-size: 50px;
-                        display: flex;
-                        justify-content: center;
-                        line-height: 1;
-                        background-color: $accent-color;
-                        border-top-right-radius: 1.8rem;
-                        border-bottom-right-radius: 1.8rem;
-                    }
-                }
-            }
+      #hero-container {
+        #hero-title {
+          line-height: 1.5;
         }
+
+        #hero-button {
+          width: 200px;
+          max-width: 200px;
+          border: 1px solid $accent-color;
+          background-color: transparent !important;
+
+          #button-text {
+            display: inline-block;
+            width: 70%;
+            font-weight: 300;
+            font-size: medium;
+          }
+
+          #right-arrow {
+            height: 100%;
+            width: 30%;
+            color: $secondary-color;
+            font-size: 50px;
+            display: flex;
+            justify-content: center;
+            line-height: 1;
+            background-color: $accent-color;
+            border-top-right-radius: 1.8rem;
+            border-bottom-right-radius: 1.8rem;
+          }
+        }
+      }
     }
+  }
 </style>
