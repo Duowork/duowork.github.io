@@ -12,7 +12,7 @@ import Button from "../Button.jsx";
     : navItemsContainer?.classList.add("text-black");
 
   // Detect scroll and change nav background
-  document.addEventListener("scroll", () => {
+  window.document.addEventListener("scroll", () => {
     const scrollTop = window.scrollY;
 
     if (scrollTop > 80) {
