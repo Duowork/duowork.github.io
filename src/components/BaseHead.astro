@@ -8,16 +8,16 @@ const {
   pageUrl = "https://www.duowork.tech",
   twitterHandle = "@duoworhq",
 } = Astro.props;
+
 ---
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="generator" content={Astro.generator} />
   <title>
     {title ? `Duowork | ${title}` : title}
   </title>
-  <ViewTransitions />
+  <link rel="icon" href="/favicon.ico">
 
   <!-- Google Meta Tags -->
   <meta name="description" content={description} />
@@ -42,4 +42,9 @@ const {
   <meta property="og:url" content={pageUrl} />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content={siteName} />
+
+  <!-- Astro default-->
+  <meta name="generator" content={Astro.generator} />
+  <ViewTransitions />
+
 </head>
