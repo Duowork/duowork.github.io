@@ -120,7 +120,7 @@ export default function ContactForm() {
               id="service-type"
               className="mt-1 block w-full text-sm font-light border focus:outline-none p-2 rounded-md"
               // ref={serviceElemRef}
-              title="Servive type"
+              title="Service"
               {...register("serviceType", { required: true })}
             >
               <option value="">Select an option</option>
