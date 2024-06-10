@@ -1,6 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Navigation from "@components/navigation/Navigation.astro";
+import MobileNavigation from "@components/navigation/mobileNavigation";
 import Footer from "@components/footer/Footer";
 import { ToastContainer } from "react-toastify";
 ---
@@ -10,10 +11,16 @@ import { ToastContainer } from "react-toastify";
   <BaseHead />
 
   <body>
+    <!--  Desktop navigation -->
     <Navigation />
+
+    <!-- Mobile navigation -->
+    <MobileNavigation client:visible />
+
     <main id="duowork">
       <slot />
     </main>
+
     <Footer client:only="react" />
 
     {/* Toast notification container for when form is submitted */}
