@@ -3,8 +3,7 @@ import mobilDevIcon from "./images/mobile-dev.png";
 import feDevIcon from "./images/fe-dev.png";
 import beDevIcon from "./images/be-dev.png";
 import fsDevIcon from "./images/fs-dev.png";
-import googleAutomation from "./images/google-automation.svg";
-import googleAutomation2 from "./images/google-logo-bold.svg";
+import googleAutomation from "./images/google-automation.png";
 
 export default function () {
   return {
@@ -13,7 +12,6 @@ export default function () {
     feDevIcon,
     beDevIcon,
     fsDevIcon,
-    googleAutomation,
-    googleAutomation2
+    googleAutomation
   };
 }
