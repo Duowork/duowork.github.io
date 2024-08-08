@@ -141,7 +141,7 @@ export default function ContactForm() {
               <option value="app-design-and-refactoring">
                 App redesign and refactoring
               </option>
-              <option value="consultation">Consultation</option>
+              <option value="consultation">Google Workspace automation</option>
               <option value="Other">Other</option>
             </select>
             <small className="text-red-400">
@@ -150,7 +150,7 @@ export default function ContactForm() {
             </small>
           </div>
 
-          <div className="col-span-6">
+          {/* <div className="col-span-6">
             <label
               htmlFor="#service-budget"
               className="w-full block text-sm"
@@ -175,7 +175,7 @@ export default function ContactForm() {
               {errors.serviceBudget?.type === "required" &&
                 "Service field is required"}
             </small>
-          </div>
+          </div> */}
 
           <div className="col-span-6">
             <label
