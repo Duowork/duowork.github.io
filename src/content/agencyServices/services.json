@@ -48,5 +48,15 @@
       "width": 40,
       "height": 40
     }
+  },
+  {
+    "title": "Google <span class='underline-green-accent'>Workspace Automation</span>",
+    "description": "Transform your team and internal business operation with Google Workspace automation. Simplify workflow, enhance collaboration, and optimize internal operations for maximum efficiency and growth.",
+    "image": {
+      "srcName": "googleAutomation2",
+      "alt": "Google workspace development",
+      "width": 40,
+      "height": 40
+    }
   }
 ]
