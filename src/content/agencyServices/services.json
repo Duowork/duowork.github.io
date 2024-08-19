@@ -20,11 +20,31 @@
     }
   },
   {
+    "title": "SEO <span class='underline-green-accent'>Integration</span>",
+    "description": "Put your online presence on the top list of online searches in your industry and niche. Through SEO, we make search engines understand your app and it's content in order to help target audience find your site.",
+    "image": {
+      "srcName": "seoIntegration",
+      "alt": "SEO Integration",
+      "width": 40,
+      "height": 40
+    }
+  },
+  {
     "title": "<span class=\"underline-green-accent\">Front</span>-end development",
     "description": "Secure, scalable and visually compelling front-end, back-end and full-stack development solution that is expressive of business requirements and reaching possible results of business operations.",
     "image": {
       "srcName": "feDevIcon",
       "alt": "Mobile development",
+      "width": 40,
+      "height": 40
+    }
+  },
+  {
+    "title": "Google <span class='underline-green-accent'>Workspace Automation</span>",
+    "description": "Transform your team and internal business operation with Google Workspace automation. Simplify workflow, enhance collaboration, and optimize internal operations for maximum efficiency and growth.",
+    "image": {
+      "srcName": "googleAutomation",
+      "alt": "Google workspace development",
       "width": 40,
       "height": 40
     }
@@ -45,16 +65,6 @@
     "image": {
       "srcName": "fsDevIcon",
       "alt": "Full-stack development",
-      "width": 40,
-      "height": 40
-    }
-  },
-  {
-    "title": "Google <span class='underline-green-accent'>Workspace Automation</span>",
-    "description": "Transform your team and internal business operation with Google Workspace automation. Simplify workflow, enhance collaboration, and optimize internal operations for maximum efficiency and growth.",
-    "image": {
-      "srcName": "googleAutomation",
-      "alt": "Google workspace development",
       "width": 40,
       "height": 40
     }
