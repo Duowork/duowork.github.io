@@ -95,13 +95,13 @@ export default function Footer() {
           </p>
           <p className={`icons ${footerStyle.items}`}>
             <a
-              href="mailto:reach@duowork.tech"
+              href="mailto:reach.duoworkhq@gmail.com"
               target={"_blank"}
               title="Email"
               className="flex items-center underline"
             >
               <PiEnvelopeSimpleLight className="text-white text-2xl mr-2" />
-              reach@duowork.tech
+              reach.duoworkhq@gmail.com
             </a>
           </p>
         </div>
