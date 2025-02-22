@@ -95,7 +95,7 @@ export default function ContactForm() {
               type="email"
               id="client-email"
               placeholder="username@example.com"
-              className="select-label mt-1 block w-full text-sm font-light text-sm border focus:outline-none p-2 rounded-md"
+              className="select-label mt-1 block w-full font-light text-sm border focus:outline-none p-2 rounded-md"
               autoComplete="true"
               {...register("clientEmail", {
                 required: true,
