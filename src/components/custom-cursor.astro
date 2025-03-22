@@ -1,0 +1,68 @@
+---
+
+---
+
+<di
+  id="custom-cursor"
+  class="fixed pointer-events-none rounded-full bg-opacity-60 z-50 w-16 h-16 transition-[width]"
+  style="transform: translate(-50%, -50%); background-color: #9eff51; mix-blend-mode: difference;"
+></di>
+
+<script>
+  const cursor = document.getElementById("custom-cursor");
+
+  if (cursor) {
+    document.body.style.cursor = "none";
+
+    // Store cursor position
+    let mouseX = 0;
+    let mouseY = 0;
+    let cursorX = 0;
+    let cursorY = 0;
+
+    // Set initial position
+    cursor.style.left = "0px";
+    cursor.style.top = "0px";
+
+    // Track mouse movement
+    document.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    // Check if hovering over links or buttons
+    document.addEventListener("mouseover", (e) => {
+      const target = e.target as HTMLElement;
+      const isLink =
+        target.tagName.toLowerCase() === "a" ||
+        target.closest("a") ||
+        target.tagName.toLowerCase() === "button" ||
+        target.closest("button");
+
+      if (isLink) {
+        cursor.classList.remove("w-16", "h-16");
+        cursor.classList.add("w-8", "h-8");
+      } else {
+        cursor.classList.remove("w-8", "h-8");
+        cursor.classList.add("w-16", "h-16");
+      }
+    });
+
+  
+    const smoothCursor = () => {
+      // Calculate smooth position with easing
+      const easing = 0.2; // Lower for smoother/slower tracking
+      cursorX += (mouseX - cursorX) * easing;
+      cursorY += (mouseY - cursorY) * easing;
+
+      // Apply position with smoothing
+      cursor.style.left = `${cursorX}px`;
+      cursor.style.top = `${cursorY}px`;
+
+      // Continue animation loop
+      requestAnimationFrame(smoothCursor);
+    };
+
+    smoothCursor();
+  }
+</script>
