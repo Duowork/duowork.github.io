@@ -91,17 +91,17 @@ export default function Footer() {
             </a>
           </div>
           <p className="text-sm my-4">
-            Tailor-made software for business success.
+            Custom software for business success.
           </p>
           <p className={`icons ${footerStyle.items}`}>
             <a
-              href="mailto:reach.duoworkhq@gmail.com"
+              href="mailto:reach@duowork.tech"
               target={"_blank"}
               title="Email"
               className="flex items-center underline"
             >
               <PiEnvelopeSimpleLight className="text-white text-2xl mr-2" />
-              reach.duoworkhq@gmail.com
+              reach@duowork.tech
             </a>
           </p>
         </div>
