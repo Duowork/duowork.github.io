@@ -4,6 +4,7 @@ import Navigation from "@components/navigation/Navigation.astro";
 import MobileNavigation from "@components/navigation/mobileNavigation";
 import Footer from "@components/footer/Footer";
 import { ToastContainer } from "react-toastify";
+import CustomCursor from "@components/custom-cursor.astro";
 ---
 
 <html lang="en">
@@ -37,6 +38,10 @@ import { ToastContainer } from "react-toastify";
       pauseOnHover
       theme="dark"
     />
+
+    <!-- Custom cursor -->
+    <CustomCursor />
+
     <style is:global lang="scss">
       /*** 
     UTILITY STYLES
