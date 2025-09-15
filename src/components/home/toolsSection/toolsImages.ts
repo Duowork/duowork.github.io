@@ -22,40 +22,40 @@ import reactJsImage from "./images/react96.png";
 import typescriptImage from "./images/typescript96.png";
 import reactNativeImage from "./images/react96.png";
 import postgreSQLImage from "./images/postgresql96.png";
-import astroJsImage from "./images/astrojs.svg"
-import sanityImage from "./images/sanity.svg"
-import SqlLiteImage from "./images/sqliteImage.svg"
-import airtableImage from "./images/airtableImage.svg"
+import astroJsImage from "./images/astrojs.svg";
+import sanityImage from "./images/sanity.svg";
+import SqlLiteImage from "./images/sqliteImage.svg";
+import airtableImage from "./images/airtableImage.svg";
 
-export default function () {
-  return {
-    photoshopImage,
-    awsImage,
-    azureImage,
-    djangoImage,
-    dockerImage,
-    expressJsImage,
-    figmaImage,
-    flutterImage,
-    gatsbyJsImage,
-    GcpImage,
-    githubImage,
-    illustratorImage,
-    jenkinsImage,
-    kubernetesImage,
-    mongoDbImage,
-    nextJsImage,
-    nodeJsImage,
-    mySQLImage,
-    pythonImage,
-    wordpressImage,
-    reactJsImage,
-    typescriptImage,
-    reactNativeImage,
-    postgreSQLImage,
-    astroJsImage,
-    sanityImage,
-    SqlLiteImage,
-    airtableImage
-  };
-}
+/* ------------------------------------------------------- */
+
+export default () => ({
+  photoshopImage,
+  awsImage,
+  azureImage,
+  djangoImage,
+  dockerImage,
+  expressJsImage,
+  figmaImage,
+  flutterImage,
+  gatsbyJsImage,
+  GcpImage,
+  githubImage,
+  illustratorImage,
+  jenkinsImage,
+  kubernetesImage,
+  mongoDbImage,
+  nextJsImage,
+  nodeJsImage,
+  mySQLImage,
+  pythonImage,
+  wordpressImage,
+  reactJsImage,
+  typescriptImage,
+  reactNativeImage,
+  postgreSQLImage,
+  astroJsImage,
+  sanityImage,
+  SqlLiteImage,
+  airtableImage,
+});

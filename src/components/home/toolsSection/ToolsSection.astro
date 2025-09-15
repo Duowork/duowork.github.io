@@ -5,10 +5,10 @@ import type { ImageMetadata } from "astro";
 import capWordFirstLetter from "@utils/capWordFirstLetter";
 import toolsImage from "./toolsImages";
 
-const images: { [any: string]: ImageMetadata } = toolsImage();
-const toolsData: any = await getEntry("agencyWorkTools", "tools");
+const images: Record<string, ImageMetadata> = toolsImage();
+const tools: any = await getEntry("tools", "tools");
 
-type ToolsDataType = {
+type imageData = {
   id: string;
   category: string;
   toolsName: string[];
@@ -68,16 +68,15 @@ type ToolsDataType = {
       role="tablist"
     >
       {
-        toolsData.data.map((item: ToolsDataType, idx: number) => {
-          const category = item.category;
+        tools.data.map((item: any, idx: number) => {
 
           return (
             <a
-              href={`#${category.toLowerCase()}-${idx}`}
+              href={`#${item.category.toLowerCase()}-${idx}`}
               class="tools-tablist__item | px-[1rem] py-1 font-semibold block rounded-full"
               role="tab"
             >
-              {capWordFirstLetter(category)}
+              {capWordFirstLetter(item.category)}
             </a>
           );
         })
@@ -87,13 +86,14 @@ type ToolsDataType = {
     <!-- Tools content -->
     <div id="tools-content" class="w-full sm:max-w-[40rem]">
       {
-        toolsData.data.map((item: any, idx: number) => (
+        tools.data.map((item: any, idx: number) => (
           <div
             id={`${item.category.toLowerCase()}-${item.id}`}
             class={`tools-tablist__content | flex justify-start flex-wrap bg-gray-100 py-4 px-2 rounded-xl ${
               idx === 0 ? "block" : "hidden"
             }`}
           >
+
             {item.tools.map((tool: any, idx: number) => {
               const imageName = tool.image.srcName;
               const image: ImageMetadata =
@@ -104,13 +104,13 @@ type ToolsDataType = {
                   {image ? (
                     <Image
                       src={image}
-                      alt={tool.image.alt}
+                      alt={""}
                       class="tool-image"
                     />
                   ) : (
                     <img
                       src={tool.image.alt}
-                      alt={tool.image.alt}
+                      alt={""}
                       class="tool-image"
                     />
                   )}
