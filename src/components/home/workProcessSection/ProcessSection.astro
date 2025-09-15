@@ -4,7 +4,7 @@ import { getEntry } from "astro:content";
 import type { ImageMetadata } from "astro";
 import processSectionImages from "./processImages";
 
-const allProcesses = await getEntry("agencyWorkProcess", "process");
+const workProcess = await getEntry("process", "process");
 const images: { [name: string]: ImageMetadata } = processSectionImages();
 ---
 
@@ -32,12 +32,12 @@ const images: { [name: string]: ImageMetadata } = processSectionImages();
     class="grid grid-cols-1 md:grid-cols-2 justify-evenly justify-items-center gap-8"
   >
     {
-      allProcesses.data.map((process: any, id: number) => (
+      workProcess?.data.map((process: any, id: number) => (
         <div class="process">
           <div class="process-title">
             <Image
               src={images[process.image.srcName]}
-              alt={process.image.alt}
+              alt={process.image.alt || ""}
               width={45}
               height={45}
               class="process-number"
