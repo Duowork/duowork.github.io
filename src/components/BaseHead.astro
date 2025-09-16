@@ -1,14 +1,14 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import ClientRouter from "astro/components/ClientRouter.astro";
+
 const {
   siteName = "Duowork Software Solutions",
   title = "Duowork Software Solutions",
-  description = "https://www.duowork.tech/metaimage.jpeg",
+  description = "We help businesses automate and scale their business vision to the top.",
   imageUrl = "https://www.duowork.tech/metaimage.jpeg",
   pageUrl = "https://www.duowork.tech",
   twitterHandle = "@duoworhq",
 } = Astro.props;
-
 ---
 
 <head>
@@ -17,7 +17,7 @@ const {
   <title>
     {title ? `Duowork | ${title}` : title}
   </title>
-  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.ico" />
 
   <!-- Google Meta Tags -->
   <meta name="description" content={description} />
@@ -45,6 +45,5 @@ const {
 
   <!-- Astro default-->
   <meta name="generator" content={Astro.generator} />
-  <ViewTransitions />
-
+  <ClientRouter />
 </head>
