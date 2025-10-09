@@ -1,175 +1,137 @@
 ---
 import { Image } from "astro:assets";
 import bubbleImage from "./images/contact-bubble.svg";
-import flowerVase from "./images/flower-vase.jpeg"
 import ContactForm from "./form";
-import { Icon } from "@iconify/react";
+import { Mail, MapPin, Instagram, Linkedin, Twitter } from "@lucide/astro";
 ---
 
-<section class="h-auto bg-white mt-[10rem]">
-  <div class="breadcrumb-nav mb-10 pt-5 text-center text-sm">
-    <a href="/" class="custom-text-dark"> Home</a>
-    <small class="mx-1 text-gray-300">{">"}</small>
-    <small class="text-gray-400">Contact us</small>
-  </div>
+<section
+  class="h-auto bg-white bg-[url('./pages/contact.jpg')] relative"
+>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black opacity-90"/>
 
-  <div class="text-center mb-10">
-    <h1 class="hidden">Contact Duowork</h1>
-    <h2 class="text-2xl sm:text-3xl font-semibold mb-5 | custom-text-dark">
-      How can we be of service?
-    </h2>
-
-    <p class="text-sm text-gray-400 font-light text-center px-[3.5rem] sm:px-5">
-      fill the form below and we'll get back to you ASAP!
-    </p>
-  </div>
-
-  <div
-    class="py-10 px-5 md:px-10 flex flex-end sm:flex-row justify-center max-w-[60rem] h-auto mx-5 lg:mx-auto rounded-xl mb-10 sm:mb-40 md:rounded-[2.75rem] | custom-bg-dark"
-  >
-    <div
-      id="contact-form-left"
-      class="contactFormLeft hidden md:block sm:mr-5 w-1/2"
-    >
-      <div
-        id="contact-method"
-        class="bg-black h-full pl-5 lg:pl-10 pt-10 flex flex-col justify-between"
-      >
-        <div class="">
-          <h2 class="font-regular p-1 mb-1 text-2xl text-white">Contact us</h2>
-        </div>
-
-        <div
-          class="text-white flex flex-col items-start justify-between h-[200px]"
-        >
-
-          <div>
-            <Icon icon="mdi:email" className="text-gray-400 text-2xl mr-2" />
-            <span>reach@duowork.tech</span>
-          </div>
-
-          <div>
-            <!-- <MapPinIcon class="w-7 h-7 inline-block" /> -->
-            <Icon icon="mdi:map-marker" className="text-gray-400 text-2xl mr-2" />
-            <span>Abuja, Nigeria</span>
-          </div>
-        </div>
-
-        <div id="contact-icon" class="flex items-center justify-between">
-          <div
-            class="flex flex-row justify-start align-items flex-wrap text-white"
-          >
-            <div
-              class="icons items h-10 w-10 rounded-xl flex justify-center items-center"
-            >
-              <a
-                href="https://twitter.com/DuoworkHQ"
-                target={"_blank"}
-                class="text-lg block underline"
-              >
-                {
-                  /* <i class="fa fa-twitter fa-1x" aria-hidden="true">Twitter</i> */
-                }
-                <Icon icon="devicon:twitter" />
-                Twitter
-              </a>
-            </div>
-
-            <div
-              class="icons items h-10 w-10 rounded-xl flex justify-center items-center mx-10"
-            >
-              <a
-                href="https://instagram.com/duoworkhq"
-                target={"_blank"}
-                class="text-lg block underline"
-              >
-                <Icon icon="skill-icons:instagram" /> 
-                {
-                  /* <i class="fa fa-instagram fa-1x" aria-hidden="true">IG</i> */
-                }
-                IG
-              </a>
-            </div>
-
-            <div
-              class="icons items h-10 w-10 rounded-xl flex justify-center items-center"
-            >
-              <a
-                href="https://www.linkedin.com/company/duowork"
-                target={"_blank"}
-                class="text-lg block underline"
-              >
-                <Icon icon="skill-icons:linkedin" />
-                {
-                  /* <i class="fa fa-linkedin fa-1x" aria-hidden="true">LinkedIn</i> */
-                }
-                LinkedIn
-              </a>
-            </div>
-          </div>
-
-          <Image
-            src={bubbleImage}
-            alt="Duowork contact page right-side contact bubble"
-            width={130}
-            height={130}
-          />
-        </div>
-      </div>
+  <div class="size-full p-10 z-70 relative">
+    <div class="breadcrumb-nav my-10 pt-5 text-center text-sm">
+      <a href="/" class="text-gray-400"> Home</a>
+      <small class="mx-1 text-gray-300">{">"}</small>
+      <small class="text-white">Contact us</small>
     </div>
 
-    <!-- Contact form -->
-    <ContactForm client:visible />
-  </div>
-
-  <div
-    id="duowork-contact-form__why-chose-us"
-    class="flex flex-col justify-center sm:flex-row sm:item-center mb-[15rem] mx-5 lg:mx-0"
-  >
-    <div class="max-w-[30rem] h-auto">
-      <h3 class="hidden">Why choose Duowork</h3>
-      <h2 class="text-3xl font-semibold mb-10 px-5 sm:px-">
-        Why <span class="custom-bg-green-accent">choose</span> us?
+    <div class="text-center mb-10">
+      <h1 class="hidden">Contact Duowork</h1>
+      <h2 class="text-2xl sm:text-3xl font-semibold mb-5 text-white">
+        How can we be of service?
       </h2>
-      <p class="font-light px-2 mb-5 sm:px-5 md:px-0">
-        At Duowork, we are driven about helping businesses
-        succeed by providing custom solutions that drive growth
-        and innovation.{" "}
-        We are a small team of skilled business-minded Designers, Developers and Creators dedicated
-        to delivery high-quality solutions that align with business objectives.
+
+      <p
+        class="text-sm text-gray-400 font-light text-center px-[3.5rem] sm:px-5"
+      >
+        fill the form below and we'll get back to you ASAP!
       </p>
     </div>
 
-    <Image
-      src={flowerVase}
-      alt="Duowork team representatiion"
-      width={375}
-      height={375}
-      class="rounded-md md:ml-5 shadow-md object-cover"
-    />
+    <div
+      class="py-10 px-5 md:px-10 flex flex-end sm:flex-row justify-center max-w-[60rem] h-auto mx-5 lg:mx-auto rounded-xl mb-20 md:rounded-[2.75rem] bg-duo-dark"
+    >
+      <div
+        id="contact-form-left"
+        class="contactFormLeft hidden md:block sm:mr-5 w-1/2"
+      >
+        <div
+          id="contact-method"
+          class="bg-black h-full pl-5 lg:pl-10 pt-10 flex flex-col justify-between"
+        >
+          <!-- <div class="">
+          <h2 class="font-regular p-1 mb-1 text-2xl text-white">Contact us</h2>
+        </div> -->
+
+          <div
+            class="text-white flex flex-col items-start justify-between h-[200px]"
+          >
+            <div class="flex items-center gap-2">
+              <MapPin class="text-gray-400 text-2xl mr-2" />
+              <span>Abuja, Nigeria</span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <Mail class="text-gray-400 text-2xl mr-2" />
+              <span>reach@duowork.tech</span>
+            </div>
+          </div>
+
+          <div id="contact-icon" class="flex items-center justify-between">
+            <div
+              class="flex flex-row justify-start align-items flex-wrap text-white"
+            >
+              <div
+                class="icons items h-10 w-10 rounded-xl flex justify-center items-center"
+              >
+                <a
+                  href="https://twitter.com/DuoworkHQ"
+                  target={"_blank"}
+                  class="text-lg block underline"
+                >
+                  <Twitter />
+                  <!-- Twitter -->
+                </a>
+              </div>
+
+              <div
+                class="icons items h-10 w-10 rounded-xl flex justify-center items-center mx-10"
+              >
+                <a
+                  href="https://instagram.com/duoworkhq"
+                  target={"_blank"}
+                  class="text-lg block underline"
+                >
+                  <Instagram />
+                  <!-- IG -->
+                </a>
+              </div>
+
+              <div
+                class="icons items h-10 w-10 rounded-xl flex justify-center items-center"
+              >
+                <a
+                  href="https://www.linkedin.com/company/duowork"
+                  target={"_blank"}
+                  class="text-lg block underline"
+                >
+                  <Linkedin />
+                  <!-- LinkedIn -->
+                </a>
+              </div>
+            </div>
+
+            <Image
+              src={bubbleImage}
+              alt="Duowork contact page right-side contact bubble"
+              width={130}
+              height={130}
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact form -->
+      <ContactForm client:visible />
+    </div>
+
+    <div class="w-full flex items-center justify-center">
+      <div class="max-w-[50rem] h-auto">
+        <h3 class="hidden">Why choose Duowork</h3>
+        <h2 class="text-xl sm:text-3xl font-semibold mb-10 px-5">
+          <span class="bg-duo-green-200 text-duo-dark rounded-md px-2 sm:px-4">Why choose us?</span>
+        </h2>
+        <p class="text-white font-semibold px-2 mb-5 sm:px-5 md:px-0">
+          At Duowork, we are driven about helping businesses succeed by
+          providing custom solutions that drive growth and innovation.{" "}
+          We are a small team of skilled business-minded Designers, Developers and
+          Creators dedicated to delivery high-quality solutions that align with business
+          objectives.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
-
-<style lang="scss">
-  @import "../../styles/main.scss";
-
-  section {
-    .contactFormLeft {
-      #contact-us-ways {
-        p {
-          #or {
-            color: $green-lighter;
-          }
-        }
-
-        #contact-icons {
-          .icons {
-            a {
-              color: $green-lighter;
-            }
-          }
-        }
-      }
-    }
-  }
-</style>

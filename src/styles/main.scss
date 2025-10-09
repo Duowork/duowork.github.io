@@ -2,3 +2,194 @@
 @import "./_mixins.scss";
 @import "./mobileNav.scss";
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* General styles for tags in pages/components */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-title;
+  }
+
+  p,
+  div,
+  a,
+  span,
+  button,
+  label,
+  b,
+  em,
+  i,
+  strong {
+    @apply font-body;
+  }
+}
+
+// Re-use style component
+@layer component {
+  .custom-text-dark {
+    @apply text-duo-dark;
+  }
+
+  .text-secondary {
+    @apply text-duo-dark;
+  }
+
+  .custom-underline-green-accent {
+    @apply border-[3px] border-duo-green-200;
+  }
+
+  .underline-color-accent {
+    @apply border-[3px] border-duo-green-200;
+  }
+
+  .custom-bg-green-accent {
+    @apply bg-duo-green-200 px-[0.5rem];
+  }
+
+  .bg-color-accent {
+    @apply bg-duo-green-200;
+  }
+
+  .custom-text-green-accent {
+    @apply bg-duo-green-200;
+  }
+
+  .text-color-accent {
+    @apply text-duo-green-200;
+  }
+
+  .custom-bg-dark {
+    /* style should be removed */
+    @apply bg-duo-dark;
+  }
+
+  .text-color-secondary {
+    @apply text-duo-dark;
+  }
+
+  .bg-color-secondary {
+     @apply bg-duo-dark;
+  }
+
+  .landing-page-nav__general {
+    #nav-items {
+      min-width: 400px;
+
+      .nav-item-link {
+        align-self: center;
+      }
+    }
+  }
+
+  .cta-btn {
+    height: 50px;
+    @apply bg-duo-green-200 rounded-xl;
+
+    &.nav-contact-cta {
+        @apply w-[10rem] bg-duo-green-200 text-duo-dark
+    }
+
+    &.intro-cta-btn {
+      width: 250px;
+    }
+
+    &.services-request-cta {
+      width: 200px;
+      height: 40px !important;
+      background-color: white !important;
+    }
+
+    &.service-contact-cta {
+      width: 200px;
+      height: 40px;
+      border-radius: 5px !important;
+    }
+  }
+
+  // Loader
+  .loader {
+    width: 40px;
+    height: 48px;
+    display: inline-block;
+    position: relative;
+
+    &::after,
+    &::before {
+      content: "";
+      box-sizing: border-box;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #fff;
+      position: absolute;
+      left: 0;
+      top: 0;
+      animation: animloader 2s linear infinite;
+    }
+
+    &::after {
+      animation-delay: 1s;
+    }
+
+    @keyframes animloader {
+      0% {
+        transform: scale(0);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0;
+      }
+    }
+  }
+
+  //   Section tag
+}
+
+// --- gfgfg --
+@layer utilities {
+  .section-heading {
+    .section-tag {
+      display: block !important;
+      text-align: center;
+      font-size: medium;
+      font-weight: bold;
+      color: $secondary-color;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-title {
+      font-size: 1.875rem;
+      font-weight: bold;
+      margin-top: 0.2rem;
+      margin-bottom: 1.25rem;
+      text-align: center;
+
+      .service-title__highlight {
+        @extend .custom-bg-green-accent !optional;
+        font-family: $font-family-title;
+      }
+    }
+
+    .section-description {
+      text-align: center;
+      line-height: 1.375;
+      max-width: 35rem;
+      max-width: 35rem;
+      font-size: small;
+      font-weight: 300;
+      margin-top: 1.25rem;
+      margin-bottom: 2.5rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

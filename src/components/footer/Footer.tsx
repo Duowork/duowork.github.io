@@ -1,9 +1,6 @@
 import { Icon } from "@iconify/react";
 import { PiEnvelopeSimpleLight } from "react-icons/pi";
-import { Formik } from "formik";
-import validateForm from "./validateForm";
 import footerStyle from "./footerStyle.module.scss";
-import logo from "../../assets/logo.png"
 
 export default function Footer() {
   const footerYear = new Date().getFullYear()

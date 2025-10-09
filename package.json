@@ -13,6 +13,7 @@
     "@astrojs/check": "^0.9.4",
     "@astrojs/preact": "^4.1.1",
     "@astrojs/tailwind": "^6.0.2",
+    "@lucide/astro": "^0.544.0",
     "astro": "^5.13.7",
     "formik": "^2.4.5",
     "preact": "^10.19.3",
