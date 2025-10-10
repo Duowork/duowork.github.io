@@ -1,30 +1,17 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import Navigation from "@components/navigation/Navigation.astro";
-import MobileNavigation from "@components/navigation/mobileNavigation";
-import Footer from "@components/footer/Footer";
 import { ToastContainer } from "react-toastify";
-// import CustomCursor from "@components/custom-cursor.astro";
+import CustomCursor from "@components/custom-cursor.astro";
 ---
 
 <html lang="en">
-
   <!-- Document head -->
   <BaseHead />
 
   <body>
-
-    <!--  Desktop navigation -->
-    <Navigation />
-
-    <!-- Mobile navigation -->
-    <MobileNavigation client:visible />
-
     <main id="duowork" class="relative">
       <slot />
     </main>
-
-    <Footer client:only="react" />
 
     {/* Toast notification container for when form is submitted */}
     <ToastContainer
@@ -42,6 +29,10 @@ import { ToastContainer } from "react-toastify";
     />
 
     <!-- Custom cursor -->
-    <!-- <CustomCursor /> -->
+    <CustomCursor />
   </body>
 </html>
+
+<style is:global lang="scss">
+  @import "../styles/main.scss";
+</style>
