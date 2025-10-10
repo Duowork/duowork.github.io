@@ -1,38 +1,9 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import HeroSection from "@components/home/HeroSection.astro";
-import ServiceSection from "@components/home/serviceSection/ServiceSection.astro";
-import PortfolioSection from "@components/home/portfolioSection/PortfolioSection.astro";
-import ProcessSection from "@components/home/workProcessSection/ProcessSection.astro";
-import ToolsSection from "@components/home/toolsSection/ToolsSection.astro";
-import ContactSection from "@components/home/contactSection/ContactSection.astro";
 ---
 
 <BaseLayout>
   <!-- Hero -->
   <HeroSection />
-
-  <!-- Agency's services -->
-  <ServiceSection />
-
-  <!-- Agency's portfolio -->
-  <PortfolioSection />
-
-  <!-- Agency's process -->
-  <ProcessSection />
-
-  <!-- Agency's testimonials -->
-  <!-- <TestimonialSection> -->
-
-  <!-- Agency's work tools -->
-  <ToolsSection />
-
-  <!-- Contact section -->
-  <ContactSection />
 </BaseLayout>
-
-<style is:global lang="scss">
-  @import "../styles/main.scss";
-
-  
-</style>
