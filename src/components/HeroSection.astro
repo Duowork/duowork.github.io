@@ -1,0 +1,127 @@
+---
+const servicesRow2 = [
+  "UI/UX Design",
+  "Mobile App Development",
+  "Desktop App Solutions",
+  "Web App Development",
+];
+
+const servicesRow1 = [
+  "Product Strategy",
+  "Product MVP",
+  "Task Automation",
+  "Service API",
+];
+---
+
+<section
+  id="hero-section"
+  class="h-screen bg-no-repeat bg-top bg-cover relative bg-[url('/team.jpeg')]"
+>
+  <div
+    id="overlay"
+    class="!h-full absolute size-full top-0 left-0 bg-[#000000cc]"
+  >
+    <div
+      id="hero-container"
+      class="flex flex-col item-center mt-[13rem] gap-10"
+    >
+      <h1
+        class="w-full max-w-[50rem] text-[2.3rem] md:text-4xl lg:text-6xl text-white text-center font-bold self-center leading-snug"
+      >
+        Software Engineering & Strategy Studio.
+      </h1>
+
+      <p
+        id="hero-description"
+        class="max-w-[35rem] text-white text-center self-center text-lg px-[2.25rem] sm:px-0 font-light sm:w-1/2"
+      >
+        We help businesses build exceptional digital products; where engineering
+        meets strategy.
+      </p>
+
+      <a
+        href="/contact"
+        id="hero-button"
+        class="flex items-center justify-center self-center text-white rounded-xl cta-btn text-center max-w-[12.5rem] w-[12.5rem] !bg-transparent border !border-duo-green-200"
+        title="Talk to us"
+        type="button"
+      >
+        Talk to us
+      </a>
+    </div>
+
+    <div class="w-full py-12 overflow-hidden absolute bottom-0">
+      <!-- Top row movement -->
+      <div class="relative mb-4 overflow-hidden">
+        <div class="flex animate-scroll-right">
+          {
+            [...servicesRow1, ...servicesRow1, ...servicesRow1].map(
+              (service) => (
+                <div class="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full border border-duo-green-600 bg-duo-dark/50 backdrop-blur-sm">
+                  <span class="text-white text-sm sm:text-base md:text-lg font-semibold whitespace-nowrap">
+                    {service}
+                  </span>
+                  <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-[#9eff51]/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              )
+            )
+          }
+        </div>
+      </div>
+
+      <!-- Bottom row movement -->
+      <div class="relative overflow-hidden">
+        <div class="flex animate-scroll-left">
+          {
+            [...servicesRow2, ...servicesRow2, ...servicesRow2].map(
+              (service) => (
+                <div class="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full border border-duo-green-600 bg-duo-dark/50 backdrop-blur-sm">
+                  <span class="text-white text-sm sm:text-base md:text-lg font-semibold whitespace-nowrap">
+                    {service}
+                  </span>
+                  <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-duo-green-600/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              )
+            )
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  /* Keyframes for service bi-directional animation */
+  @keyframes scroll-right {
+    0% {
+      transform: translateX(-33.33%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-33.33%);
+    }
+  }
+
+  .animate-scroll-right {
+    animation: scroll-right 10s linear infinite;
+  }
+
+  .animate-scroll-left {
+    animation: scroll-left 10s linear infinite;
+  }
+
+  /* Pause animation on hover */
+  .animate-scroll-right:hover,
+  .animate-scroll-left:hover {
+    animation-play-state: paused;
+  }
+</style>
