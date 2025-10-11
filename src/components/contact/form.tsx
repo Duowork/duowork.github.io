@@ -18,7 +18,7 @@ const date = `${dateObj.getDate()}/${dateObj.getMonth()}/${dateObj.getFullYear()
 
 const isSubmitting = false;
 
-export default function ContactForm() {
+function ContactForm() {
   const {
     register,
     handleSubmit,
@@ -214,7 +214,7 @@ export default function ContactForm() {
           <div className="text-right">
             <button
               type="submit"
-              className={`cta-btn`}
+              className="btn-cta w-full rounded-lg bg-duo-green-200 text-duo-dark flex items-center justify-center"
               disabled={isSubmitting}
             >
               Submit{" "}
@@ -230,3 +230,5 @@ export default function ContactForm() {
     </div>
   );
 }
+
+export default ContactForm;

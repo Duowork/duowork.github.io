@@ -60,11 +60,12 @@
   }
 </script>
 
-<di
+<div
   id="custom-cursor"
-  class="fixed pointer-events-none rounded-full bg-opacity-60 z-50 w-16 h-16 transition-[width]"
+  class="custom-cursor fixed pointer-events-none rounded-full bg-opacity-60 z-50 w-16 h-16 transition-[width]"
   style="transform: translate(-50%, -50%); background-color: #9eff51; mix-blend-mode: difference;"
-></di>
+  transition:persist="custom-cursor"
+/>
 
 <style is:global>
   #custom-cursor {

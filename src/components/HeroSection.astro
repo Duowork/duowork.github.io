@@ -46,12 +46,13 @@ const servicesRow1 = [
         class="flex items-center justify-center self-center text-white rounded-xl cta-btn text-center max-w-[12.5rem] w-[12.5rem] !bg-transparent border !border-duo-green-200"
         title="Talk to us"
         type="button"
+       data-astro-prefetch="viewport"
       >
         Talk to us
       </a>
     </div>
 
-    <div class="w-full py-12 overflow-hidden absolute bottom-0">
+    <div class="w-full py-12 overflow-hidden absolute bottom-0" transition:persist="services-strip" transition:name="services-strip">
       <!-- Top row movement -->
       <div class="relative mb-4 overflow-hidden">
         <div class="flex animate-scroll-right">

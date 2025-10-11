@@ -4,6 +4,20 @@ import { ToastContainer } from "react-toastify";
 import CustomCursor from "@components/custom-cursor.astro";
 ---
 
+<script>
+  document.addEventListener("astro:before-preparation", () => {
+    console.time("Page preparation");
+  });
+
+  document.addEventListener("astro:after-preparation", () => {
+    console.timeEnd("Page preparation");
+  });
+
+  document.addEventListener("astro:page-load", () => {
+    console.log("Page fully loaded");
+  });
+</script>
+
 <html lang="en">
   <!-- Document head -->
   <BaseHead />

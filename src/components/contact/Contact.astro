@@ -115,23 +115,11 @@ import { Mail, MapPin, Instagram, Linkedin, Twitter } from "@lucide/astro";
       </div>
 
       <!-- Contact form -->
-      <ContactForm client:visible />
-    </div>
-
-    <div class="w-full flex items-center justify-center">
-      <div class="max-w-[50rem] h-auto">
-        <h3 class="hidden">Why choose Duowork</h3>
-        <h2 class="text-xl sm:text-3xl font-semibold mb-10 px-5">
-          <span class="bg-duo-green-200 text-duo-dark rounded-md px-2 sm:px-4">Why choose us?</span>
-        </h2>
-        <p class="text-white font-semibold px-2 mb-5 sm:px-5 md:px-0">
-          At Duowork, we are driven about helping businesses succeed by
-          providing custom solutions that drive growth and innovation.{" "}
-          We are a small team of skilled business-minded Designers, Developers and
-          Creators dedicated to delivery high-quality solutions that align with business
-          objectives.
-        </p>
-      </div>
+      <ContactForm client:idle />
     </div>
   </div>
 </section>
+
+<style>
+  @import "../../styles/main.scss";
+</style>
