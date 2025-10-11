@@ -5,5 +5,6 @@ import preact from "@astrojs/preact";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), preact({ compat: true })]
+  integrations: [tailwind(), preact({ compat: true })],
+  site: 'https://duowork.github.io',
 });
