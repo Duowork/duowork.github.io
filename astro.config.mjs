@@ -1,10 +1,12 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
-
 import preact from "@astrojs/preact";
+
+/* ---------------------------------------- */
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), preact({ compat: true })],
-  site: 'https://duowork.github.io',
+  site: "https://duowork.tech",
+  base: "/",
 });
