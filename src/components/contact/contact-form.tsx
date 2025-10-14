@@ -1,22 +1,29 @@
 import { useForm } from "react-hook-form";
 import type { SubmitHandler } from "react-hook-form";
-import type FormDataType from "./formDataType.ts";
 import { toast } from "react-toastify";
-import sendData from "./formEndpoint.ts";
+import { type FetchfullyResponse } from "fetchfully";
+import { apiClient } from "src/lib/api-client.ts";
+import { useState } from "preact/hooks";
+/* ----------------------------------------------------- */
+
+interface FormDataType {
+  name: string;
+  email: string;
+  subject: string;
+  survey?: string;
+  message: string;
+}
 
 const formInputs = {
-  fullName: "",
-  clientEmail: "",
-  serviceType: "",
-  serviceBudget: "",
+  name: "",
+  email: "",
+  subject: "",
   survey: "",
-  serviceDescription: "",
+  message: "",
 } as FormDataType;
 
 const dateObj = new Date();
 const date = `${dateObj.getDate()}/${dateObj.getMonth()}/${dateObj.getFullYear()}`;
-
-const isSubmitting = false;
 
 function ContactForm() {
   const {
@@ -26,6 +33,7 @@ function ContactForm() {
     formState: { errors },
     watch,
   } = useForm<typeof formInputs>();
+  const [resState, setResState] = useState<FetchfullyResponse | null>(null);
 
   const notify = (message: string) => {
     toast.success(message, {
@@ -34,32 +42,34 @@ function ContactForm() {
     });
   };
 
-  const onSubmit: SubmitHandler<typeof formInputs> = async (data) => {
+  const submitHandler: SubmitHandler<typeof formInputs> = async (data) => {
     const requestPayload = {
-      date: date,
-      fullName: data.fullName,
-      email: data.clientEmail,
-      serviceType: data.serviceType,
-      serviceBudget: data.serviceBudget,
-      contactSurvey: data.survey,
-      serviceDescription: data.serviceDescription,
+      name: data.name,
+      email: data.email,
+      subject: data.subject,
+      survey: data.survey || "",
+      message: data.message,
     };
 
-    const { pass, fail } = await sendData(requestPayload);
+    try {
+      const res = await apiClient.post(
+        "https://jazzy-conkies-6e143d.netlify.app/.netlify/functions/send-email",
+        requestPayload
+      );
 
-    console.log(pass, fail);
+      setResState(res);
 
-    // Alert user
-    if (fail?.statusText === "fail") {
-      notify(fail.message);
+      if (res.isSuccess) {
+        // Clear form fields
+        reset({ ...formInputs });
+      }
+    } catch (error) {
+      console.error("Error submitting contact form:", error);
+      toast.error("Failed to submit form. Please try again later.", {
+        hideProgressBar: true,
+        theme: "light",
+      });
     }
-
-    if (pass?.statusText === "ok") {
-      notify(pass.message);
-    }
-
-    // Clear form fields
-    reset({ ...formInputs });
   };
 
   return (
@@ -69,7 +79,7 @@ function ContactForm() {
         <p className="font-light text-sm">Tell us what about your project</p>
       </div>
 
-      <form>
+      <form onSubmit={() => handleSubmit(submitHandler)}>
         <div className="grid grid-cols-6 gap-6">
           <div className="col-span-6">
             <label htmlFor="#fullName" class="text-[14px] text-white">
@@ -80,10 +90,11 @@ function ContactForm() {
               type="text"
               placeholder="Your full name"
               className="mt-1 block w-full text-[#ffffffb3] text-sm font-medium bg-transparent border border-white focus:ring-none focus:outline-none p-2 rounded-md placeholder:text-white placeholder:text-sm placeholder:opacity-70 focus:border-duo-green-200"
-              {...register("fullName", { required: true, maxLength: 15 })}
+              autoComplete="true"
+              {...register("name", { required: true, maxLength: 15 })}
             />
             <small className="text-red-400">
-              {errors.fullName?.type === "required" && "Name field is required"}
+              {errors.name?.type === "required" && "Name field is required"}
             </small>
           </div>
 
@@ -97,14 +108,13 @@ function ContactForm() {
               placeholder="username@example.com"
               className="mt-1 block w-full text-[#ffffffb3] text-sm font-medium bg-transparent border border-white focus:ring-none focus:outline-none p-2 rounded-md placeholder:text-white placeholder:text-sm placeholder:opacity-70 focus:border-duo-green-200"
               autoComplete="true"
-              {...register("clientEmail", {
+              {...register("email", {
                 required: true,
                 pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
               })}
             />
             <small className="text-red-400">
-              {errors.clientEmail?.type === "required" &&
-                "Email field is required"}
+              {errors.email?.type === "required" && "Email field is required"}
             </small>
           </div>
 
@@ -121,33 +131,30 @@ function ContactForm() {
               className="mt-1 block w-full text-[#ffffffb3] text-sm font-medium bg-transparent border border-white focus:ring-none focus:outline-none p-2 rounded-md placeholder:text-white placeholder:text-sm placeholder:opacity-70 focus:border-duo-green-200"
               // ref={serviceElemRef}
               title="Service"
-              {...register("serviceType", { required: true })}
+              autoComplete="true"
+              {...register("subject", { required: true })}
             >
               <option selected disabled>
                 Select an option
               </option>
-              <option value="product-design">UI/UX design</option>
-              <option value="landing-page">Landing page</option>
-              <option value="mobile-app-development">
+              <option value="Product Strategy">Product Strategy</option>
+              <option value="Product Design">UI/UX design</option>
+              <option value="Mobile App Development">
                 Mobile app development
               </option>
-              <option value="web-app-development">Web app development</option>
-              <option value="desktop-development">
+              <option value="Web App Development">Web app development</option>
+              <option value="Desktop Development">
                 Desktop app development
               </option>
-              <option value="app-mvp">App MVP</option>
-              <option value="web-api-development">
-                Backend API development
+              <option value="web API Development">
+                Service API development
               </option>
-              <option value="Task automation">Task automation</option>
-              <option value="app-design-and-refactoring">
-                App redesign and refactoring
-              </option>
-              <option value="consultation">Google Workspace automation</option>
+              <option value="Task Automation">Task automation</option>
+              <option value="Product MVP">Product MVP</option>
               <option value="Other">Other</option>
             </select>
             <small className="text-red-400">
-              {errors.serviceType?.type === "required" &&
+              {errors.subject?.type === "required" &&
                 "Service field is required"}
             </small>
           </div>
@@ -165,16 +172,17 @@ function ContactForm() {
               className="mt-1 block w-full text-[#ffffffb3] text-sm font-medium bg-transparent border border-white focus:ring-none focus:outline-none p-2 rounded-md placeholder:text-white placeholder:text-sm placeholder:opacity-70 focus:border-duo-green-200"
               // ref={surveyElemRef}
               title="Survey"
+              autoComplete="true"
               {...register("survey")}
             >
               <option selected disabled>
                 Select to tell us
               </option>
-              <option value="Twitter">Twitter</option>
-              <option value="Linkedin">LinkedIn</option>
+              <option value="twitter/x">Twitter</option>
+              <option value="LinkedIn">LinkedIn</option>
               <option value="Instagram">Instagram</option>
-              <option value="YouTube">YouTube</option>
-              <option value="partnership">Brand partnership</option>
+              {/* <option value="YouTube">YouTube</option> */}
+              {/* <option value="partnership">Brand partnership</option> */}
               <option value="Word of mouth">Word of mouth</option>
               <option value="Other">Other</option>
             </select>
@@ -197,10 +205,10 @@ function ContactForm() {
               rows={6}
               className="mt-1 block w-full text-[#ffffffb3] text-sm font-medium bg-transparent border border-white focus:ring-none focus:outline-none p-2 rounded-md placeholder:text-white placeholder:text-sm placeholder:opacity-70 focus:border-duo-green-200"
               placeholder="Tell about your project..."
-              {...register("serviceDescription", { required: true })}
+              {...register("message", { required: true })}
             />
             <small className="text-red-400">
-              {errors.serviceDescription?.type === "required" &&
+              {errors.message?.type === "required" &&
                 "Description field is required"}
             </small>
           </div>
@@ -211,20 +219,13 @@ function ContactForm() {
             Your data is safe with us. We don't share data with 3rd parties!
           </small>
 
-          <div className="text-right">
-            <button
-              type="submit"
-              className="btn-cta w-full rounded-lg bg-duo-green-200 text-duo-dark flex items-center justify-center"
-              disabled={isSubmitting}
-            >
-              Submit{" "}
-              <span
-                className={`loader ml-2 ${
-                  isSubmitting ? "opacity-100" : "!opacity-0"
-                }`}
-              />
-            </button>
-          </div>
+          <button
+            type="submit"
+            className="btn-cta h-12 w-full rounded-lg bg-duo-green-200 text-duo-dark flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed sm:w-auto"
+            disabled={resState?.isLoading === true}
+          >
+            Submit {resState?.isLoading && <span className={`loader ml-2`} />}
+          </button>
         </div>
       </form>
     </div>
