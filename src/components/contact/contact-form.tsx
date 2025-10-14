@@ -31,8 +31,7 @@ function ContactForm() {
     handleSubmit,
     reset,
     formState: { errors },
-    watch,
-  } = useForm<typeof formInputs>();
+  } = useForm<typeof formInputs>({ mode: "onSubmit" });
   const [resState, setResState] = useState<FetchfullyResponse | null>(null);
 
   const notify = (message: string) => {
@@ -53,13 +52,18 @@ function ContactForm() {
 
     try {
       const res = await apiClient.post(
-        "https://jazzy-conkies-6e143d.netlify.app/.netlify/functions/send-email",
+        "/.netlify/functions/send-email",
         requestPayload
       );
 
       setResState(res);
 
       if (res.isSuccess) {
+        toast.success("Form submitted successfully!", {
+          hideProgressBar: true,
+          theme: "light",
+        });
+
         // Clear form fields
         reset({ ...formInputs });
       }
@@ -79,7 +83,7 @@ function ContactForm() {
         <p className="font-light text-sm">Tell us what about your project</p>
       </div>
 
-      <form onSubmit={() => handleSubmit(submitHandler)}>
+      <form onSubmit={(e) => handleSubmit(submitHandler)(e as any)}>
         <div className="grid grid-cols-6 gap-6">
           <div className="col-span-6">
             <label htmlFor="#fullName" class="text-[14px] text-white">
