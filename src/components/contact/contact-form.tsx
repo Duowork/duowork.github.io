@@ -52,7 +52,7 @@ function ContactForm() {
 
     try {
       const res = await apiClient.post(
-        "/.netlify/functions/send-email",
+        ".netlify/functions/send-email",
         requestPayload
       );
 
