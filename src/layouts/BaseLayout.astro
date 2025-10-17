@@ -1,6 +1,6 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import { ToastContainer } from "react-toastify";
+import ToastContainerComponent from "../components/toast-container-component";
 import CustomCursor from "@components/custom-cursor.astro";
 ---
 
@@ -27,23 +27,11 @@ import CustomCursor from "@components/custom-cursor.astro";
       <slot />
     </main>
 
-    {/* Toast notification container for when form is submitted */}
-    <ToastContainer
-      client:only="react"
-      position="top-right"
-      autoClose={5000}
-      hideProgressBar={false}
-      newestOnTop={false}
-      closeOnClick
-      rtl={false}
-      pauseOnFocusLoss
-      draggable
-      pauseOnHover
-      theme="dark"
-    />
-
     <!-- Custom cursor -->
     <CustomCursor />
+
+     {/* Toast notification container for when form is submitted */}
+    <ToastContainerComponent client:only="react" />
   </body>
 </html>
 
