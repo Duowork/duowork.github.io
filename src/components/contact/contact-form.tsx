@@ -31,13 +31,6 @@ function ContactForm() {
   } = useForm<typeof formInputs>({ mode: "onSubmit" });
   const [resState, setResState] = useState<FetchfullyResponse | null>(null);
 
-  const notify = (message: string) => {
-    toast.success(message, {
-      hideProgressBar: true,
-      theme: "light",
-    });
-  };
-
   const submitHandler: SubmitHandler<typeof formInputs> = async (data) => {
     const requestPayload = {
       name: data.name,
@@ -46,31 +39,34 @@ function ContactForm() {
       survey: data.survey || "",
       message: data.message,
     };
-    
-    // console.log(JSON.stringify(requestPayload));
+
+    console.log(JSON.stringify(requestPayload));
 
     try {
       const res = await apiClient.post(
-        ".netlify/functions/send-email",
+        "/.netlify/functions/send-email",
         requestPayload
       );
 
       setResState(res);
 
-      if (res.data.success === true) {
-        setResState(res);
+      // console.log({ res, resState });
 
+      if (res.isSuccess) {
         toast.success("Form submitted successfully!", {
           hideProgressBar: true,
           theme: "light",
         });
+
+        console.log("Form submitted successfully:", res.isSuccess);
+        setResState(res);
 
         // Clear form fields
         reset({ ...formInputs });
       }
     } catch (error) {
       console.error("Error submitting contact form:", error);
-      toast.error("Failed to submit form. Please try again later.", {
+      toast.error("Failed to submit. Please try again later.", {
         hideProgressBar: true,
         theme: "light",
       });
