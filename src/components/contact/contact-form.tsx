@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { type FetchfullyResponse } from "fetchfully";
 import { apiClient } from "src/lib/api-client.ts";
 import { useState } from "preact/hooks";
-/* ----------------------------------------------------- */
+/* ---------------------------------------------------- */
 
 interface FormDataType {
   name: string;
@@ -21,9 +21,6 @@ const formInputs = {
   survey: "",
   message: "",
 } as FormDataType;
-
-const dateObj = new Date();
-const date = `${dateObj.getDate()}/${dateObj.getMonth()}/${dateObj.getFullYear()}`;
 
 function ContactForm() {
   const {
@@ -49,6 +46,8 @@ function ContactForm() {
       survey: data.survey || "",
       message: data.message,
     };
+    
+    // console.log(JSON.stringify(requestPayload));
 
     try {
       const res = await apiClient.post(
@@ -58,7 +57,9 @@ function ContactForm() {
 
       setResState(res);
 
-      if (res.isSuccess) {
+      if (res.data.success === true) {
+        setResState(res);
+
         toast.success("Form submitted successfully!", {
           hideProgressBar: true,
           theme: "light",
