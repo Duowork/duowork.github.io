@@ -32,7 +32,7 @@ function ContactForm() {
   } = useForm<typeof formInputs>({ mode: "onSubmit" });
   const [resState, setResState] = useState<FetchfullyResponse | null>(null);
 
-  const submitHandler: SubmitHandler<typeof formInputs> = async (data) => {
+  const submitHandler: SubmitHandler<FormDataType> = async (data) => {
     const requestPayload = {
       name: data.name,
       email: data.email,
@@ -87,7 +87,7 @@ function ContactForm() {
         <p className="font-light text-sm">Tell us what about your project</p>
       </div>
 
-      <form onSubmit={(e) => handleSubmit(submitHandler)(e as any)}>
+      <form onSubmit={(e) => void (handleSubmit(submitHandler) as unknown as any)(e)}>
         <div className="grid grid-cols-6 gap-6">
           <div className="col-span-6">
             <label htmlFor="#fullName" class="text-[14px] text-white">
