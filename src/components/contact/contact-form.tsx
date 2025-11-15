@@ -41,13 +41,15 @@ function ContactForm() {
       message: data.message,
     };
 
+    console.log("Working?");
+
+    setIsLoading(true);
+
     try {
       const res = await apiClient.post(
         "/.netlify/functions/send-email",
         requestPayload
       );
-
-      setIsLoading(true);
 
       if (res.isSuccess) {
         toast.success("Form submitted successfully!", {
@@ -56,14 +58,16 @@ function ContactForm() {
         });
 
         console.log("Form submitted successfully:", res.isSuccess);
-        setIsLoading(false);
 
         // Clear form fields
         reset({ ...formInputs });
+
+        setIsLoading(false);
       } else {
         throw Error(res.error?.message, { cause: res.error?.cause });
       }
     } catch (error) {
+      setIsLoading(false);
       // console.error("Error:", error);
       toast.error("Failed to submit Email!", {
         hideProgressBar: true,
