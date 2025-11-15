@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { type FetchfullyResponse } from "fetchfully";
 import { apiClient } from "src/lib/api-client.ts";
 import { useState } from "preact/hooks";
+import Spinner from "@components/spinner";
 /* ---------------------------------------------------- */
 
 interface FormDataType {
@@ -40,8 +41,6 @@ function ContactForm() {
       message: data.message,
     };
 
-    console.log(JSON.stringify(requestPayload));
-
     try {
       const res = await apiClient.post(
         "/.netlify/functions/send-email",
@@ -50,7 +49,7 @@ function ContactForm() {
 
       setResState(res);
 
-      // console.log({ res, resState });
+      console.log({ res, resState });
 
       if (res.isSuccess) {
         toast.success("Form submitted successfully!", {
@@ -63,12 +62,20 @@ function ContactForm() {
 
         // Clear form fields
         reset({ ...formInputs });
+      } else {
+        throw Error(res.error?.message, { cause: res.error?.cause });
       }
     } catch (error) {
-      console.error("Error submitting contact form:", error);
-      toast.error("Failed to submit. Please try again later.", {
+      // console.error("Error:", error);
+      toast.error("Failed to submit Email!", {
         hideProgressBar: true,
-        theme: "light",
+        theme: "dark",
+        icon: false,
+        role: "alert",
+        style: {
+          borderRadius: "6px",
+          backgroundColor: "#222222",
+        },
       });
     }
   };
@@ -222,10 +229,17 @@ function ContactForm() {
 
           <button
             type="submit"
-            className="btn-cta h-12 w-full rounded-lg bg-duo-green-200 text-duo-dark flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed sm:w-auto"
+            className="btn-cta h-12 w-full rounded-lg bg-duo-green-200 text-duo-dark flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed sm:w-auto"
             disabled={resState?.isLoading === true}
           >
-            Submit {resState?.isLoading && <span className={`loader ml-2`} />}
+            <span className="font-semibold text-lg">Submit</span>
+
+            <Spinner
+              isLoading={resState?.isLoading}
+              size="md"
+              speed="fast"
+              arcColor="#ffff"
+            />
           </button>
         </div>
       </form>
