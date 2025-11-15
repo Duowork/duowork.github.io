@@ -30,7 +30,7 @@ function ContactForm() {
     reset,
     formState: { errors },
   } = useForm<typeof formInputs>({ mode: "onSubmit" });
-  const [resState, setResState] = useState<FetchfullyResponse | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const submitHandler: SubmitHandler<FormDataType> = async (data) => {
     const requestPayload = {
@@ -47,9 +47,7 @@ function ContactForm() {
         requestPayload
       );
 
-      setResState(res);
-
-      console.log({ res, resState });
+      setIsLoading(true);
 
       if (res.isSuccess) {
         toast.success("Form submitted successfully!", {
@@ -58,7 +56,7 @@ function ContactForm() {
         });
 
         console.log("Form submitted successfully:", res.isSuccess);
-        setResState(res);
+        setIsLoading(false);
 
         // Clear form fields
         reset({ ...formInputs });
@@ -87,7 +85,11 @@ function ContactForm() {
         <p className="font-light text-sm">Tell us what about your project</p>
       </div>
 
-      <form onSubmit={(e) => void (handleSubmit(submitHandler) as unknown as any)(e)}>
+      <form
+        onSubmit={(e) =>
+          void (handleSubmit(submitHandler) as unknown as any)(e)
+        }
+      >
         <div className="grid grid-cols-6 gap-6">
           <div className="col-span-6">
             <label htmlFor="#fullName" class="text-[14px] text-white">
@@ -230,12 +232,12 @@ function ContactForm() {
           <button
             type="submit"
             className="btn-cta h-12 w-full rounded-lg bg-duo-green-200 text-duo-dark flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed sm:w-auto"
-            disabled={resState?.isLoading === true}
+            disabled={isLoading}
           >
             <span className="font-semibold text-lg">Submit</span>
 
             <Spinner
-              isLoading={resState?.isLoading}
+              isLoading={isLoading}
               size="md"
               speed="fast"
               arcColor="#ffff"
